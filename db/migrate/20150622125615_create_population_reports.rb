@@ -1,6 +1,6 @@
-class CreatePopulations < ActiveRecord::Migration
+class CreatePopulationReports < ActiveRecord::Migration
   def change
-    create_table :populations do |t|
+    create_table :population_reports do |t|
       t.integer :site_id
       t.integer :child_population
       t.integer :woman_population

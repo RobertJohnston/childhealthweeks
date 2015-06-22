@@ -1,4 +1,26 @@
 Rails.application.routes.draw do
+  get 'stock_reports/index'
+
+  get 'stock_reports/show'
+
+  get 'program_reports/index'
+
+  get 'program_reports/show'
+
+  get 'population_reports/index'
+
+  get 'population_reports/show'
+
+  get 'sites/index'
+
+  get 'sites/show'
+
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'landing/home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+
+  resources :districts do
+    resources :sites
+  end
+
+  resources :sites do
+    resources :districts
+    resources :users
+    resources :population_reports
+    resources :stock_reports
+    resources :program_reports
+  end
+
+  resources :states do
+    resources :sites
+    resources :districts
+  end
+
+  root to: 'landing#home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

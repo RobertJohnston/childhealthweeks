@@ -11,5 +11,8 @@
 5.times do
   state = State.create()
   dist = District.create(state: state)
-  Site.create(state: state, district: dist)
+  site = Site.create(state: state, district: dist)
+  user = User.create(site: site)
 end
+
+

@@ -9,7 +9,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">
-          <%= image_tag "logo.png" %>
+          <%= image_tag "CPH.png" %>
         </a>
       </div>
 
@@ -17,10 +17,10 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-envelope-o"></i> Messages
-            <% end %>
+            <%= link_to "Map", "sites_index_path ", class: "btn" %>
+              <!-- sites_index_path -->
           </li>
+
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
               <%= image_tag "http://lorempixel.com/30/30/people", class: "img-avatar" %>
@@ -35,9 +35,7 @@
               </li>
             </ul>
           </li>
-          <li>
-            <%= link_to "Add something", "#", class: "btn" %>
-          </li>
+
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

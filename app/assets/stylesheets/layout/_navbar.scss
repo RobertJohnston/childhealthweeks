@@ -1,7 +1,7 @@
 /* -------------------------------------
  * Colors & Fonts
  * ------------------------------------- */
-$navbar-color: $gray-light;
+$navbar-color: #5470c0;
 $navbar-hover-color: $yellow;
 $navbar-font-family: $navbar-font;
 $navbar-font-size: 14px;
@@ -9,12 +9,12 @@ $navbar-text-transform: capitalize;
 $navbar-font-weight: 300;
 $navbar-letter-spacing: 1.5px;
 $navbar-font-family: $navbar-font;
-$navbar-bg: white;
+$navbar-bg: #5470c0;
 
 /* -------------------------------------
  * Box model
  * ------------------------------------- */
-$navbar-height: 50px;
+$navbar-height: 30px;
 $navbar-vertical-padding: 10px;
 $navbar-horizontal-padding: 20px;
 $navbar-border-bottom-width: 1px;
@@ -23,7 +23,7 @@ $navbar-border-bottom-color: $gray-lighter;
 /* -------------------------------------
  * Navbar button
  * ------------------------------------- */
-$navbar-btn-height: 40px;
+$navbar-btn-height: 30px;
 $navbar-btn-bg: lightgrey;
 $navbar-btn-color: white;
 $navbar-btn-horizontal-padding: 10px;

@@ -20,7 +20,7 @@
 
       </div>
       <div class="col-sm-4" >
-        <p>Child Health Days (CHDs) were introduced as a health-promoting strategy as an innovative way of delivering a package free to all eligible children and their mothers.</p><br>
+        <p>Child Health Weeks were introduced as a health-promoting strategy as an innovative way of delivering a package free to all eligible children and their mothers.</p><br>
         <p>Reaching even the most under-served areas and targeting every child in a community, Child Health Days deliver cost-effective healthcare. </p><br>
         <p>As a ‘one stop shop’, children receive vitamin A supplements to boost immunity and prevent blindness; de-worming tablets to treat parasitic infections and the iron-deficiency anemia they can cause.
         </p><br>
@@ -36,39 +36,36 @@
           <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="card">
               <!-- image_tag "paper.svg" -->
-              <h2>Micro-planning</h2>
+              <h2><%= link_to "Micro-planning", population_reports_index_path %></h2>
               <!-- <p>text</p> -->
             </div>
           </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card">
             <!-- <img src="analytics.svg"> -->
-            <h2>Stocks</h2>
+
+            <h2><%= link_to "Stocks", stock_reports_index_path %></h2>
             <!-- <p>text</p> -->
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card">
             <!-- <img src="data.svg"> -->
-            <h2>Program</h2>
+
+            <h2><%= link_to "Program", program_reports_index_path %></h2>
             <!-- <p>text</p> -->
           </div>
         </div>
       </div>
     </div>
 
-
-    <!-- Banner -->
-
-    <!-- Features -->
-
     <!-- Map -->
-      <div id="map" style="width: 100%; height: 400px;"></div>
+      <div id="map" style="width: 100%; height: 600px;"></div>
 
       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
       <script type="text/javascript">
-      var myLatlng = new google.maps.LatLng(-3.3753007,29.3553828);
+      var myLatlng = new google.maps.LatLng(-3.1753007,29.8553828);
 
       var myOptions = {
         zoom: 9,
@@ -85,8 +82,6 @@
         title: "You are here!"
       });
       </script>
-
-
 
 </body>
 </html>

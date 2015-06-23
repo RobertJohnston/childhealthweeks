@@ -1,13 +1,22 @@
 
-
-.home_wrapper {
-  margin-top: 50px;
+body {
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
+.home_wrapper {
+  margin-top: 34px;
+}
 .home_wrapper img {
-  width: 90%;
+  width: 98%;
 }
 .gray-bg {
-  border-bottom: 20px;
-  padding-bottom: 50px;
+  height: 200px;
 }
+
+.h2.gray-bg {
+  color: #00aeef;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+  // background: #5470c0;    light blue
+
+

@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
 
-  get 'sites/index'
-  get 'sites/show'
-  get 'users/index'
-  get 'users/show'
-  get 'landing/home'
-  get 'stock_reports/index'
-  get 'stock_reports/show'
-  get 'program_reports/index'
-  get 'program_reports/show'
-  get 'population_reports/index'
-  get 'population_reports/show'
+  resources :districts do
+    resources :sites
+  end
+
+  resources :sites do
+    resources :districts
+    resources :users
+    resources :population_reports
+    resources :stock_reports
+    resources :program_reports
+  end
+
+  resources :states do
+    resources :sites
+    resources :districts
+  end
 
   root to: 'landing#home'
 

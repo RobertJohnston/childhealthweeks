@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+
+5.times do
+  state = State.create()
+  dist = District.create(state: state)
+  Site.create(state: state, district: dist)
+end

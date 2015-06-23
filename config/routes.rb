@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'states/index'
-
-  get 'states/show'
-
-  resources :districts, only: [:index, :show] do
-    resources :sites, only: [:index, :show]
-  end
-
   resources :sites, only: [:index, :show] do
     resources :users, only: [:index, :show]
     resources :population_reports, only: [:index, :show]
@@ -16,8 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :states, only: [:index, :show] do
-    resources :sites, only: [:index, :show]
-    resources :districts, only: [:index, :show]
+    resources :districts, only: [:index, :show] do
+      resources :sites, only: [:index, :show]
+    end
   end
 
   root to: 'landing#home'

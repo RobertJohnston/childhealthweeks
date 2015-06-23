@@ -1,9 +1,16 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = @site.users.all
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = @site.users.find(params[:id])
   end
+
+  private
+
+  def find_site
+    @site = Site.find(params[:site_id])
+  end
+
 end

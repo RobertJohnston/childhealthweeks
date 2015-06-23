@@ -8,24 +8,90 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 
-<div class="container">
-  <h1>Child Health Weeks</h1>
-  <p>Population schedulable events for delivery of all preventative public health interventions </p>
-  <div class="row">
-    <div class="col-sm-8" style="background-color:lavender;">
-      <%= image_tag "vas-02.jpg" %>
-    </div>
-    <div class="col-sm-4" style="background-color:lavenderblush;">
-      <p>Child Health Days (CHDs) were introduced as a health-promoting strategy, initiated in Eastern and Southern Africa as an innovative way of delivering such a package free to all eligible children and their mothers. Reaching even the most under-served areas and targeting every child in a community, Child Health Days deliver cost-effective healthcare. As a ‘one stop shop’, children receive vitamin A supplements to boost immunity and prevent blindness; de-worming tablets to treat parasitic infections and the iron-deficiency anemia they can cause.</p>
+  <%= render "shared/navbar" %>
+  <%= yield %>
+
+  <div>
+     <p>Force container below navbars</p>
+  </div>
+
+
+  <div class="container">
+    <h1>Child Health Weeks</h1>
+    <p>A tool for effective and timely delivery public health interventions at national scale </p>
+    <div class="row">
+      <div class="col-sm-8" style="background-color:white;">
+        <%= image_tag "vas-02.jpg", class: "img-responsive" %>
+        <!--   -->
+      </div>
+      <div class="col-sm-4" >
+        <p>Child Health Days (CHDs) were introduced as a health-promoting strategy as an innovative way of delivering a package free to all eligible children and their mothers. Reaching even the most under-served areas and targeting every child in a community, Child Health Days deliver cost-effective healthcare. As a ‘one stop shop’, children receive vitamin A supplements to boost immunity and prevent blindness; de-worming tablets to treat parasitic infections and the iron-deficiency anemia they can cause.</p>
+      </div>
     </div>
   </div>
-</div>
+
+  <!--   <div class="blue-bg padded"-->
+      <!-- Example of pure grid code without content -->
+    <div class="gray-bg" style="background-color: #B6B6B6;">
+      <div class="container text-center" id="features">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card">
+              <img src="paper.svg">
+              <h2>Micro-planning</h2>
+              <p>text</p>
+            </div>
+          </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card">
+            <img src="analytics.svg">
+            <h2>Stocks</h2>
+            <p>text</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card">
+            <img src="data.svg">
+            <h2>Program</h2>
+            <p>text</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Banner -->
+
+    <!-- Features -->
+
+    <!-- Map -->
+      <div id="map" style="width: 100%; height: 400px;"></div>
+
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+      <script type="text/javascript">
+      var myLatlng = new google.maps.LatLng(-3.3753007,29.3553828);
+
+      var myOptions = {
+        zoom: 9,
+        center: myLatlng,
+        scrollwheel: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: [] // TODO: replace [] by array from https://snazzymaps.com/
+      };
+
+      var map = new google.maps.Map(document.getElementById('map'), myOptions);
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: "You are here!"
+      });
+      </script>
+
+
 
 </body>
 </html>
-
-
-
-

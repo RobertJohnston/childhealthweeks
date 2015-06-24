@@ -86,20 +86,26 @@ end
 
 def number1to100
   number = rand(1..120)-20
+end
+
+def number1to100orNil
+  number = rand(1..120)-20
   # if number < 1 then number = nil
   number < 1  ? number = "" : number = number
 end
 
-3.times do |t|
   # make data for 3 child health week events in past 18 months
 
+5.times do |t|
+# data will represent up to 5 implementation days in one month
+
   random_day  = rand(1..30)
-  user_id = rand(1..120)
-  site_id = rand(1..120)
-  vitamin_a_red_prog = rand(1..120)-20
-  vitamin_a_blue_prog = rand(1..120)-20
-  deworming_prog = rand(1..120)-20
-  iron_folate_prog = rand(1..120)-20
+  user_id = number1to100
+  site_id = number1to100
+  vitamin_a_red_prog = number1to100orNil
+  vitamin_a_blue_prog = number1to100orNil
+  deworming_prog = number1to100orNil
+  iron_folate_prog = number1to100orNil
 
   Rrogram_report.create(user_id: user_id,
                         site_id: site_id,
@@ -116,32 +122,9 @@ end
                         vitamin_a_blue: vitamin_a_blue,
                         deworming: deworming,
                         iron_folate: iron_folate)
-
-#   end
 end
 
-# Night.create(castle_id: 1, not_available: Date.new(2015,06,rand(1..30)))
-
-# Program Reports
-#     "user_id"
-#     "site_id"
-#     "report_date"
-#     "vitamin_a_red"
-#     "vitamin_a_blue"
-#     "deworming"
-#     "iron_folate"
-
-# Stock Reports
-#     "user_id"
-#     "site_id"
-#     "vitamin_a_red"
-#     "vitamin_a_blue"
-#     "deworming"
-#     "iron_folate"
-#     "created_at",
-#     "updated_at",
-
-# added quotes and commas into db through libre office.
+# used Burundi unformatted data, added quotes and commas into db through libre office.
 
 # "Nom_Province"  , "Nom_Distric" , "SiteName"  , "type_fosa" , code_fosa , type, ident , Latitude  , Longitude , altitude
 

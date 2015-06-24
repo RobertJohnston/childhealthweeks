@@ -1062,9 +1062,10 @@ list_sites = [
 ]
 
 # state   district    "code_fosa" , "SiteName"  , "type_fosa" , "type"  , Latitude  , Longitude , altitude
-list_sites.each do |state_id, district_id, site_name, type_fosa, type, latitude, longitude, altitude|
+list_sites.each do |state_id, district_id, code_fosa, site_name, type_fosa, type, latitude, longitude, altitude|
   Site.create(state_id: state_id,
               district_id: district_id,
+              national_site_id: code_fosa,
               site_name: site_name,
               latitude: latitude,
               longitude: longitude)

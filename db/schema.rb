@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20150622125615) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "populations", force: :cascade do |t|
+    t.integer  "site_id"
+    t.integer  "child_population"
+    t.integer  "woman_population"
+    t.integer  "total_population"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "program_reports", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "site_id"

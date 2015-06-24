@@ -24,11 +24,9 @@ list_provinces =[
   [16  "RUTANA"],
   [17  "RUYIGI"],
 ]
-
-
-# list_provinces.each do |id, state|
-#   State.create(id: id, state_name: state)
-# end
+list_provinces.each do |id, state|
+  State.create(id: id, state_name: state)
+end
 
 # list_provinces.each do |id, province_name|
 #   State.create(id: id, state_name: province_name)
@@ -82,11 +80,10 @@ list_districts =[
   [17,  1703,  "DS ZONE SUD"],
 ]
 
-list_districts.each do |district_name, num|
-  num = num.to_s
-  last_two = num[-2, 2]
+list_districts.each do |state_id, district_id, district_name|
+    District.create(id: id, state_name: state)
+  end
 
-end
 
 # def number1to100
 #   number = rand(1..120)-20
@@ -1064,6 +1061,13 @@ list_sites = [
   [15  , 1502  , "150208"  , "CDS KIGOMERO"  , "cds" ,"", -2.92271800 , 30.01315500 , 1630.00],
 ]
 
-list_sites.each do |id, province_name|
-  Site.create(id: id, state_name: province_name)
+# state   district    "code_fosa" , "SiteName"  , "type_fosa" , "type"  , Latitude  , Longitude , altitude
+list_sites.each do |state_id, district_id, site_name, type_fosa, type, latitude, longitude, altitude|
+  Site.create(state_id: state_id,
+              district_id: district_id,
+              site_name: site_name,
+              latitude: latitude,
+              longitude: longitude)
 end
+
+

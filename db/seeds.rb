@@ -29,8 +29,6 @@ list_provinces.each do |id, province_name|
   State.create(id: id, state_name: province_name)
 end
 
-
-
 list_districts =[
   ["BUBANZA" ,101],
   ["BUBANZA" ,102],
@@ -83,7 +81,6 @@ list_districts.each do |id, district_name|
   District.create(id: id, district_name: district_name)
 end
 
-
 def number1to100
   number = rand(1..120)-20
 end
@@ -94,11 +91,9 @@ def number1to100orNil
   number < 1  ? number = "" : number = number
 end
 
-  # make data for 3 child health week events in past 18 months
-
 5.times do |t|
 # data will represent up to 5 implementation days in one month
-
+# next step to make data for 3 child health week events in past 18 months
   random_day  = rand(1..30)
   user_id = number1to100
   site_id = number1to100
@@ -668,7 +663,7 @@ list_sites = [
   ["090122"  , "CDS KAVOGA"  , "cds" , "090122"  ,"", "052" , -2.91051200 , 29.56942300 , 2114.00],
   ["090122"  , "CDS STE ISIDORA" , "cds" , "090122"  ,"", "006" , -2.94268300 , 29.63593400 , 1943.00],
   ["090127"  , "CDS NYABIHOGO" , "cds" , "090127"  ,"", "055" , -2.98598300 , 29.61758000 , 1819.00],
-  ["090201"  , "CDS MUSEMA"  , "cds" , "090201"  , "STA" , "032" ,"",   , 1729.00],
+  ["090201"  , "CDS MUSEMA"  , "cds" , "090201"  , "STA" , "032" ,"", "", 1729.00],
   ["090201"  , "HOPITAL MUSEMA"  , "hop" , "090201"  ,"", "030" , -3.07656100 , 29.67119300 , 1768.00],
   ["090202"  , "CDS BURANIRO"  , "cds" , "090202"  , "STA" , "031" , -3.09878600 , 29.66452400 , 1818.00],
   ["090203"  , "CDS NYARURAMA" , "cds" , "090203"  ,"", "022" , -3.10356400 , 29.72271400 , 1694.00],
@@ -679,7 +674,7 @@ list_sites = [
   ["090208"  , "CDS KABUYEII"  , "cds" , "090208"  ,"", "025" , -3.02997300 , 29.59959000 , 1910.00],
   ["090209"  , "CDS RANGO" , "cds" , "090209"  ,"", "020" , -3.12237800 , 29.74717600 , 1671.00],
   ["090210"  , "CDS GASENYII"  , "cds" , "090210"  ,"", "019" , -3.12006700 , 29.75609300 , 1666.00],
-  ["090211"  , "CDS KAREHE"  , "cds" , "090211"  , "STA" , "033" ,"",   , 1893.00],
+  ["090211"  , "CDS KAREHE"  , "cds" , "090211"  , "STA" , "033" ,"", ""  , 1893.00],
   ["090212"  , "CDS GIKOMERO"  , "cds" , "090212"  , "STA" , "016" , -3.14529000 , 29.82142000 , 1718.00],
   ["090213"  , "CDS GAHETA"  , "cds" , "090213"  ,"", "015" , -3.15318900 , 29.75956000 , 1684.00],
   ["090214"  , "CDS NYARUMANGA"  , "cds" , "090214"  ,"", "027" , -3.08186100 , 29.57877200 , 2016.00],

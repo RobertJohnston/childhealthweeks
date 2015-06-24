@@ -77,8 +77,8 @@ list_districts =[
   ["RUYIGI" ,1703],
 ]
 
-list_districts.each do |id, district_name|
-  District.create(id: id, district_name: district_name)
+list_districts.each do |district_name, id|
+  District.create(district_name: district_name, id: id)
 end
 
 def number1to100
@@ -97,20 +97,26 @@ end
   random_day  = rand(1..30)
   user_id = number1to100
   site_id = number1to100
+
   vitamin_a_red_prog = number1to100orNil
   vitamin_a_blue_prog = number1to100orNil
   deworming_prog = number1to100orNil
   iron_folate_prog = number1to100orNil
 
-  Rrogram_report.create(user_id: user_id,
+  vitamin_a_red = number1to100orNil
+  vitamin_a_blue = number1to100orNil
+  deworming = number1to100orNil
+  iron_folate = number1to100orNil
+
+  ProgramReport.create(user_id: user_id,
                         site_id: site_id,
                         report_date: Date.new(2015,06,random_day),
-                        vitamin_a_red: vitamin_a_red,
-                        vitamin_a_blue: vitamin_a_blue,
-                        deworming: deworming,
-                        iron_folate: iron_folate)
+                        vitamin_a_red: vitamin_a_red_prog,
+                        vitamin_a_blue: vitamin_a_blue_prog,
+                        deworming: deworming_prog,
+                        iron_folate: iron_folate_prog)
 
-  Stock_report.create(user_id: user_id,
+  StockReport.create(user_id: user_id,
                         site_id: site_id,
                         report_date: Date.new(2015,06,random_day),
                         vitamin_a_red: vitamin_a_red,

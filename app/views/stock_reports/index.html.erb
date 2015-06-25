@@ -14,20 +14,26 @@
         <%= submit_tag("district_id") %>
       </p>
 
+
       <p>
 
-        <form action="./" method="GET">
+        <form action="./stock_report_path" method="GET">
          <div align="right">
+          <h3> Javascript filter </h3>
           <select name="district" onchange="this.form.submit();">
             <option>Select District</option>
-            <option values= @district_filter)>district_id</option>
+            <option values= @district_filter)>@district</option>
+            <option values= 1st district)>1</option>
+            <option values= 2nd district)>2</option>
           </select>
          </div>
         </form>
 
       </p>
 
-
+      <p>
+        <%= puts "selected district" %>
+      </p>
 
 
     </div>

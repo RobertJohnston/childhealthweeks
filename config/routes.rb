@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :stock_reports, only: [:index, :show]
+  resources :states, only: [:index, :show] do
+    resources :stock_reports, only: [:index, :show]
+  end
 
   root to: 'landing#home'
 

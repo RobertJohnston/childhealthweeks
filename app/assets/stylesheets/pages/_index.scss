@@ -8,11 +8,17 @@
   display: inline-block;
 }
 
-div.table {
-    display:table;
-    width: 100%;
+ul.table {
+    display: table;
 }
-div.table span {
-    display:table-cell;
-    text-align:left;
+ul.table > li {
+    display: table-cell;
+}
+// .centered ul.table > li {
+//     padding-left: 1em;
+//     padding-right: 1em;
+// }
+ul.table.even {
+    width: 100%;
+    table-layout: fixed;
 }

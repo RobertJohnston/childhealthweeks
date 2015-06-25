@@ -7,16 +7,16 @@
     <h2>Districts</h2>
 
   <div class="table">
-    <table>
+
       <% @state.districts.each do |district| %>
-        <ul>
+        <ul class='container table'>
           <li><%= link_to(district.district_name, state_districts_path(district)) %> </li>
           <li><%= 'Population Report' %></li>
           <li><%= 'Stock Report'  %></li>
           <li><%= 'Program Report' %></li>
         </ul>
       <% end %>
-    </table>
+
   </div>
 </div>
 
@@ -25,7 +25,6 @@
 <!-- ul / li - puts all elements in same column -->
 
 <!-- http://www.kaizou.org/2013/02/different-ways-of-arranging/ -->
-
 
 
 

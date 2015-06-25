@@ -1,2 +1,32 @@
-<h1>StockReports#index</h1>
-<p>Find me in app/views/stock_reports/index.html.erb</p>
+<!-- header -->
+
+
+<!-- StockReports#index -->
+
+  <div class="container">
+    <div class="row">
+
+      <h1 style="text-align: left; " >Stock Reports</h1>
+      <p style="text-align: right; ">
+        <%= select_tag("State", options_for_select(@state_options)) %>
+        <%= select_tag("District", options_for_select(@district_options)) %>
+        <%= select_tag("Site", options_for_select(@site_options)) %>
+        <!-- label -->
+      </p>
+
+
+    <div class="row">
+      <div class="col-sm-12" style="background-color:white;">
+
+
+      </div>
+    </div>
+  </div>
+
+
+<!-- FILTER -->
+
+<!-- footer -->
+
+
+

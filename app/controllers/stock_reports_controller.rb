@@ -1,19 +1,20 @@
 class StockReportsController < ApplicationController
 
-  before_action :find_site
-
   def index
-    @stock_reports = @site.stock_reports.all
+
+    @stock_reports = StockReport.all
+
+    # Filters
+    @state_options    = State.all.map{ |s| [ s.state_name, s.id ] }
+    @district_options = District.all.map{ |d| [ d.district_name, d.id ] }
+    @site_options     = Site.all.map{ |s| [ s.site_name, s.id ] }
+
   end
 
   def show
-    @stock_report = @site.stock_reports.find(params[:id])
+    @stock_report = StockReport.find(params[:id])
   end
 
-  private
-
-  def find_site
-    @site = Site.find(params[:site_id])
-  end
+  # Pass national, state and district reports to view.
 
 end

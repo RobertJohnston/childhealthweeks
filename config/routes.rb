@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :sites, only: [:index, :show] do
     resources :users, only: [:index, :show]
     resources :population_reports, only: [:index, :show]
-    resources :stock_reports, only: [:index, :show]
     resources :program_reports, only: [:index, :show]
   end
 
@@ -12,6 +11,8 @@ Rails.application.routes.draw do
       resources :sites, only: [:index, :show]
     end
   end
+
+  resources :stock_reports, only: [:index, :show]
 
   root to: 'landing#home'
 

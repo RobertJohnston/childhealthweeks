@@ -1,2 +1,20 @@
-<h1>States#show</h1>
-<p>Find me in app/views/states/show.html.erb</p>
+<!-- States#show -->
+
+<h1>State name <%= @state.state_name %> </h1>
+
+<h2>Districts</h2>
+
+<ul>
+  <% @districts.each do |district| %>
+    <li>  <%= district.district_name %> </li>
+  <% end %>
+</ul>
+
+<h2>Sites</h2>
+
+<ul>
+  <% @sites.each do |site| %>
+    <li>  <%= site.site_name %> </li>
+  <% end %>
+</ul>
+

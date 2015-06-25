@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   end
 
   resources :states, only: [:index, :show] do
-    resources :districts, only: [:index, :show] do
-      resources :sites, only: [:index, :show]
-    end
+    resources :districts, only: [:index, :show]
   end
 
   resources :states, only: [:index, :show] do
+    resources :stock_reports, only: [:index, :show]
+  end
+
+  resources :districts, only: [:index, :show] do
     resources :stock_reports, only: [:index, :show]
   end
 

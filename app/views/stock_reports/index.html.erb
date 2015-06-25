@@ -14,6 +14,11 @@
         <%= submit_tag("district_id") %>
       </p>
 
+      <%= form_for @article, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+        <%= f.text_field :title %>
+        <%= f.text_area :body, size: "60x12" %>
+        <%= f.submit "Create" %>
+      <% end %>
 
       <p>
 
@@ -32,7 +37,7 @@
       </p>
 
       <p>
-        <%= puts "selected district" %>
+        <%= "selected district" %>
       </p>
 
 

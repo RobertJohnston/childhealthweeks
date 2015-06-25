@@ -6,7 +6,7 @@ class StatesController < ApplicationController
 
   def show
     @state = State.find(params[:id])
-    @sites = @state.sites.all
-    @districts = @state.districts.all
+
+    @reports = @state.stock_reports.all
   end
 end

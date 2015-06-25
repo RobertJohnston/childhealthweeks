@@ -6,18 +6,20 @@
 
     <h2>Districts</h2>
 
-    <ul>
-      <% @districts.each do |district| %>
-        <li>  <%= district.district_name %> </li>
-      <% end %>
-    </ul>
-
-    <h2>Sites</h2>
-
-    <ul>
-      <% @sites.each do |site| %>
-        <li>  <%= site.site_name %> </li>
-      <% end %>
-    </ul>
+  <table>
+    <% @state.districts.each do |district| %>
+      <tr>
+        <td><%= link_to(district.district_name, state_districts_path(district)) %> </td>
+        <td><%= 'Population Report' %></td>
+        <td><%= 'Stock Report'  %></td>
+        <td><%= 'Program Report' %></td>
+      </tr>
+    <% end %>
   </div>
 </div>
+
+
+<!-- <td><%= link_to (district.district_name, district_path(district) %> </td> -->
+<!-- <td><%= link_to 'Population Report', district_population_report_path(district) %></td> -->
+<!-- <td><%= link_to 'Stock Report', district_stock_report_path(district) %></td> -->
+<!-- <td><%= link_to 'Program Report', district_program_report_path(district) %></td> -->

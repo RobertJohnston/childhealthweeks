@@ -1,5 +1,16 @@
-<h1>States#index</h1>
-<p>Find me in app/views/states/index.html.erb</p>
-<p>Find me in app/views/states/index.html.erb</p>
+<!-- STATES INDEX PAGE -->
 
+<div class="container push_page_below_header">
+  <div class="row">
+    <h1>National </h1>
 
+    <h2>Provinces</h2>
+
+    <ul>
+      <% @states.each do |s| %>
+        <li><%= link_to(s.state_name, state_path(s)) %></li>
+      <% end %>
+    </ul>
+
+  </div>
+</div>

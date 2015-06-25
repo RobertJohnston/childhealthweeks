@@ -2,24 +2,30 @@
 
 <div class="container push_page_below_header">
   <div class="row">
-    <h1>State name <%= @state.state_name %> </h1>
+    <h1>Province <%= @state.state_name %> </h1>
 
     <h2>Districts</h2>
 
-  <table>
-    <% @state.districts.each do |district| %>
-      <tr>
-        <td><%= link_to(district.district_name, state_districts_path(district)) %> </td>
-        <td><%= 'Population Report' %></td>
-        <td><%= 'Stock Report'  %></td>
-        <td><%= 'Program Report' %></td>
-      </tr>
-    <% end %>
+  <div class="table">
+    <table>
+      <% @state.districts.each do |district| %>
+        <ul>
+          <li><%= link_to(district.district_name, state_districts_path(district)) %> </li>
+          <li><%= 'Population Report' %></li>
+          <li><%= 'Stock Report'  %></li>
+          <li><%= 'Program Report' %></li>
+        </ul>
+      <% end %>
+    </table>
   </div>
 </div>
 
+<!-- span - causes all elements to be in one line -->
+<!-- table - causes all elements forced to left no space -->
+<!-- ul / li - puts all elements in same column -->
 
-<!-- <td><%= link_to (district.district_name, district_path(district) %> </td> -->
-<!-- <td><%= link_to 'Population Report', district_population_report_path(district) %></td> -->
-<!-- <td><%= link_to 'Stock Report', district_stock_report_path(district) %></td> -->
-<!-- <td><%= link_to 'Program Report', district_program_report_path(district) %></td> -->
+<!-- http://www.kaizou.org/2013/02/different-ways-of-arranging/ -->
+
+
+
+

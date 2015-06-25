@@ -7,3 +7,12 @@
 .title_and_filter {
   display: inline-block;
 }
+
+div.table {
+    display:table;
+    width: 100%;
+}
+div.table span {
+    display:table-cell;
+    text-align:left;
+}

@@ -5,9 +5,10 @@ class StockReportsController < ApplicationController
     @stock_reports = StockReport.all
 
     # Filters
-    @state_options    = State.all.map{ |s| [ s.state_name, s.id ] }
-    @district_options = District.all.map{ |d| [ d.district_name, d.id ] }
-    @site_options     = Site.all.map{ |s| [ s.site_name, s.id ] }
+    @state_filter    = State.all.map{ |s| [ s.state_name, s.id ] }
+    @district_filter = District.all.map{ |d| [ d.district_name, d.id ] }
+
+    # use filter to select data
 
   end
 

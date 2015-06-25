@@ -6,20 +6,30 @@
   <div class="container push_page_below_header">
     <div class="row">
 
-      <h1 style="text-align: left; " >Stock Reports</h1>
-      <p style="text-align: right; ">
-        <%= select_tag("State", options_for_select(@state_options)) %>
-        <%= select_tag("District", options_for_select(@district_options)) %>
-        <%= select_tag("Site", options_for_select(@site_options)) %>
-        <!-- label -->
+      <h1>Stock Reports</h1>
+      <p>
+        <!-- district filter  -->
+
+        <%= select_tag("district_id", options_for_select(@district_filter))%>
+        <%= submit_tag("district_id") %>
+      </p>
+
+      <p>
+
+        <form action="./" method="GET">
+         <div align="right">
+          <select name="district" onchange="this.form.submit();">
+            <option>Select District</option>
+            <option values= @district_filter)>district_id</option>
+          </select>
+         </div>
+        </form>
+
       </p>
 
 
-    <div class="row">
-      <div class="col-sm-12" style="background-color:white;">
 
 
-      </div>
     </div>
   </div>
 

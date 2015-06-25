@@ -5,12 +5,20 @@
     <h1>National </h1>
 
     <h2>Provinces</h2>
+  </div>
 
-    <ul>
-      <% @states.each do |s| %>
+  <div class="table">
+    <% @states.each do |s| %>
+      <ul class='container table'>
+
         <li><%= link_to(s.state_name, state_path(s)) %></li>
-      <% end %>
-    </ul>
+        <li><%= 'Population Report' %></li>
+        <li><%= 'Stock Report'  %></li>
+        <li><%= 'Program Report' %></li>
 
+      </ul>
+
+    <% end %>
   </div>
 </div>
+

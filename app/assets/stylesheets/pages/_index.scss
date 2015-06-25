@@ -1,1 +1,24 @@
 @import "home";
+
+.push_page_below_header {
+  margin-top: 34px;
+}
+
+.title_and_filter {
+  display: inline-block;
+}
+
+ul.table {
+    display: table;
+}
+ul.table > li {
+    display: table-cell;
+}
+// .centered ul.table > li {
+//     padding-left: 1em;
+//     padding-right: 1em;
+// }
+ul.table.even {
+    width: 100%;
+    table-layout: fixed;
+}

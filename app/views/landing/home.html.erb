@@ -1,7 +1,7 @@
 
   <!-- Force container below navbars -->
 
-  <div class="container home_wrapper">
+  <div class="container home push_page_below_header">
     <h1>Child Health Weeks</h1>
     <h4>A tool for effective and timely delivery public health interventions at national scale </h4>
     <div class="row">
@@ -26,7 +26,7 @@
           <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="card">
               <!-- image_tag "paper.svg" -->
-              <h2><%= link_to "Micro-plan", "#" %></h2>
+              <h2><%= link_to "Micro-plan", "population_reports_path" %></h2>
 
               <!-- <p>text</p> -->
             </div>
@@ -34,14 +34,15 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card">
             <!-- <img src="analytics.svg"> -->
-            <h2><%= link_to "Stocks", "#" %></h2>
+            <h2><%= link_to("Stocks", states_path) %></h2>
+            <!-- link_to(s.state_name, state_path(s)) -->
             <!-- <p>text</p> -->
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card">
             <!-- <img src="data.svg"> -->
-            <h2><%= link_to "Program", "#" %></h2>
+            <h2><%= link_to "Program", "program_reports_path" %></h2>
             <!-- <p>text</p> -->
           </div>
         </div>

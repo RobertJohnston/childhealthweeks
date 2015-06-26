@@ -10,8 +10,9 @@
 
       <% @state.districts.each do |district| %>
         <ul class='container table'>
-          <li><%= link_to(district.district_name, state_districts_path(district)) %> </li>
-          <li><%= 'Population Report' %></li>
+          <li><%= link_to district.district_name, [@state, district] %> </li>
+          <!-- Rails here automatically understands that two params leads to appropriate path -->
+          <li><%= link_to('Population Report', district_stock_report_path(district)) %></li>
           <li><%= 'Stock Report'  %></li>
           <li><%= 'Program Report' %></li>
         </ul>

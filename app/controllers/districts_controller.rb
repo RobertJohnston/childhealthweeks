@@ -5,6 +5,8 @@ class DistrictsController < ApplicationController
   end
 
   def show
-    @district = District.find(params[:id])
+    @state = State.find(params[:state_id])
+    @district = @state.districts.find(params[:id])
+
   end
 end

@@ -13,7 +13,7 @@
 
         <li><%= link_to(s.state_name, state_path(s)) %></li>
         <li><%= 'Population Report' %></li>
-        <li><%= 'Stock Report'  %></li>
+        <li><%= link_to("Stock Report", state_stock_reports_path(s)) %></li>
         <li><%= 'Program Report' %></li>
         <span class="stretch"></span>
 

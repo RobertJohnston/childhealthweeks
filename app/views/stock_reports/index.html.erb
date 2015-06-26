@@ -3,48 +3,7 @@
 
 <!-- StockReports#index -->
 
-  <div class="container push_page_below_header">
-    <div class="row">
-
-      <h1>Stock Reports</h1>
-      <p>
-        <!-- district filter  -->
-
-        <%= select_tag("district_id", options_for_select(@district_filter))%>
-        <%= submit_tag("district_id") %>
-      </p>
-
-      <%= form_for @article, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-        <%= f.text_field :title %>
-        <%= f.text_area :body, size: "60x12" %>
-        <%= f.submit "Create" %>
-      <% end %>
-
-      <p>
-
-        <form action="./stock_report_path" method="GET">
-         <div align="right">
-          <h3> Javascript filter </h3>
-          <select name="district" onchange="this.form.submit();">
-            <option>Select District</option>
-            <option values= @district_filter)>@district</option>
-            <option values= 1st district)>1</option>
-            <option values= 2nd district)>2</option>
-          </select>
-         </div>
-        </form>
-
-      </p>
-
-      <p>
-        <%= "selected district" %>
-      </p>
-
-
-    </div>
-  </div>
-
-
+<h1> Stock Report </h1>
 <!-- FILTER -->
 
 <!-- footer -->

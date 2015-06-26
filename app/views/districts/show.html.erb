@@ -5,17 +5,21 @@
     <h1>District <%= @district.district_name %> </h1>
 
     <h2>Sites</h2>
-
-  <div class="table">
+    <div class="table">
 
       <% @district.sites.each do |site| %>
         <ul class='container table'>
-          <li><%= link_to site.site_name, [@district, site] %> </li>
+          <li><%= site.site_name %> </li>
           <li><%= 'Population Report' %></li>
           <li><%= 'Stock Report'  %></li>
           <li><%= 'Program Report' %></li>
         </ul>
       <% end %>
 
+    </div>
   </div>
 </div>
+
+<!--    state_district_sites GET  /states/:state_id/districts/:district_id/sites(.:format)     sites#index
+    state_district_site GET  /states/:state_id/districts/:district_id/sites/:id(.:format) sites#show
+ -->

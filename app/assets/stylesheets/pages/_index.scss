@@ -12,13 +12,32 @@ ul.table {
     display: table;
 }
 ul.table > li {
-    display: table-cell;
+    width: 270px;
+    height: 10px;
+    vertical-align: top;
+    display: inline-block;
 }
-// .centered ul.table > li {
-//     padding-left: 1em;
-//     padding-right: 1em;
+// ul.table.even {
+//     width: 100%;
+//     table-layout: fixed;
 // }
-ul.table.even {
-    width: 100%;
-    table-layout: fixed;
+
+// padding-right: 10px;
+
+// for id="container"
+#table {
+    border: 2px dashed #444;
+    height: 20px;
+
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
 }
+
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
+

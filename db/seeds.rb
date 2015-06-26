@@ -86,7 +86,7 @@ list_districts.each do |state_id, district_id, district_name|
 
 
 def number1to100
-  number = rand(1..120)-20
+  number = rand(1..100)
 end
 
 def number1to100orNil
@@ -128,6 +128,8 @@ end
                         deworming: deworming,
                         iron_folate: iron_folate)
 end
+
+# 920 site ids - can iterate over to create program and stock reports
 
 # # used Burundi unformatted data, added quotes and commas into db through libre office.
 
@@ -1069,4 +1071,13 @@ list_sites.each do |state_id, district_id, code_fosa, site_name, type_fosa, type
               longitude: longitude)
 end
 
+def add_ids
+  @sites = Site.all
+  StockReport.all.each do |report|
+    site = @sites.find(report.site_id)
+    report.update_attributes(state_id: site.state_id,
+                        district_id: site.district_id)
+  end
+end
 
+add_ids

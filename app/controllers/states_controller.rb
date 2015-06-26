@@ -9,4 +9,7 @@ class StatesController < ApplicationController
 
     @stock_reports = @state.stock_reports.all
   end
+
+
+
 end

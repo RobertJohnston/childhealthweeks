@@ -5,13 +5,13 @@ class StockReportsController < ApplicationController
   def index
     @stock_reports = StockReport.all
     @state = State.all
+    @sites = Site.all
 
     # Filters
     @state_filter    = State.all.map{ |s| [ s.state_name, s.id ] }
     @district_filter = District.all.map{ |d| [ d.district_name, d.id ] }
 
     # use filter to select data
-
   end
 
   def show

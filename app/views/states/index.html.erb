@@ -1,26 +1,25 @@
 <!-- STATES INDEX PAGE -->
 <!-- SHOWS ALL STATES OF COUNTRY -->
+<div class="container push_page_below_header">
+  <div class="row">
+    <h1>National </h1>
+
+  <div class="table">
+
+    <table >
+      <% @states.each do |state| %>
+      <tr>
+        <th><%= state.state_name  %> </th>
+        <% state.stock_reports.each do |report| %>
+          <td><%= report.id %></td>
+        <% end %>
 
 
-<h2>States</h2>
-
-  <table >
-    <% @states.each do |state| %>
-    <tr>
-      <th><%= state.state_name %> </th>
-      <% state.stock_reports.each do |report| %>
-        <td><%= report.id %></td>
+      </tr>
       <% end %>
-
-
-    </tr>
-    <% end %>
-  </table>
-
-
-
-
-
+    </table>
+  </div>
+</div>
 
 
 

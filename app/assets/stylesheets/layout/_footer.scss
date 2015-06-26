@@ -1,1 +1,41 @@
 // Your footer style
+
+footer {
+    display: block;
+}
+
+/* -------------------------------------
+ * Box model
+ * ------------------------------------- */
+$footer-height: 25px;
+$footer-vertical-padding: 10px;
+$footer-horizontal-padding: 20px;
+$footer-border-bottom-width: 1px;
+$footer-border-bottom-color: $gray-lighter;
+
+/* -------------------------------------
+ * Colors & Fonts
+ * ------------------------------------- */
+$footer-color: #5470c0;
+$footer-hover-color: $yellow;
+$footer-font-size: 14px;
+$footer-text-transform: capitalize;
+$footer-font-weight: 300;
+$footer-letter-spacing: 1.5px;
+$footer-bg: #5470c0;
+
+/* -------------------------------------
+ * SCSS code
+ * ------------------------------------- */
+.footer {
+  background: $footer-bg;
+  border: none;
+  font-size: $footer-font-size;
+  text-transform: $footer-text-transform;
+  font-weight: $footer-font-weight;
+  letter-spacing: $footer-letter-spacing;
+  padding-left: $footer-horizontal-padding;
+  padding-right: $footer-horizontal-padding;
+  border-bottom: $footer-border-bottom-width solid $footer-border-bottom-color;
+  min-height: 0;
+}

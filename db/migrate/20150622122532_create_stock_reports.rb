@@ -3,6 +3,8 @@ class CreateStockReports < ActiveRecord::Migration
     create_table :stock_reports do |t|
       t.integer :user_id
       t.integer :site_id
+      t.integer :state_id
+      t.integer :district_id
       t.integer :vitamin_a_red
       t.integer :vitamin_a_blue
       t.integer :deworming

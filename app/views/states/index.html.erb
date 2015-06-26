@@ -1,24 +1,53 @@
 <!-- STATES INDEX PAGE -->
-
+<!-- SHOWS ALL STATES OF COUNTRY -->
 <div class="container push_page_below_header">
   <div class="row">
     <h1>National </h1>
 
-    <h2>Provinces</h2>
-  </div>
-
   <div class="table">
-    <% @states.each do |s| %>
-      <ul class='container table'>
 
-        <li><%= link_to(s.state_name, state_path(s)) %></li>
-        <li><%= 'Population Report' %></li>
-        <li><%= 'Stock Report'  %></li>
-        <li><%= 'Program Report' %></li>
+    <table >
+      <% @states.each do |state| %>
+      <tr>
+        <th><%= state.state_name  %> </th>
+        <% state.stock_reports.each do |report| %>
+          <td><%= report.id %></td>
+        <% end %>
 
-      </ul>
 
-    <% end %>
+      </tr>
+      <% end %>
+    </table>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

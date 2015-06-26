@@ -15,8 +15,8 @@ class StockReportsController < ApplicationController
   end
 
   def show
-    @state = State.all
-    @stock_report = StockReport.find(params[:id])
+    @state = State.find(params[:state_id])
+    @stock_report = @state.stock_reports.find(params[:id])
   end
 
   # Pass national, state and district reports to view.

@@ -8,29 +8,29 @@
 }
 
 
-.title_and_filter {
-  display: inline;
-}
+// .title_and_filter {
+//   display: inline;
+// }
 
-table, th, td {
-    style: width: 100%
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 15px;
-}
+// table, th, td {
+//     // style: width: 90%;
+//     border: 1px solid black;
+//     border-collapse: collapse;
+// }
+// th, td {
+//     padding: 15px;
+// }
 
 
-ul.table {
-    display: table;
-}
-ul.table > li {
-    width: 270px;
-    height: 10px;
-    vertical-align: top;
-    display: inline-block;
-}
+// ul.table {
+//     display: table;
+// }
+// ul.table > li {
+//     width: 270px;
+//     height: 10px;
+//     vertical-align: top;
+//     display: inline-block;
+// }
 // ul.table.even {
 //     width: 100%;
 //     table-layout: fixed;

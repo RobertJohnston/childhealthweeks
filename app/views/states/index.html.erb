@@ -1,24 +1,53 @@
 <!-- STATES INDEX PAGE -->
+<!-- SHOWS ALL STATES OF COUNTRY -->
 
 <div class="container push_page_below_header">
   <div class="row">
     <h1>National </h1>
+      <div class="row">
+        <div class="title_and_filter">
+            <input type="button" value="Micro-Plan "
+                  onclick="document.form.action="state_reports_path";"
+                  document.form.submit();>
+            <input type="button" value=" Stocks"
+                  onclick="document.form.action="state_reports_path";"
+                  document.form.submit();>
+            <input type="button" value=" Program"
+                  onclick="document.form.action="state_reports_path";"
+                  document.form.submit();>
+        </div>
+      </div>
 
-    <h2>Provinces</h2>
+    <h2>States</h2>
   </div>
 
   <div class="table">
+
+
+   <table >
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Points</th>
+    </tr>
+    <tr>
+      <td>Eve</td>
+      <td>Jackson</td>
+      <td>94</td>
+    </tr>
+  </table>
+
     <% @states.each do |s| %>
       <ul class='container table'>
-
-        <li><%= link_to(s.state_name, state_path(s)) %></li>
-        <li><%= 'Population Report' %></li>
-        <li><%= link_to("Stock Report", state_stock_reports_path(s)) %></li>
-        <li><%= 'Program Report' %></li>
+        <li><%= link_to(s.state_name, state_path(s)) %> </li>
+        <li><%= "vitamin A red" %></li>
+        <li><%= "vitamin A blue" %></li>
+        <li><%= "Deworming" %></li>
+        <li><%= "Iron Folate" %></li>
         <span class="stretch"></span>
 
-      </ul>
 
+      </ul>
     <% end %>
   </div>
 </div>

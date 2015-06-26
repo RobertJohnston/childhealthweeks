@@ -1,8 +1,10 @@
 class StockReportsController < ApplicationController
 
-  def index
+# Currently used for State Level Reports
 
+  def index
     @stock_reports = StockReport.all
+    @state = State.all
 
     # Filters
     @state_filter    = State.all.map{ |s| [ s.state_name, s.id ] }
@@ -13,6 +15,7 @@ class StockReportsController < ApplicationController
   end
 
   def show
+    @state = State.all
     @stock_report = StockReport.find(params[:id])
   end
 

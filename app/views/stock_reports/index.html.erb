@@ -1,12 +1,37 @@
-<!-- header -->
+<!-- STATE REPORT INDEX -->
+
+<!-- Show state totals  -->
+<!-- Query for totals -->
+
+<div class="container push_page_below_header">
+  <div class="row">
+    <div class="title_and_filter">
+      <h1>Provinces</h1>
+        <input type="button" value="Micro-Plan "
+              onclick="document.form.action="state_reports_path";"
+              document.form.submit();>
+        <input type="button" value=" Stocks"
+              onclick="document.form.action="state_reports_path";"
+              document.form.submit();>
+        <input type="button" value=" Program"
+              onclick="document.form.action="state_reports_path";"
+              document.form.submit();>
+    </div>
+  </div>
+</div>
 
 
-<!-- StockReports#index -->
+<div class="table">
+  <% @states.each do |s| %>
+    <ul class='container table'>
 
-<h1> Stock Report </h1>
-<!-- FILTER -->
+      <li><%= link_to(s.state_name, state_path(s)) %></li>
+      <li><%= link_to("Report", state_stock_reports_path(s)) %></li>
 
-<!-- footer -->
+      <span class="stretch"></span>
 
+    </ul>
 
+  <% end %>
+</div>
 

@@ -3,10 +3,24 @@
 .push_page_below_header {
   margin-top: 34px;
 }
+.row {
+  display:inline;
+}
+
 
 .title_and_filter {
-  display: inline-block;
+  display: inline;
 }
+
+table, th, td {
+    style: width: 100%
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
+
 
 ul.table {
     display: table;

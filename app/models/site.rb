@@ -5,4 +5,11 @@ class Site < ActiveRecord::Base
   has_many :population_reports
   has_many :stock_reports
   has_many :program_reports
+
+
+  # select data from most recent stock report
+  def most_recent_stock_report
+    stock_reports.order(:created_at).last
+  end
+
 end

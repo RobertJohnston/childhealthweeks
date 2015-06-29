@@ -2,24 +2,115 @@
 <!-- SHOWS ALL STATES OF COUNTRY -->
 <div class="container push_page_below_header">
   <div class="row">
-    <h1>National </h1>
+    <h1>National</h1>
+
+
 
   <div class="table">
 
-    <table >
+    <table id='stock-report-table'>
+      <h3> Stock Report </h3>
+      <tr>
+        <th>State</th>
+        <th>Vitamin A Red</th>
+        <th>Vitamin A Blue</th>
+        <th>Deworming</th>
+        <th>Iron Folate</th>
+      </tr>
       <% @states.each do |state| %>
       <tr>
-        <th><%= state.state_name  %> </th>
-        <% state.stock_reports.each do |report| %>
-          <td><%= report.id %></td>
-        <% end %>
-
-
+        <th><%= link_to state.state_name, [state]  %> </th>
+        <%# TRICK above to enter only ID as 2nd element and Rails guesses path %>
+          <td><%= state.stock_reports_total(:vitamin_a_red) %></td>
+          <td><%= state.stock_reports_total(:vitamin_a_blue) %></td>
+          <td><%= state.stock_reports_total(:deworming) %></td>
+          <td><%= state.stock_reports_total(:iron_folate) %></td>
       </tr>
       <% end %>
+      <tr>
+        <th>Total</th>
+        <th><%= StockReport.sum(:vitamin_a_red) %></th>
+        <th><%= StockReport.sum(:vitamin_a_blue) %></th>
+        <th><%= StockReport.sum(:deworming) %></th>
+        <th><%= StockReport.sum(:iron_folate) %></th>
+      </tr>
     </table>
   </div>
+
+  <div class="table">
+
+    <table id='program-report-table'>
+      <h3> Program Report </h3>
+      <tr>
+        <th>State Program</th>
+        <th>Vitamin A Red</th>
+        <th>Vitamin A Blue</th>
+        <th>Deworming</th>
+        <th>Iron Folate</th>
+      </tr>
+      <% @states.each do |state| %>
+      <tr>
+        <th><%= link_to state.state_name, [state]  %> </th>
+        <%# TRICK above to enter only ID as 2nd element and Rails guesses path %>
+          <td><%= state.stock_reports_total(:vitamin_a_red) %></td>
+          <td><%= state.stock_reports_total(:vitamin_a_blue) %></td>
+          <td><%= state.stock_reports_total(:deworming) %></td>
+          <td><%= state.stock_reports_total(:iron_folate) %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <th>Total</th>
+        <th><%= StockReport.sum(:vitamin_a_red) %></th>
+        <th><%= StockReport.sum(:vitamin_a_blue) %></th>
+        <th><%= StockReport.sum(:deworming) %></th>
+        <th><%= StockReport.sum(:iron_folate) %></th>
+      </tr>
+    </table>
+  </div>
+
+  <div class="table">
+
+    <table id='population-report-table'>
+      <h3> Population Report </h3>
+      <tr>
+        <th>State</th>
+        <th>Children</th>
+        <th>Women</th>
+        <th>Total population</th>
+      </tr>
+      <% @states.each do |state| %>
+      <tr>
+        <th><%= link_to state.state_name, [state]  %> </th>
+        <%# TRICK above to enter only ID as 2nd element and Rails guesses path %>
+          <td><%= state.stock_reports_total(:vitamin_a_red) %></td>
+          <td><%= state.stock_reports_total(:vitamin_a_blue) %></td>
+          <td><%= state.stock_reports_total(:deworming) %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <th>Total</th>
+        <th><%= StockReport.sum(:vitamin_a_red) %></th>
+        <th><%= StockReport.sum(:vitamin_a_blue) %></th>
+        <th><%= StockReport.sum(:deworming) %></th>
+      </tr>
+    </table>
+  </div>
+
 </div>
+
+<script>
+
+  $(document).ready(function(){
+    $('#stock-activate').click(function(){
+      console.log('Fuck')
+      $('#stock-report-table').hide();
+    })
+
+
+  });
+
+</script>
+
 
 
 

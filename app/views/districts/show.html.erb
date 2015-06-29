@@ -2,24 +2,39 @@
 
 <div class="container push_page_below_header">
   <div class="row">
-    <h1>District <%= @district.district_name %> </h1>
+    <h1><%= @district.district_name%> District Report</h1>
 
     <h2>Sites</h2>
-    <div class="table">
 
+    <div class="table">
+      <table>
+        <tr>
+          <th>Site</th>
+          <th>Vitamin A Red</th>
+          <th>Vitamin A Blue</th>
+          <th>Deworming</th>
+          <th>Iron Folate</th>
+        </tr>
       <% @district.sites.each do |site| %>
-        <ul class='container table'>
-          <li><%= site.site_name %> </li>
-          <li><%= 'Population Report' %></li>
-          <li><%= 'Stock Report'  %></li>
-          <li><%= 'Program Report' %></li>
-        </ul>
+        <tr>
+            <td><%= site.site_name %></td>
+            <td><%= site.most_recent_stock_report.vitamin_a_red %></td>
+            <td><%= site.most_recent_stock_report.vitamin_a_blue %></td>
+            <td><%= site.most_recent_stock_report.deworming %></td>
+            <td><%= site.most_recent_stock_report.iron_folate %></td>
+        </tr>
       <% end %>
+
+        <tr>
+          <th>District Total </th>
+          <th><%= @district.stock_reports_total(:vitamin_a_red) %></th>
+          <th><%= @district.stock_reports_total(:vitamin_a_blue) %></th>
+          <th><%= @district.stock_reports_total(:deworming) %></th>
+          <th><%= @district.stock_reports_total(:iron_folate) %></th>
+        </tr>
+
+      </table>
 
     </div>
   </div>
 </div>
-
-<!--    state_district_sites GET  /states/:state_id/districts/:district_id/sites(.:format)     sites#index
-    state_district_site GET  /states/:state_id/districts/:district_id/sites/:id(.:format) sites#show
- -->

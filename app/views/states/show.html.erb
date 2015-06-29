@@ -2,30 +2,41 @@
 
 <div class="container push_page_below_header">
   <div class="row">
-    <h1>State <%= @state.state_name %> </h1>
+    <h1><%= @state.state_name %> State Report</h1>
 
     <h2>Districts</h2>
 
   <div class="table">
 
-      <% @state.districts.each do |district| %>
-        <ul class='container table'>
-          <li><%= link_to district.district_name, [@state, district] %> </li>
-          <!-- Rails here automatically understands that two params leads to appropriate path -->
-          <li><%= 'Population Report' %></li>
-          <li><%= 'Stock Report'  %></li>
-          <li><%= 'Program Report' %></li>
-        </ul>
-      <% end %>
-
+        <table >
+          <tr>
+            <th>District</th>
+            <th>Vitamin A Red</th>
+            <th>Vitamin A Blue</th>
+            <th>Deworming</th>
+            <th>Iron Folate</th>
+          </tr>
+          <% @state.districts.each do |district| %>
+          <tr>
+            <th><%= link_to district.district_name, [@state, district] %> </th>
+            <!-- Rails here automatically understands that two params leads to appropriate path -->
+              <td><%= district.stock_reports_total(:vitamin_a_red) %></td>
+              <td><%= district.stock_reports_total(:vitamin_a_blue) %></td>
+              <td><%= district.stock_reports_total(:deworming) %></td>
+              <td><%= district.stock_reports_total(:iron_folate) %></td>
+          </tr>
+          <% end %>
+          <tr>
+            <th>District Total ERROR</th>
+            <th><%= StockReport.sum(:vitamin_a_red) %></th>
+            <th><%= StockReport.sum(:vitamin_a_blue) %></th>
+            <th><%= StockReport.sum(:deworming) %></th>
+            <th><%= StockReport.sum(:iron_folate) %></th>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
-
-<!-- span - causes all elements to be in one line -->
-<!-- table - causes all elements forced to left no space -->
-<!-- ul / li - puts all elements in same column -->
-
-<!-- http://www.kaizou.org/2013/02/different-ways-of-arranging/ -->
-
 
 

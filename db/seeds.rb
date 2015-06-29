@@ -4,7 +4,6 @@
 
 require 'date'
 
-
 list_provinces =[
   [1 ,"BUBANZA"],
   [2 ,"BUJUMBURA MAIRIE"],
@@ -24,6 +23,7 @@ list_provinces =[
   [16,  "RUTANA"],
   [17,  "RUYIGI"],
 ]
+
 list_provinces.each do |id, state|
   State.create(id: id, state_name: state)
 end
@@ -85,51 +85,6 @@ list_districts.each do |state_id, district_id, district_name|
   end
 
 
-def number1to100
-  number = rand(1..100)
-end
-
-def number1to100orNil
-  number = rand(1..120)-20
-  # if number < 1 then number = nil
-  number < 1  ? number = "" : number = number
-end
-
-5.times do
-# data will represent up to 5 implementation days in one month
-# next step to make data for 3 child health week events in past 18 months
-  random_day  = rand(1..30)
-  user_id = number1to100
-  site_id = number1to100
-
-  vitamin_a_red_prog = number1to100orNil
-  vitamin_a_blue_prog = number1to100orNil
-  deworming_prog = number1to100orNil
-  iron_folate_prog = number1to100orNil
-
-  vitamin_a_red = number1to100orNil
-  vitamin_a_blue = number1to100orNil
-  deworming = number1to100orNil
-  iron_folate = number1to100orNil
-
-  ProgramReport.create(user_id: user_id,
-                        site_id: site_id,
-                        report_date: Date.new(2015,06,random_day),
-                        vitamin_a_red: vitamin_a_red_prog,
-                        vitamin_a_blue: vitamin_a_blue_prog,
-                        deworming: deworming_prog,
-                        iron_folate: iron_folate_prog)
-
-  StockReport.create(user_id: user_id,
-                        site_id: site_id,
-                        created_at: Date.new(2015,06,random_day),
-                        vitamin_a_red: vitamin_a_red,
-                        vitamin_a_blue: vitamin_a_blue,
-                        deworming: deworming,
-                        iron_folate: iron_folate)
-end
-
-# 920 site ids - can iterate over to create program and stock reports
 
 # # used Burundi unformatted data, added quotes and commas into db through libre office.
 
@@ -1071,13 +1026,69 @@ list_sites.each do |state_id, district_id, code_fosa, site_name, type_fosa, type
               longitude: longitude)
 end
 
-def add_ids
-  @sites = Site.all
-  StockReport.all.each do |report|
-    site = @sites.find(report.site_id)
-    report.update_attributes(state_id: site.state_id,
-                        district_id: site.district_id)
+def number1to100
+  number = rand(1..100)
+end
+
+def number1to100orNil
+  number = rand(1..120)-20
+  # if number < 1 then number = nil
+  number < 1  ? number = "" : number = number
+end
+
+# Create data for all valid site IDs.
+# 920 site ids - can iterate over to create program and stock reports
+Site.all.each do |site|
+  p site.site_name
+  5.times do
+  # data will represent up to 5 implementation days in one month
+  # next step to make data for 3 child health week events in past 18 months
+    random_day  = rand(1..30)
+    user_id = number1to100
+    # site_id = site
+
+    vitamin_a_red_prog = number1to100orNil
+    vitamin_a_blue_prog = number1to100orNil
+    deworming_prog = number1to100orNil
+    iron_folate_prog = number1to100orNil
+
+    vitamin_a_red = number1to100orNil
+    vitamin_a_blue = number1to100orNil
+    deworming = number1to100orNil
+    iron_folate = number1to100orNil
+
+    ProgramReport.create!(user_id: user_id,
+                          site: site,
+                          report_date: Date.new(2015,06,random_day),
+                          vitamin_a_red: vitamin_a_red_prog,
+                          vitamin_a_blue: vitamin_a_blue_prog,
+                          deworming: deworming_prog,
+                          iron_folate: iron_folate_prog)
+
+    StockReport.create!(user_id: user_id,
+                          site: site,
+                          created_at: Date.new(2015,06,random_day),
+                          # Better practices: should create report date
+                          # report_date: Date.new(2015,06,random_day),
+                          vitamin_a_red: vitamin_a_red,
+                          vitamin_a_blue: vitamin_a_blue,
+                          deworming: deworming,
+                          iron_folate: iron_folate,
+                          state: site.state,
+                          district: site.district)
   end
 end
 
-add_ids
+
+
+# # def add_ids
+# #   @sites = Site.all
+# #   StockReport.all.each do |report|
+# #     site = @sites.find(report.site_id)
+# #     report.update_attributes(state_id: site.state_id,
+# #                         district_id: site.district_id)
+# #   end
+# # end
+
+# # # call method to add state and district level ids to data.
+# # add_ids

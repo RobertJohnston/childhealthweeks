@@ -5,12 +5,18 @@ class StockReport < ActiveRecord::Base
   belongs_to :state
   belongs_to :district
 
-  before_create :add_ids
+  validates :site, presence: true
+
+  # ONLY add this if we have the add_ids method in the model
+  # to add the state and district ids to the stocks and program data
+  # before_create :add_ids
 
   private
 
-  def add_ids
+  # add state and district ids to the seed or API imported data.
+  # this code is currently in the seed.db
+  # def add_ids
 
-  end
+  # end
 end
 

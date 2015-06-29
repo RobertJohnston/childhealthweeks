@@ -2,7 +2,7 @@
 
 <div class="container push_page_below_header">
   <div class="row">
-    <h1><%= @state.state_name %>State Report</h1>
+    <h1><%= @state.state_name %> State Report</h1>
 
     <h2>Districts</h2>
 
@@ -27,7 +27,7 @@
           </tr>
           <% end %>
           <tr>
-            <th>Total</th>
+            <th>District Total</th>
             <th><%= StockReport.sum(:vitamin_a_red) %></th>
             <th><%= StockReport.sum(:vitamin_a_blue) %></th>
             <th><%= StockReport.sum(:deworming) %></th>
@@ -40,12 +40,3 @@
 </div>
 
 
-<%#   @state.districts.each do |district| %>
-        <%#<ul class='container table'>
-          <%#<li><%= link_to district.district_name, [@state, district] %> </li>
-          <%#<!-- Rails here automatically understands that two params leads to appropriate path -->
-          <%#<li><%= 'Population Report' %></li>
-          <%#<li><%= 'Stock Report'  %></li>
-          <%#<li><%= 'Program Report' %></li>
-        <%#</ul>
-      <%#<% end %>

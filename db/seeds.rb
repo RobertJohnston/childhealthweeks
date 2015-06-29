@@ -1042,7 +1042,7 @@ end
 # Create data for all valid site IDs.
 # 920 site ids - can iterate over to create program and stock reports
 Site.all.each do |site|
-  puts site.site_name
+  puts site.site_name site.site_id
   5.times do
   # data will represent up to 5 implementation days in one month
   # next step to make data for 3 child health week events in past 18 months
@@ -1070,7 +1070,7 @@ Site.all.each do |site|
 
     StockReport.create(user_id: user_id,
                           site_id: site,
-                          created_at: Date.new(2015,06,random_day),
+                          report_date: Date.new(2015,06,random_day),
                           vitamin_a_red: vitamin_a_red,
                           vitamin_a_blue: vitamin_a_blue,
                           deworming: deworming,
@@ -1079,7 +1079,6 @@ Site.all.each do |site|
                           district_id: site.district_id)
   end
 end
-
 
 
 

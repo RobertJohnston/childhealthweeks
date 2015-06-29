@@ -7,19 +7,20 @@
   display:inline;
 }
 
+.title_and_filter {
+  display: inline;
+}
 
-// .title_and_filter {
-//   display: inline;
-// }
-
-// table, th, td {
-//     // style: width: 90%;
-//     border: 1px solid black;
-//     border-collapse: collapse;
-// }
-// th, td {
-//     padding: 15px;
-// }
+table, th, td {
+    table-layout: fixed;
+    // not responsive for mobile
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 3px;
+}
 
 
 // ul.table {

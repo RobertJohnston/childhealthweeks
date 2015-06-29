@@ -5,12 +5,14 @@ class StockReport < ActiveRecord::Base
   belongs_to :state
   belongs_to :district
 
-  before_create :add_ids
+  # before_create :add_ids
 
   private
 
-  def add_ids
+  # add state and district ids to the seed or API imported data.
+  # this code is currently in the seed.db
+  # def add_ids
 
-  end
+  # end
 end
 

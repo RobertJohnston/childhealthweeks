@@ -1068,6 +1068,7 @@ Site.all.each do |site|
     StockReport.create!(user_id: user_id,
                           site: site,
                           created_at: Date.new(2015,06,random_day),
+                          # Better practices: should create report date
                           # report_date: Date.new(2015,06,random_day),
                           vitamin_a_red: vitamin_a_red,
                           vitamin_a_blue: vitamin_a_blue,

@@ -2,7 +2,7 @@
 <!-- SHOWS ALL STATES OF COUNTRY -->
 <div class="container push_page_below_header">
   <div class="row">
-    <h1>National (States Index)</h1>
+    <h1>National Reports</h1>
 
   <div class="table">
 
@@ -16,9 +16,9 @@
       </tr>
       <% @states.each do |state| %>
       <tr>
-        <th><%= state.state_name  %> </th>
-        <%# state.stock_reports.each do |report| %>
-        <!-- change stock_reports to X Variable for table (population, stock, program) -->
+        <th><%= link_to state.state_name, [state]  %> </th>
+        <%# TRICK above to enter only ID as 2nd element and Rails guesses path %>
+
           <td><%= state.stock_reports_total(:vitamin_a_red) %></td>
           <td><%= state.stock_reports_total(:vitamin_a_blue) %></td>
           <td><%= state.stock_reports_total(:deworming) %></td>
@@ -36,7 +36,7 @@
   </div>
 </div>
 
-
+<%#link_to district.district_name, [@state, district]
 
 
 

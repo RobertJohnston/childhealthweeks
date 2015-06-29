@@ -77,7 +77,6 @@
         <th>Children</th>
         <th>Women</th>
         <th>Total population</th>
-        <th>bla bla</th>
       </tr>
       <% @states.each do |state| %>
       <tr>
@@ -86,7 +85,6 @@
           <td><%= state.stock_reports_total(:vitamin_a_red) %></td>
           <td><%= state.stock_reports_total(:vitamin_a_blue) %></td>
           <td><%= state.stock_reports_total(:deworming) %></td>
-          <td><%= state.stock_reports_total(:iron_folate) %></td>
       </tr>
       <% end %>
       <tr>
@@ -94,7 +92,6 @@
         <th><%= StockReport.sum(:vitamin_a_red) %></th>
         <th><%= StockReport.sum(:vitamin_a_blue) %></th>
         <th><%= StockReport.sum(:deworming) %></th>
-        <th><%= StockReport.sum(:iron_folate) %></th>
       </tr>
     </table>
   </div>

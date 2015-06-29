@@ -2,8 +2,6 @@
 
 <div class="container push_page_below_header">
   <div class="row">
-    <h1>District <%= @district.district_name %> </h1>
-
     <h1><%= @district.district_name%> District Report</h1>
 
     <h2>Sites</h2>
@@ -16,23 +14,23 @@
           <th>Vitamin A Blue</th>
           <th>Deworming</th>
           <th>Iron Folate</th>
-          <th>District Total</th>
         </tr>
       <% @district.sites.each do |site| %>
         <tr>
             <td><%= site.site_name %></td>
-            <td><%= site.most_recent_stock_report %></td>
-            <td><%= site.most_recent_stock_report %></td>
-            <td><%= site.most_recent_stock_report %></td>
-            <td><%= site.most_recent_stock_report %></td>
+            <td><%= site.most_recent_stock_report.vitamin_a_red %></td>
+            <td><%= site.most_recent_stock_report.vitamin_a_blue %></td>
+            <td><%= site.most_recent_stock_report.deworming %></td>
+            <td><%= site.most_recent_stock_report.iron_folate %></td>
         </tr>
       <% end %>
 
         <tr>
-          <th><%= StockReport.where(site_id:site.id).sum(:vitamin_a_red) %></th>
-          <th><%= StockReport.where(site_id:site.id).sum(:vitamin_a_blue) %></th>
-          <th><%= StockReport.where(site_id:site.id).sum(:deworming) %></th>
-          <th><%= StockReport.where(site_id:site.id).sum(:iron_folate) %></th>
+          <th>District Total </th>
+          <th><%= @district.stock_reports_total(:vitamin_a_red) %></th>
+          <th><%= @district.stock_reports_total(:vitamin_a_blue) %></th>
+          <th><%= @district.stock_reports_total(:deworming) %></th>
+          <th><%= @district.stock_reports_total(:iron_folate) %></th>
         </tr>
 
       </table>

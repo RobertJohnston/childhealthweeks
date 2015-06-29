@@ -1026,9 +1026,6 @@ list_sites.each do |state_id, district_id, code_fosa, site_name, type_fosa, type
               longitude: longitude)
 end
 
-
-
-
 def number1to100
   number = rand(1..100)
 end
@@ -1042,7 +1039,7 @@ end
 # Create data for all valid site IDs.
 # 920 site ids - can iterate over to create program and stock reports
 Site.all.each do |site|
-  puts site.site_name site.site_id
+  p site.site_name
   5.times do
   # data will represent up to 5 implementation days in one month
   # next step to make data for 3 child health week events in past 18 months
@@ -1060,36 +1057,37 @@ Site.all.each do |site|
     deworming = number1to100orNil
     iron_folate = number1to100orNil
 
-    ProgramReport.create(user_id: user_id,
-                          site_id: site,
+    ProgramReport.create!(user_id: user_id,
+                          site: site,
                           report_date: Date.new(2015,06,random_day),
                           vitamin_a_red: vitamin_a_red_prog,
                           vitamin_a_blue: vitamin_a_blue_prog,
                           deworming: deworming_prog,
                           iron_folate: iron_folate_prog)
 
-    StockReport.create(user_id: user_id,
-                          site_id: site,
-                          report_date: Date.new(2015,06,random_day),
+    StockReport.create!(user_id: user_id,
+                          site: site,
+                          created_at: Date.new(2015,06,random_day),
+                          # report_date: Date.new(2015,06,random_day),
                           vitamin_a_red: vitamin_a_red,
                           vitamin_a_blue: vitamin_a_blue,
                           deworming: deworming,
                           iron_folate: iron_folate,
-                          state_id: site.state_id,
-                          district_id: site.district_id)
+                          state: site.state,
+                          district: site.district)
   end
 end
 
 
 
-# def add_ids
-#   @sites = Site.all
-#   StockReport.all.each do |report|
-#     site = @sites.find(report.site_id)
-#     report.update_attributes(state_id: site.state_id,
-#                         district_id: site.district_id)
-#   end
-# end
+# # def add_ids
+# #   @sites = Site.all
+# #   StockReport.all.each do |report|
+# #     site = @sites.find(report.site_id)
+# #     report.update_attributes(state_id: site.state_id,
+# #                         district_id: site.district_id)
+# #   end
+# # end
 
-# # call method to add state and district level ids to data.
-# add_ids
+# # # call method to add state and district level ids to data.
+# # add_ids

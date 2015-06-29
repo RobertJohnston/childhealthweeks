@@ -3,6 +3,10 @@
 .push_page_below_header {
   margin-top: 34px;
 }
+.navbar-buttons {
+  float: right;
+  padding: 12px 12px;
+}
 .row {
   display:inline;
 }
@@ -19,9 +23,25 @@ table, th, td {
     border-collapse: collapse;
 }
 th, td {
-    padding: 3px;
+    padding: 1px;
+    vertical-align: middle;
 }
 
+#table {
+    border: 2px dashed #444;
+    height: 20px;
+
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+}
+
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
 
 // ul.table {
 //     display: table;
@@ -40,19 +60,3 @@ th, td {
 // padding-right: 10px;
 
 // for id="container"
-#table {
-    border: 2px dashed #444;
-    height: 20px;
-
-    text-align: justify;
-    -ms-text-justify: distribute-all-lines;
-    text-justify: distribute-all-lines;
-}
-
-.stretch {
-    width: 100%;
-    display: inline-block;
-    font-size: 0;
-    line-height: 0
-}
-

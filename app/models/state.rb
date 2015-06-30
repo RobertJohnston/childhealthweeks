@@ -9,5 +9,6 @@ class State < ActiveRecord::Base
     stock_reports.sum(stock)
   end
 
+  # Current stocks = most recent report
 
 end

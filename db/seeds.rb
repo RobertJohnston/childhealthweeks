@@ -1036,14 +1036,23 @@ def number1to100orNil
   number < 1  ? number = "" : number = number
 end
 
+# Population
+list_sites.each do |site|
+  p "population"
+  PopulationReport.create(child_population: 2226,
+                woman_population: 2707,
+                total_population: 12033,
+                user_id: number1to100)
+end
+
 # Create data for all valid site IDs.
 # 920 site ids - can iterate over to create program and stock reports
 Site.all.each do |site|
-  p site.site_name
+  p site.national_site_id
   5.times do
-  # data will represent up to 5 implementation days in one month
+  # data will represent up to 5 implementation days in one week
   # next step to make data for 3 child health week events in past 18 months
-    random_day  = rand(1..30)
+    random_day  = rand(1..5)
     user_id = number1to100
     # site_id = site
 

@@ -10,11 +10,9 @@
 .row {
   display:inline;
 }
-
 .title_and_filter {
   display: inline;
 }
-
 table, th, td {
     table-layout: fixed;
     // not responsive for mobile
@@ -26,7 +24,11 @@ th, td {
     padding: 1px;
     vertical-align: middle;
 }
+.wide {
+  width: 300px;
+}
 
+// where is this styling being used?
 #table {
     border: 2px dashed #444;
     height: 20px;

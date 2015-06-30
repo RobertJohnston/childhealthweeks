@@ -73,7 +73,6 @@
       <br>
     </div>
 
-
     <div class="table">
       <table id='population-report-table'>
       <h3> State Population Report </h3>
@@ -83,7 +82,6 @@
           <th>Child Population</th>
           <th>Woman Population</th>
           <th>Total Population</th>
-
         </tr>
         <% @state.districts.each do |district| %>
         <tr>
@@ -91,7 +89,6 @@
             <td><%= district.population_reports_total(:child_population) %></td>
             <td><%= district.population_reports_total(:woman_population) %></td>
             <td><%= district.population_reports_total(:total_population) %></td>
-
         </tr>
         <% end %>
         <tr>

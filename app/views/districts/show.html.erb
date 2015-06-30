@@ -115,19 +115,26 @@
       <h3> District Target Populations Report </h3>
         <col span="1" class="wide">
         <tr>
+          <th></th>
+          <th>Vitamin A RED Target</th>
+          <th>Vitamin A BLUE Target</th>
+          <th>Deworming Target</th>
+          <th>Iron Supplementation</th>
+        </tr>
+        <tr>
           <th>Site</th>
-          <th>Vitamin A RED Target Child Population</th>
-          <th>Vitamin A BLUE Target Child Population</th>
-          <th>Deworming Target Child Population</th>
-          <th>Iron Supplemenation Target Pregnant Woman Population</th>
+          <th>Child Population (6-11 months)</th>
+          <th>Child Population (12-59 months)</th>
+          <th>Child Population (12-59 months)</th>
+          <th>Pregnant Women</th>
         </tr>
       <% @district.sites.each do |site| %>
         <tr>
           <td><%= link_to site.site_name, [site] %></td>
-          <td><%= site.vitared_target_pop.child_population %></td>
-          <td><%= site.vitablue_target_pop.child_population %></td>
-          <td><%= site.deworming_target_pop.child_population %></td>
-          <td><%= site.iron_folate_target_pop.woman_population %></td>
+          <td><%= site.six_to_11_target_pop %></td>
+          <td><%= site.twelve_to_59_target_pop %></td>
+          <td><%= site.twelve_to_59_target_pop %></td>
+          <td><%= site.pregnant_woman_target_pop %></td>
         </tr>
       <% end %>
         <tr>

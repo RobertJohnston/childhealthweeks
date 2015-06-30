@@ -77,18 +77,18 @@
       <tr>
         <th><%= link_to state.state_name, [state]  %> </th>
         <%# TRICK above to enter only ID as 2nd element and Rails guesses path %>
-          <td><%= state.stock_reports_total(:vitamin_a_red) %></td>
-          <td><%= state.stock_reports_total(:vitamin_a_blue) %></td>
-          <td><%= state.stock_reports_total(:deworming) %></td>
-          <td><%= state.stock_reports_total(:iron_folate) %></td>
+          <td><%= state.program_reports_total(:vitamin_a_red) %></td>
+          <td><%= state.program_reports_total(:vitamin_a_blue) %></td>
+          <td><%= state.program_reports_total(:deworming) %></td>
+          <td><%= state.program_reports_total(:iron_folate) %></td>
       </tr>
       <% end %>
       <tr>
         <th>Total</th>
-        <th><%= StockReport.sum(:vitamin_a_red) %></th>
-        <th><%= StockReport.sum(:vitamin_a_blue) %></th>
-        <th><%= StockReport.sum(:deworming) %></th>
-        <th><%= StockReport.sum(:iron_folate) %></th>
+        <th><%= ProgramReport.sum(:vitamin_a_red) %></th>
+        <th><%= ProgramReport.sum(:vitamin_a_blue) %></th>
+        <th><%= ProgramReport.sum(:deworming) %></th>
+        <th><%= ProgramReport.sum(:iron_folate) %></th>
       </tr>
     </table>
   </div>
@@ -108,21 +108,22 @@
       <tr>
         <th><%= link_to state.state_name, [state]  %> </th>
         <%# TRICK above to enter only ID as 2nd element and Rails guesses path %>
-          <td><%= state.stock_reports_total(:vitamin_a_red) %></td>
-          <td><%= state.stock_reports_total(:vitamin_a_blue) %></td>
-          <td><%= state.stock_reports_total(:deworming) %></td>
+          <td><%= state.population_reports_total(:child_population) %></td>
+          <td><%= state.population_reports_total(:woman_population) %></td>
+          <td><%= state.population_reports_total(:total_population) %></td>
       </tr>
       <% end %>
       <tr>
         <th>Total</th>
-        <th><%= StockReport.sum(:vitamin_a_red) %></th>
-        <th><%= StockReport.sum(:vitamin_a_blue) %></th>
-        <th><%= StockReport.sum(:deworming) %></th>
+        <th><%= PopulationReport.sum(:child_population) %></th>
+        <th><%= PopulationReport.sum(:woman_population) %></th>
+        <th><%= PopulationReport.sum(:total_population) %></th>
       </tr>
     </table>
 >>>>>>> seed data - reports from 5 days in week and populations
   </div>
 </div>
+
 
 <script>
 

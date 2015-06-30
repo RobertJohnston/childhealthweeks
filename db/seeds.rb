@@ -1072,13 +1072,13 @@ Site.all.each do |site|
                           vitamin_a_red: vitamin_a_red_prog,
                           vitamin_a_blue: vitamin_a_blue_prog,
                           deworming: deworming_prog,
-                          iron_folate: iron_folate_prog)
+                          iron_folate: iron_folate_prog,
+                          state: site.state,
+                          district: site.district)
 
     StockReport.create!(user_id: user_id,
                           site: site,
                           created_at: Date.new(2015,06,random_day),
-                          # Better practices: should create report date
-                          # report_date: Date.new(2015,06,random_day),
                           vitamin_a_red: vitamin_a_red,
                           vitamin_a_blue: vitamin_a_blue,
                           deworming: deworming,

@@ -17,7 +17,7 @@
         </tr>
       <% @district.sites.each do |site| %>
         <tr>
-            <td><%= site.site_name %></td>
+            <td><%= link_to site.site_name, [site] %></td>
             <td><%= site.most_recent_stock_report.vitamin_a_red %></td>
             <td><%= site.most_recent_stock_report.vitamin_a_blue %></td>
             <td><%= site.most_recent_stock_report.deworming %></td>

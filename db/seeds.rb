@@ -1044,10 +1044,13 @@ Site.all.each do |site|
   total_population = 11000 + (number1to100 * 3)
   user_id = number1to100
 
-  PopulationReport.create!(child_population: child_population,
+  PopulationReport.create!(site: site,
+                child_population: child_population,
                 woman_population: woman_population,
                 total_population: total_population,
-                user_id: user_id)
+                user_id: user_id,
+                state_id: site.state,
+                district_id: site.district)
 end
 
 # Create data for all valid site IDs.
@@ -1092,8 +1095,6 @@ Site.all.each do |site|
                           district: site.district)
   end
 end
-
-
 
 # # def add_ids
 # #   @sites = Site.all

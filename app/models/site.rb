@@ -20,4 +20,12 @@ class Site < ActiveRecord::Base
     population_reports.order(:created_at).last
   end
 
+  def percent_population(population)
+    percent = most_recent_population_report.read_attribute(population).to_f / most_recent_population_report.read_attribute(:total_population) * 100
+  end
+
+  def child_coverage(program)
+    child_percent_coverage = program_reports_total(program) / most_recent_population_report(:child_population)
+  end
+
 end

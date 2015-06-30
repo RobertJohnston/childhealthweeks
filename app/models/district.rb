@@ -26,4 +26,6 @@ class District < ActiveRecord::Base
     total
   end
 
+
+
 end

@@ -76,16 +76,22 @@
         <col span="1" class="wide">
         <tr>
           <th>Site</th>
-          <th>Vitamin A Red</th>
-          <th>Vitamin A Blue</th>
-          <th>Deworming</th>
+          <th>Child Population</th>
+          <th>Child Percent</th>
+          <th>Woman Population</th>
+          <th>Woman Percent</th>
+          <th>Total Population</th>
 
         </tr>
       <% @district.sites.each do |site| %>
         <tr>
             <td><%= link_to site.site_name, [site] %></td>
             <td><%= site.most_recent_population_report.child_population %></td>
+            <td><%= site.percent_population(:child_population) %></td>
+
             <td><%= site.most_recent_population_report.woman_population %></td>
+            <td><%= site.percent_population(:woman_population) %></td>
+
             <td><%= site.most_recent_population_report.total_population %></td>
 
         </tr>
@@ -93,7 +99,9 @@
         <tr>
           <th>District Total </th>
           <th><%= @district.population_reports_total(:child_population) %></th>
+          <th> District Child Percent </th>
           <th><%= @district.population_reports_total(:woman_population) %></th>
+          <th> District Woman Percent </th>
           <th><%= @district.population_reports_total(:total_population) %></th>
 
         </tr>

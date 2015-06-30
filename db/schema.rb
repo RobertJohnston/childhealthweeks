@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150624155838) do
     t.integer  "woman_population"
     t.integer  "total_population"
     t.integer  "user_id"
+    t.integer  "district_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

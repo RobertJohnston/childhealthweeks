@@ -6,6 +6,7 @@ class CreatePopulationReports < ActiveRecord::Migration
       t.integer :woman_population
       t.integer :total_population
       t.integer :user_id
+      t.integer :district_id
 
       t.timestamps null: false
     end

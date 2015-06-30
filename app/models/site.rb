@@ -12,4 +12,12 @@ class Site < ActiveRecord::Base
     stock_reports.order(:created_at).last
   end
 
+  def program_reports_total(program)
+    program_reports.sum(program)
+  end
+
+  def most_recent_population_report
+    population_reports.order(:created_at).last
+  end
+
 end

@@ -1036,13 +1036,18 @@ def number1to100orNil
   number < 1  ? number = "" : number = number
 end
 
-# Population
-list_sites.each do |site|
-  p "population"
-  PopulationReport.create(child_population: 2226,
-                woman_population: 2707,
-                total_population: 12033,
-                user_id: number1to100)
+# Create Population data for all valid site IDs.
+Site.all.each do |site|
+  p site.site_name
+  child_population = 2100 + (number1to100 * 3)
+  woman_population = 2500 + (number1to100 * 3)
+  total_population = 11000 + (number1to100 * 3)
+  user_id = number1to100
+
+  PopulationReport.create!(child_population: child_population,
+                woman_population: woman_population,
+                total_population: total_population,
+                user_id: user_id)
 end
 
 # Create data for all valid site IDs.

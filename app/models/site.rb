@@ -22,6 +22,8 @@ class Site < ActiveRecord::Base
 
   def percent_population(population)
     percent = most_recent_population_report.read_attribute(population).to_f / most_recent_population_report.read_attribute(:total_population) * 100
+    # number_with_precision(percent, precision: 2, separator: ',', delimiter: '.')
+    sprintf('%.1f', percent)
   end
 
   def six_to_11_target_pop

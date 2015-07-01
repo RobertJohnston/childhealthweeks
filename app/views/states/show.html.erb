@@ -33,10 +33,7 @@
           <th><%= @state.stock_reports_total(:iron_folate) %></th>
         </tr>
       </table>
-      <br>
-      <br>
-      <br>
-      <br>
+
     </div>
 
     <div class="table">
@@ -67,9 +64,7 @@
           <th><%= @state.program_reports_total(:iron_folate) %></th>
         </tr>
       </table>
-      <br>
-      <br>
-      <br>
+
       <br>
     </div>
 
@@ -96,17 +91,32 @@
           <th><%= @state.population_reports_total(:child_population) %></td>
           <th><%= @state.population_reports_total(:woman_population) %></td>
           <th><%= @state.population_reports_total(:total_population) %></td>
-
         </tr>
       </table>
-      <br>
-      <br>
-      <br>
-      <br>
     </div>
-
-
   </div>
 </div>
 
+<script>
 
+  $(document).ready(function(){
+    $('#stock-activate').click(function(){
+      $('#stock-report-table').show();
+      $('#program-report-table').hide();
+      $('#population-report-table').hide();
+    });
+
+    $('#program-activate').click(function(){
+      $('#stock-report-table').hide();
+      $('#program-report-table').show();
+      $('#population-report-table').hide();
+    });
+
+    $('#pop-activate').click(function(){
+      $('#stock-report-table').hide();
+      $('#program-report-table').hide();
+      $('#population-report-table').show();
+    });
+  });
+
+</script>

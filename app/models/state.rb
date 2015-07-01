@@ -11,6 +11,7 @@ class State < ActiveRecord::Base
   end
 
   # Current stocks = most recent report
+  # This loop is very slow
   def stock_reports_total(stock)
     total = 0
     sites.each do |site|
@@ -27,8 +28,5 @@ class State < ActiveRecord::Base
     end
     total
   end
-
-
-
 
 end

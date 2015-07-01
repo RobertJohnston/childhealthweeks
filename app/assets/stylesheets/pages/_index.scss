@@ -13,40 +13,49 @@
 .title_and_filter {
   display: inline;
 }
+
+// .responsive-table
+
 table, th, td {
     table-layout: fixed;
     // not responsive for mobile
     width: 100%;
     border: 1px solid black;
     border-collapse: collapse;
-    mso-number-format:General;
 }
 th, td {
     padding: 1px;
-    vertical-align: middle;
-    mso-number-format:General;
 }
 
 .wide {
   width: 300px;
 }
+.report-table tr td {
+  text-align:center;
+}
+.report-table tbody tr:first-child th {
+  text-align:center;
+}
+.report-table tbody tr:first-child th:first-child {
+  text-align:left;
+}
 
 // where is this styling being used?
-#table {
-    border: 2px dashed #444;
-    height: 20px;
+// #table {
+//     border: 2px dashed #444;
+//     height: 20px;
 
-    text-align: justify;
-    -ms-text-justify: distribute-all-lines;
-    text-justify: distribute-all-lines;
-}
+//     text-align: justify;
+//     -ms-text-justify: distribute-all-lines;
+//     text-justify: distribute-all-lines;
+// }
 
-.stretch {
-    width: 100%;
-    display: inline-block;
-    font-size: 0;
-    line-height: 0
-}
+// .stretch {
+//     width: 100%;
+//     display: inline-block;
+//     font-size: 0;
+//     line-height: 0
+// }
 
 // ul.table {
 //     display: table;

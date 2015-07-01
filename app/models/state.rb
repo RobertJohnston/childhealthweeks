@@ -29,7 +29,4 @@ class State < ActiveRecord::Base
     total
   end
 
-
-
-
 end

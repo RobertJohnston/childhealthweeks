@@ -5,7 +5,7 @@
   <h1>National Report</h1>
 
     <div id="stock-report-table">
-      <table class='report-table'>
+      <table class="report-table">
         <h3> Stocks </h3>
         <col span="1" class="wide">
 
@@ -28,13 +28,15 @@
         <% end %>
         <tr>
           <th>National Total</th>
-          <th><%= StockReport.sum(:vitamin_a_red) %></th>
-          <th><%= StockReport.sum(:vitamin_a_blue) %></th>
-          <th><%= StockReport.sum(:deworming) %></th>
-          <th><%= StockReport.sum(:iron_folate) %></th>
+          <td><%= StockReport.sum(:vitamin_a_red) %></td>
+          <td><%= StockReport.sum(:vitamin_a_blue) %></td>
+          <td><%= StockReport.sum(:deworming) %></td>
+          <td><%= StockReport.sum(:iron_folate) %></td>
         </tr>
       </table>
     </div>
+
+
 
     <div id='program-report-table'>
       <table class='report-table'>
@@ -59,15 +61,15 @@
         <% end %>
         <tr>
           <th>National Total</th>
-          <th><%= ProgramReport.sum(:vitamin_a_red) %></th>
-          <th><%= ProgramReport.sum(:vitamin_a_blue) %></th>
-          <th><%= ProgramReport.sum(:deworming) %></th>
-          <th><%= ProgramReport.sum(:iron_folate) %></th>
+          <td><%= ProgramReport.sum(:vitamin_a_red) %></td>
+          <td><%= ProgramReport.sum(:vitamin_a_blue) %></td>
+          <td><%= ProgramReport.sum(:deworming) %></td>
+          <td><%= ProgramReport.sum(:iron_folate) %></td>
         </tr>
       </table>
     </div>
 
-    <div id='population-report-table'>
+    <div class='population-report-table'>
       <table class='report-table'>
         <h3> Population </h3>
         <col span="1" class="wide">
@@ -88,9 +90,9 @@
         <% end %>
         <tr>
           <th>National Total</th>
-          <th><%= PopulationReport.sum(:child_population) %></th>
-          <th><%= PopulationReport.sum(:woman_population) %></th>
-          <th><%= PopulationReport.sum(:total_population) %></th>
+          <td><%= PopulationReport.sum(:child_population) %></td>
+          <td><%= PopulationReport.sum(:woman_population) %></td>
+          <td><%= PopulationReport.sum(:total_population) %></td>
         </tr>
       </table>
     </div>
@@ -121,8 +123,8 @@
 
 </script>
 
-
-
+<!-- Create responsive tables by wrapping any .table in .table-responsive to make them scroll horizontally on small devices (under 768px). When viewing on anything larger than 768px wide, you will not see any difference in these tables.
+ -->
 
 
 

@@ -117,14 +117,12 @@
         <tr>
           <th></th>
           <th>Vitamin A RED Target</th>
-          <th>Vitamin A BLUE Target</th>
-          <th>Deworming Target</th>
+          <th>Vitamin A BLUE and Deworming Target</th>
           <th>Iron Supplementation</th>
         </tr>
         <tr>
           <th>Site</th>
           <th>Child Population (6-11 months)</th>
-          <th>Child Population (12-59 months)</th>
           <th>Child Population (12-59 months)</th>
           <th>Pregnant Women</th>
         </tr>
@@ -133,15 +131,13 @@
           <td><%= link_to site.site_name, [site] %></td>
           <td><%= site.six_to_11_target_pop %></td>
           <td><%= site.twelve_to_59_target_pop %></td>
-          <td><%= site.twelve_to_59_target_pop %></td>
           <td><%= site.pregnant_woman_target_pop %></td>
         </tr>
       <% end %>
         <tr>
           <th>District Total </th>
           <th> Vitamin A Red Total </th>
-          <th> Vitamin A Blue Total </th>
-          <th> Deworming Total </th>
+          <th> Vitamin A Blue & Deworming Total </th>
           <th> Iron Folate Total </th>
         </tr>
       </table>

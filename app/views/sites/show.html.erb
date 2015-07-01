@@ -5,7 +5,25 @@
 
     <h1> Site Name: <%= @site.site_name %></h1>
 
-    <h2>Details</h2>
+    <h3>Complete Reporting</h3>
+
+          <p><%= @result_report.inspect %></p>
+
+
+
+
+    <p><%#= site.most_recent_stock_report.vitamin_a_blue %></p>
+    <p><%#= site.most_recent_stock_report.deworming %></p>
+    <p><%#= site.most_recent_stock_report.iron_folate %></p>
+
+
+
+    <h3>Stocks Update</h3>
+
+    <h3>Coverage</h3>
+
+
+    <h3>Details</h3>
 
     <p> State ID: <%= @site.state_id %></p>
     <p> District ID: <%= @site.district_id %></p>

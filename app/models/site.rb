@@ -45,4 +45,85 @@ class Site < ActiveRecord::Base
     child_percent_coverage = program_reports_total(program) / most_recent_population_report(:child_population)
   end
 
+# for this current version of app, we assume that we are on 7th June 2015.
+
+
+# COMPLETE REPORTING
+# if created_at(intervention) is between time 1st June and 6th June
+# if created_at(intervention) is time 1st June and date.now
+# then complete = 100
+# date1 = "2012-01-01".to_date
+# @dates = (Date.today..Date.today + 60.days)
+
+
+#self.program_reports.where(:report_date => start_date..Datetime.now).each do |report|
+# If no report is sent, then there will be no report date.
+
+  # PROGRAM REPORTS
+  def calculate_program_complete
+
+    start_date = Date.now
+    end_date = start_date + 6
+
+    vitamin_a_red_complete = 1
+
+    # (start_date..end_date).each do |date|
+    #   # loop 5 times -> 5 reports
+
+    #   if program_reports.report_date == date
+    #     if program_reports.vitamin_a_red.exists?
+    #       vitamin_a_red_complete = 100
+    #     end
+    #   end
+    # end
+    vitamin_a_red_complete
+  end
+
+
+
+
+#       program_reports.vitamin_a_blue.exists? ? vitamin_a_blue_complete = 100 : vitamin_a_blue_complete = 0
+#       program_reports.deworming.exists? ? deworming_complete = 100 : deworming_complete = 0
+#       program_reports.iron_folate.exists? ? iron_folate_complete = 100 : iron_folate_complete = 0
+#     end
+#   end
+
+
+# (start_date..end_date).each do |date|
+#   puts date.program_reports.vitamin_a_red.exists?
+# end
+
+
+# (Date.new(2012, 01, 01)..Date.new(2012, 01, 30)).each do |date|
+#   puts date
+# end
+
+
+  # STOCK REPORTS
+  # def calculate_program_complete
+  #   self.stock_reports.where(:report_date => start_date..Datetime.now).each do |report|
+  #     # loop 5 times -> 5 reports
+  #     report.vitamin_a_red.exists? ? vitamin_a_red_complete = 100 : vitamin_a_red_complete = 0
+  #     report.vitamin_a_blue.exists? ? vitamin_a_blue_complete = 100 : vitamin_a_blue_complete = 0
+  #     report.deworming.exists? ? deworming_complete = 100 : deworming_complete = 0
+  #     report.iron_folate.exists? ? iron_folate_complete = 100 : iron_folate_complete = 0
+  #   end
+  # end
+
+
+
+# TIMELY REPORTING
+# a report is expected on the day immediately following the activity date.
+# activities on 5th June should be reported on 6th June.
+# if created_at (date) < report_date (+1 day) then timely = true
+
+# STOCK OUTS
+# if most_recent_stock_report(stock) <= 0 then stock_out = true
+
+# ADEQUATE STOCK
+# if target_population(intervention) - program(intervention) < most_recent_stock_report(stock) then stock_adequate = true
+
+# COVERAGE
+# program(intervention) / target_population(intervention)
+
 end

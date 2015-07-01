@@ -4,38 +4,108 @@
   <div class="row">
     <h1><%= @state.state_name %> State Report</h1>
 
-    <h2>Districts</h2>
 
-  <div class="table">
-
-        <table >
-          <tr>
-            <th>District</th>
-            <th>Vitamin A Red</th>
-            <th>Vitamin A Blue</th>
-            <th>Deworming</th>
-            <th>Iron Folate</th>
-          </tr>
-          <% @state.districts.each do |district| %>
-          <tr>
-            <th><%= link_to district.district_name, [@state, district] %> </th>
-            <!-- Rails here automatically understands that two params leads to appropriate path -->
-              <td><%= district.stock_reports_total(:vitamin_a_red) %></td>
-              <td><%= district.stock_reports_total(:vitamin_a_blue) %></td>
-              <td><%= district.stock_reports_total(:deworming) %></td>
-              <td><%= district.stock_reports_total(:iron_folate) %></td>
-            </tr>
-          <% end %>
-          <tr>
-            <th>District Total ERROR</th>
-            <th><%= StockReport.sum(:vitamin_a_red) %></th>
-            <th><%= StockReport.sum(:vitamin_a_blue) %></th>
-            <th><%= StockReport.sum(:deworming) %></th>
-            <th><%= StockReport.sum(:iron_folate) %></th>
-          </tr>
-        </table>
-      </div>
+    <div class="table">
+      <table id='stock-report-table'>
+      <h3> State Stock Report </h3>
+      <col span="1" class="wide">
+        <tr>
+          <th>District</th>
+          <th>Vitamin A Red</th>
+          <th>Vitamin A Blue</th>
+          <th>Deworming</th>
+          <th>Iron Folate</th>
+        </tr>
+        <% @state.districts.each do |district| %>
+        <tr>
+          <th><%= link_to district.district_name, [@state, district] %> </th>
+            <td><%= district.stock_reports_total(:vitamin_a_red) %></td>
+            <td><%= district.stock_reports_total(:vitamin_a_blue) %></td>
+            <td><%= district.stock_reports_total(:deworming) %></td>
+            <td><%= district.stock_reports_total(:iron_folate) %></td>
+        </tr>
+        <% end %>
+        <tr>
+          <th>District Total </th>
+          <th><%= @state.stock_reports_total(:vitamin_a_red) %></th>
+          <th><%= @state.stock_reports_total(:vitamin_a_blue) %></th>
+          <th><%= @state.stock_reports_total(:deworming) %></th>
+          <th><%= @state.stock_reports_total(:iron_folate) %></th>
+        </tr>
+      </table>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
+
+    <div class="table">
+      <table id='program-report-table'>
+      <h3> State Program Report </h3>
+      <col span="1" class="wide">
+        <tr>
+          <th>District</th>
+          <th>Vitamin A Red</th>
+          <th>Vitamin A Blue</th>
+          <th>Deworming</th>
+          <th>Iron Folate</th>
+        </tr>
+        <% @state.districts.each do |district| %>
+        <tr>
+          <th><%= link_to district.district_name, [@state, district] %> </th>
+            <td><%= district.program_reports_total(:vitamin_a_red) %></td>
+            <td><%= district.program_reports_total(:vitamin_a_blue) %></td>
+            <td><%= district.program_reports_total(:deworming) %></td>
+            <td><%= district.program_reports_total(:iron_folate) %></td>
+        </tr>
+        <% end %>
+        <tr>
+          <th>District Total </th>
+          <th><%= @state.program_reports_total(:vitamin_a_red) %></th>
+          <th><%= @state.program_reports_total(:vitamin_a_blue) %></th>
+          <th><%= @state.program_reports_total(:deworming) %></th>
+          <th><%= @state.program_reports_total(:iron_folate) %></th>
+        </tr>
+      </table>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+    <div class="table">
+      <table id='population-report-table'>
+      <h3> State Population Report </h3>
+      <col span="1" class="wide">
+        <tr>
+          <th>District</th>
+          <th>Child Population</th>
+          <th>Woman Population</th>
+          <th>Total Population</th>
+        </tr>
+        <% @state.districts.each do |district| %>
+        <tr>
+          <th><%= link_to district.district_name, [@state, district] %> </th>
+            <td><%= district.population_reports_total(:child_population) %></td>
+            <td><%= district.population_reports_total(:woman_population) %></td>
+            <td><%= district.population_reports_total(:total_population) %></td>
+        </tr>
+        <% end %>
+        <tr>
+          <th>District Total </th>
+          <th><%= @state.population_reports_total(:child_population) %></td>
+          <th><%= @state.population_reports_total(:woman_population) %></td>
+          <th><%= @state.population_reports_total(:total_population) %></td>
+
+        </tr>
+      </table>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+
   </div>
 </div>
 

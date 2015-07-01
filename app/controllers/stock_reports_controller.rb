@@ -11,7 +11,6 @@ class StockReportsController < ApplicationController
     @state_filter    = State.all.map{ |s| [ s.state_name, s.id ] }
     @district_filter = District.all.map{ |d| [ d.district_name, d.id ] }
 
-    # use filter to select data
   end
 
   def show

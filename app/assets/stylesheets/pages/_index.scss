@@ -10,23 +10,28 @@
 .row {
   display:inline;
 }
-
 .title_and_filter {
   display: inline;
 }
-
 table, th, td {
     table-layout: fixed;
     // not responsive for mobile
     width: 100%;
     border: 1px solid black;
     border-collapse: collapse;
+    mso-number-format:General;
 }
 th, td {
     padding: 1px;
     vertical-align: middle;
+    mso-number-format:General;
 }
 
+.wide {
+  width: 300px;
+}
+
+// where is this styling being used?
 #table {
     border: 2px dashed #444;
     height: 20px;

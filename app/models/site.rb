@@ -12,4 +12,32 @@ class Site < ActiveRecord::Base
     stock_reports.order(:created_at).last
   end
 
+  def program_reports_total(program)
+    program_reports.sum(program)
+  end
+
+  def most_recent_population_report
+    population_reports.order(:created_at).last
+  end
+
+  def percent_population(population)
+    percent = most_recent_population_report.read_attribute(population).to_f / most_recent_population_report.read_attribute(:total_population) * 100
+  end
+
+  def six_to_11_target_pop
+    target_pop = most_recent_population_report.read_attribute(:child_population) * 0.1
+  end
+
+  def twelve_to_59_target_pop
+    target_pop = most_recent_population_report.read_attribute(:child_population) * 0.8
+  end
+
+  def pregnant_woman_target_pop
+    target_pop = most_recent_population_report.read_attribute(:woman_population) * 0.05
+  end
+
+  def child_coverage(program)
+    child_percent_coverage = program_reports_total(program) / most_recent_population_report(:child_population)
+  end
+
 end

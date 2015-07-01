@@ -1,6 +1,20 @@
-<h1>Sites#show</h1>
-<p>Find me in app/views/sites/show.html.erb</p>
+<!-- Site Show -->
 
-<p> SCORE </p>
+<div class="container push_page_below_header">
+  <div class="row">
 
+    <h1> Site Name: <%= @site.site_name %></h1>
 
+    <h2>Details</h2>
+
+    <p> State ID: <%= @site.state_id %></p>
+    <p> District ID: <%= @site.district_id %></p>
+    <p> National SNIS ID: <%= @site.national_site_id %></p>
+    <p> latitude: <%= @site.latitude %></p>
+    <p> longitude: <%= @site.longitude %></p>
+
+    <br>
+    <p> create access to population, program and stock data </p>
+
+  </div>
+</div>

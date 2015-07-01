@@ -1036,14 +1036,31 @@ def number1to100orNil
   number < 1  ? number = "" : number = number
 end
 
+# Create Population data for all valid site IDs.
+Site.all.each do |site|
+  p site.site_name
+  child_population = 2100 + (number1to100 * 3)
+  woman_population = 2500 + (number1to100 * 3)
+  total_population = 11000 + (number1to100 * 3)
+  user_id = number1to100
+
+  PopulationReport.create!(site: site,
+                child_population: child_population,
+                woman_population: woman_population,
+                total_population: total_population,
+                user_id: user_id,
+                state_id: site.state,
+                district_id: site.district)
+end
+
 # Create data for all valid site IDs.
 # 920 site ids - can iterate over to create program and stock reports
 Site.all.each do |site|
-  p site.site_name
+  p site.national_site_id
   5.times do
-  # data will represent up to 5 implementation days in one month
+  # data will represent up to 5 implementation days in one week
   # next step to make data for 3 child health week events in past 18 months
-    random_day  = rand(1..30)
+    random_day  = rand(1..5)
     user_id = number1to100
     # site_id = site
 
@@ -1063,13 +1080,13 @@ Site.all.each do |site|
                           vitamin_a_red: vitamin_a_red_prog,
                           vitamin_a_blue: vitamin_a_blue_prog,
                           deworming: deworming_prog,
-                          iron_folate: iron_folate_prog)
+                          iron_folate: iron_folate_prog,
+                          state: site.state,
+                          district: site.district)
 
     StockReport.create!(user_id: user_id,
                           site: site,
                           created_at: Date.new(2015,06,random_day),
-                          # Better practices: should create report date
-                          # report_date: Date.new(2015,06,random_day),
                           vitamin_a_red: vitamin_a_red,
                           vitamin_a_blue: vitamin_a_blue,
                           deworming: deworming,
@@ -1078,8 +1095,6 @@ Site.all.each do |site|
                           district: site.district)
   end
 end
-
-
 
 # # def add_ids
 # #   @sites = Site.all

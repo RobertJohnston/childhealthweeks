@@ -17,19 +17,19 @@
         </tr>
       <% @district.sites.each do |site| %>
         <tr>
-            <td><%= link_to site.site_name, [site] %></td>
-            <td><%= site.most_recent_stock_report.vitamin_a_red %></td>
-            <td><%= site.most_recent_stock_report.vitamin_a_blue %></td>
-            <td><%= site.most_recent_stock_report.deworming %></td>
-            <td><%= site.most_recent_stock_report.iron_folate %></td>
+          <th><%= link_to site.site_name, [site] %></th>
+          <td><%= site.most_recent_stock_report.vitamin_a_red %></td>
+          <td><%= site.most_recent_stock_report.vitamin_a_blue %></td>
+          <td><%= site.most_recent_stock_report.deworming %></td>
+          <td><%= site.most_recent_stock_report.iron_folate %></td>
         </tr>
       <% end %>
         <tr>
           <th>District Total </th>
-          <th><%= @district.stock_reports_total(:vitamin_a_red) %></th>
-          <th><%= @district.stock_reports_total(:vitamin_a_blue) %></th>
-          <th><%= @district.stock_reports_total(:deworming) %></th>
-          <th><%= @district.stock_reports_total(:iron_folate) %></th>
+          <td><%= @district.stock_reports_total(:vitamin_a_red) %></td>
+          <td><%= @district.stock_reports_total(:vitamin_a_blue) %></td>
+          <td><%= @district.stock_reports_total(:deworming) %></td>
+          <td><%= @district.stock_reports_total(:iron_folate) %></td>
         </tr>
       </table>
     </div>
@@ -46,7 +46,7 @@
           <th>Iron Folate</th>
         </tr>
       <% @district.sites.each do |site| %>
-        <tr class ="comma_separators">
+        <tr >
             <td><%= link_to site.site_name, [site] %></td>
             <td><%= site.program_reports_total(:vitamin_a_red) %></td>
             <td><%= site.program_reports_total(:vitamin_a_blue) %></td>
@@ -56,10 +56,10 @@
       <% end %>
         <tr>
           <th>District Total </th>
-          <th><%= @district.program_reports_total(:vitamin_a_red) %></th>
-          <th><%= @district.program_reports_total(:vitamin_a_blue) %></th>
-          <th><%= @district.program_reports_total(:deworming) %></th>
-          <th><%= @district.program_reports_total(:iron_folate) %></th>
+          <td><%= @district.program_reports_total(:vitamin_a_red) %></td>
+          <td><%= @district.program_reports_total(:vitamin_a_blue) %></td>
+          <td><%= @district.program_reports_total(:deworming) %></td>
+          <td><%= @district.program_reports_total(:iron_folate) %></td>
         </tr>
       </table>
     </div>
@@ -75,7 +75,6 @@
           <th>Woman Population</th>
           <th>Woman % of Total Population</th>
           <th>Total Population</th>
-
         </tr>
       <% @district.sites.each do |site| %>
         <tr>
@@ -85,16 +84,15 @@
           <td><%= site.most_recent_population_report.woman_population %></td>
           <td><%= site.percent_population(:woman_population) %></td>
           <td><%= site.most_recent_population_report.total_population %></td>
-
         </tr>
       <% end %>
         <tr>
           <th>District Total </th>
-          <th> <%= @district.population_reports_total(:child_population) %></th>
-          <th> District Child Percent </th>
-          <th><%= @district.population_reports_total(:woman_population) %></th>
-          <th> District Woman Percent </th>
-          <th><%= @district.population_reports_total(:total_population) %></th>
+          <td> <%= @district.population_reports_total(:child_population) %></td>
+          <td> District Child Percent </td>
+          <td><%= @district.population_reports_total(:woman_population) %></td>
+          <td> District Woman Percent </td>
+          <td><%= @district.population_reports_total(:total_population) %></td>
         </tr>
       </table>
     </div>
@@ -111,9 +109,9 @@
         </tr>
         <tr>
           <th>Site</th>
-          <th>Child Population (6-11 months)</th>
-          <th>Child Population (12-59 months)</th>
-          <th>Pregnant Women</th>
+          <td>Child Population (6-11 montds)</td>
+          <td>Child Population (12-59 montds)</td>
+          <td>Pregnant Women</td>
         </tr>
       <% @district.sites.each do |site| %>
         <tr>
@@ -125,12 +123,18 @@
       <% end %>
         <tr>
           <th>District Total </th>
-          <th> Vitamin A Red Total </th>
-          <th> Vitamin A Blue & Deworming Total </th>
-          <th> Iron Folate Total </th>
+          <td> Vitamin A Red Total </td>
+          <td> Vitamin A Blue & Deworming Total </td>
+          <td> Iron Folate Total </td>
         </tr>
       </table>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
 
   </div>
 </div>

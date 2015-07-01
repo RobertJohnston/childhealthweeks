@@ -28,14 +28,17 @@ class Site < ActiveRecord::Base
 
   def six_to_11_target_pop
     target_pop = most_recent_population_report.read_attribute(:child_population) * 0.1
+    sprintf('%.0f', target_pop)
   end
 
   def twelve_to_59_target_pop
     target_pop = most_recent_population_report.read_attribute(:child_population) * 0.8
+    sprintf('%.0f', target_pop)
   end
 
   def pregnant_woman_target_pop
     target_pop = most_recent_population_report.read_attribute(:woman_population) * 0.05
+    sprintf('%.0f', target_pop)
   end
 
   def child_coverage(program)

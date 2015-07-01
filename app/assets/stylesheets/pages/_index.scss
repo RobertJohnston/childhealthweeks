@@ -30,7 +30,15 @@ th, td {
 .wide {
   width: 300px;
 }
-
+.report-table tr td {
+  text-align:center;
+}
+.report-table tbody tr:first-child th {
+  text-align:center;
+}
+.report-table tbody tr:first-child th:first-child {
+  text-align:left;
+}
 // where is this styling being used?
 #table {
     border: 2px dashed #444;

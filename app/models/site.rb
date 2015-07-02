@@ -1,6 +1,8 @@
 class Site < ActiveRecord::Base
+  # Here dates of child health week are hard coded.
+  # These need to be entered into the database.
   START_DATE = "2015-06-01".to_date
-  END_DATE = "2015-06-05".to_date
+  END_DATE = "2015-06-06".to_date
 
   belongs_to  :state
   belongs_to  :district
@@ -48,10 +50,11 @@ class Site < ActiveRecord::Base
     child_percent_coverage = program_reports_total(program) / most_recent_population_report(:child_population)
   end
 
-# for this current version of app, we assume that we are on 7th June 2015.
-
-
 # COMPLETE REPORTING
+# for this current version of app, we assume that we are on or after 7th June 2015.
+
+
+
 # if created_at(intervention) is between time 1st June and 6th June
 # if created_at(intervention) is time 1st June and date.now
 # then complete = 100

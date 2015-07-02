@@ -7,33 +7,34 @@
 
     <h3>Complete Stocks Reporting</h3>
 
-    <table>
-      <thead>
-       <tr>
-          <th>Date</th>
-          <td>Vitamin A Blue</td>
-          <td>Vitamin A Red</td>
-        </tr>
-      </thead>
-      <tbody>
-        <% @stock_reports_per_day.each do |date, stock_report| %>
-          <tr>
-            <td><%= date %></td>
-            <td><%= stock_report[:vitamin_a_blue] %>%</td>
-            <td><%= stock_report[:vitamin_a_red] %>%</td>
+    <div id='stock-report-table'>
+      <table>
+        <thead>
+         <tr>
+            <th>Date</th>
+            <td>Vitamin A Blue</td>
+            <td>Vitamin A Red</td>
           </tr>
-        <% end %>
-      </tbody>
-      <tbody>
-        <% @stock_reports_per_day.each do |date, stock_report| %>
-          <tr>
-            <td><%= date %></td>
-            <td><%= stock_report[:vitamin_a_blue] %>%</td>
-            <td><%= stock_report[:vitamin_a_red] %>%</td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @stock_reports_per_day.each do |date, stock_report| %>
+            <tr>
+              <td><%= date %></td>
+              <td><%= stock_report[:vitamin_a_blue] %>%</td>
+              <td><%= stock_report[:vitamin_a_red] %>%</td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tfoot>
+            <tr>
+              <td> Total <%=  %></td>
+              <td>District Average <%= %> </td>
+              <td>District Average <%= %> </td>
+            </tr>
+          <% end %>
+        </tfoot>
+      </table>
+    </div>
 
 
     <p><%#= site.most_recent_stock_report.vitamin_a_blue %></p>

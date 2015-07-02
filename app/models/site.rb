@@ -74,7 +74,9 @@ class Site < ActiveRecord::Base
       current_date_stock_report = stock_reports.find{|s| s.created_at.to_date == date }
       stock_items_complete[date] = {
        vitamin_a_blue: stock_item_complete(current_date_stock_report, :vitamin_a_blue),
-       vitamin_a_red: stock_item_complete(current_date_stock_report, :vitamin_a_red)
+       vitamin_a_red: stock_item_complete(current_date_stock_report, :vitamin_a_red),
+       deworming: stock_item_complete(current_date_stock_report, :deworming),
+       iron_folate: stock_item_complete(current_date_stock_report, :iron_folate_red),
      }
     end
     stock_items_complete

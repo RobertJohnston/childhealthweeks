@@ -5,33 +5,38 @@
 
     <h1> Site Name: <%= @site.site_name %></h1>
 
-    <h3>Complete Stocks Reporting</h3>
+    <h3>Complete Reporting</h3>
 
     <div id='stock-report-table'>
-      <table>
+      <table class='report-table'>
         <thead>
          <tr>
             <th>Date</th>
-            <td>Vitamin A Blue</td>
-            <td>Vitamin A Red</td>
+            <td>Vitamin A Red </td>
+            <td>Vitamin A Blue </td>
+            <td>Deworming </td>
+            <td>Iron Folate </td>
           </tr>
         </thead>
         <tbody>
           <% @stock_reports_per_day.each do |date, stock_report| %>
             <tr>
-              <td><%= date %></td>
-              <td><%= stock_report[:vitamin_a_blue] %>%</td>
-              <td><%= stock_report[:vitamin_a_red] %>%</td>
+              <th><%= date.strftime("%d/%m/%Y") %></th>
+              <td><%= stock_report[:vitamin_a_red ] %>% </td>
+              <td><%= stock_report[:vitamin_a_blue] %>% </td>
+              <td><%= stock_report[:deworming] %>% </td>
+              <td><%= stock_report[:iron_folate] %>% </td>
             </tr>
           <% end %>
         </tbody>
         <tfoot>
             <tr>
-              <td> Total <%=  %></td>
-              <td>District Average <%= %> </td>
-              <td>District Average <%= %> </td>
+              <th> District Average <%=  %></th>
+              <td> <%= %> percent</td>
+              <td> <%= %> percent</td>
+              <td> <%= %> percent</td>
+              <td> <%= %> percent</td>
             </tr>
-          <% end %>
         </tfoot>
       </table>
     </div>

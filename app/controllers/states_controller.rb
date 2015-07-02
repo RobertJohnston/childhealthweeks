@@ -1,7 +1,7 @@
 class StatesController < ApplicationController
 
   def index
-    @states = State.all
+    @states = State.includes(:sites).all
   end
 
   def show

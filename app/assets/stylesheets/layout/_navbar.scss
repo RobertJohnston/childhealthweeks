@@ -9,7 +9,7 @@ $navbar-text-transform: capitalize;
 $navbar-font-weight: 300;
 $navbar-letter-spacing: 1.5px;
 $navbar-font-family: $navbar-font;
-$navbar-bg: #0000FF;
+$navbar-bg: #40BCEC;
 
 /* -------------------------------------
  * Box model
@@ -94,8 +94,12 @@ $navbar-profile-border-width: 2px;
     }
   }
 
+  .navbar-nav > li > button.btn {
+    margin-top: 8px;
+  }
+
   .navbar-brand img, .navbar-brand svg {
-    height: $navbar-height;
+    height: 39px;
     padding: 0px;
   }
 

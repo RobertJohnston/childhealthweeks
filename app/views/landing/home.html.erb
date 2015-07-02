@@ -1,15 +1,14 @@
 
   <!-- Force container below navbars -->
 
+<div class="home-bg">
   <div class="container home push_page_below_header">
-    <h1>Child Health Weeks</h1>
-    <h4>Real-time monitoring for effective and timely delivery public health interventions at national scale </h4>
     <div class="row">
-      <div class="col-sm-8" style="background-color:white;">
-        <%= image_tag "vas-02.jpg", class: "img-responsive" %>
-
+      <div class="col-xs-12 col-sm-6 home-catch-phrase">
+        <h1>Child Health Weeks</h1>
+        <p>Real-time monitoring for effective and timely delivery public health interventions at national scale </p>
       </div>
-      <div class="col-sm-4" >
+      <div class="hidden-xs col-sm-4 col-sm-offset-2 home-details">
         <p>Child Health Weeks were introduced as a health-promoting strategy as an innovative way of delivering a package free to all eligible children and their mothers.</p><br>
         <p>Reaching even the most under-served areas and targeting every child in a community, Child Health Days deliver cost-effective healthcare. </p><br>
         <p>As a ‘one stop shop’, children receive vitamin A supplements to boost immunity and prevent blindness; de-worming tablets to treat parasitic infections and the iron-deficiency anemia they can cause.
@@ -17,61 +16,63 @@
       </div>
     </div>
   </div>
+</div>
 
-  <!--   <div class="blue-bg padded"-->
-      <!-- Example of pure grid code without content -->
-    <div class="gray-bg" style="background-color: #19191a;">
-      <div class="container text-center" id="features">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card">
-              <!-- image_tag "paper.svg" -->
-              <h2><%= link_to "", "population_reports_path" %></h2>
 
-              <!-- <p>text</p> -->
-            </div>
-          </div>
+<!--   <div class="blue-bg padded"-->
+    <!-- Example of pure grid code without content -->
+  <div class="gray-bg" style="background-color: #19191a;">
+    <div class="container text-center" id="features">
+      <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card">
-            <!-- <img src="analytics.svg"> -->
-            <h2><%= link_to("Reports", states_path) %></h2>
-            <!-- link_to(s.state_name, state_path(s)) -->
+            <!-- image_tag "paper.svg" -->
+            <h2><%= link_to "", "population_reports_path" %></h2>
+
             <!-- <p>text</p> -->
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card">
-            <!-- <img src="data.svg"> -->
-            <h2><%= link_to "", "program_reports_path" %></h2>
-            <!-- <p>text</p> -->
-          </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card">
+          <!-- <img src="analytics.svg"> -->
+          <h2><%= link_to("Reports", states_path) %></h2>
+          <!-- link_to(s.state_name, state_path(s)) -->
+          <!-- <p>text</p> -->
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card">
+          <!-- <img src="data.svg"> -->
+          <h2><%= link_to "", "program_reports_path" %></h2>
+          <!-- <p>text</p> -->
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Map -->
-      <div id="map" style="width: 100%; height: 650px;"></div>
+  <!-- Map -->
+  <div id="map" style="width: 100%; height: 650px;"></div>
 
-      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
-      <script type="text/javascript">
-      var myLatlng = new google.maps.LatLng(-3.1753007,29.8553828);
+  <script type="text/javascript">
+  var myLatlng = new google.maps.LatLng(-3.1753007,29.8553828);
 
-      var myOptions = {
-        zoom: 9,
-        center: myLatlng,
-        scrollwheel: false,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [] // TODO: replace [] by array from https://snazzymaps.com/
-      };
+  var myOptions = {
+    zoom: 9,
+    center: myLatlng,
+    scrollwheel: false,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: [] // TODO: replace [] by array from https://snazzymaps.com/
+  };
 
-      var map = new google.maps.Map(document.getElementById('map'), myOptions);
-      var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title: "You are here!"
-      });
-      </script>
+  var map = new google.maps.Map(document.getElementById('map'), myOptions);
+  var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title: "Pop-over"
+  });
+  </script>
 
 <!-- Footer added in through template -->
 <!-- Licensed under the Creative Commons Attribution Non-Commercial License unless otherwise noted.  -->

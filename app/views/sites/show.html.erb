@@ -22,20 +22,20 @@
           <% @stock_reports_per_day.each do |date, stock_report| %>
             <tr>
               <th><%= date.strftime("%d/%m/%Y") %></th>
-              <td><%= stock_report[:vitamin_a_red ] %>% </td>
-              <td><%= stock_report[:vitamin_a_blue] %>% </td>
-              <td><%= stock_report[:deworming] %>% </td>
-              <td><%= stock_report[:iron_folate] %>% </td>
+              <td><%= stock_report[:vitamin_a_red ] %> % </td>
+              <td><%= stock_report[:vitamin_a_blue] %> % </td>
+              <td><%= stock_report[:deworming] %> % </td>
+              <td><%= stock_report[:iron_folate] %> % </td>
             </tr>
           <% end %>
         </tbody>
         <tfoot>
             <tr>
-              <th> District Average <%=  %></th>
-              <td> <%= %> percent</td>
-              <td> <%= %> percent</td>
-              <td> <%= %> percent</td>
-              <td> <%= %> percent</td>
+              <th> Site Overall </th>
+              <td> <%= @vit_red %> %</td>
+              <td> <%= @vit_blue %> %</td>
+              <td> <%= @deworm %> %</td>
+              <td> <%= @iron %> %</td>
             </tr>
         </tfoot>
       </table>

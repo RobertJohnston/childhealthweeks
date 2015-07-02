@@ -20,3 +20,22 @@ body {
   // background: #5470c0;    light blue
 
 
+.home {
+  &-bg {
+    background-image: image-url("vas-02.jpg");
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: white;
+  }
+  &-catch-phrase {
+    p {
+      font-size: 25px;
+      font-weight: 300;
+    }
+  }
+  &-details {
+    margin-top: 40px;
+  }
+}
+

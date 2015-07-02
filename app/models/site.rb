@@ -82,6 +82,9 @@ class Site < ActiveRecord::Base
     stock_items_complete
   end
 
+# District level averages
+# stock_report.inject(0.0) { |sum, :vitamin_a_red | sum + :vitamin_a_red } / stock_report.size
+
   def stock_reports_between_dates(start_date, end_date)
     stock_reports.where("created_at >= ? AND created_at <= ?", start_date, end_date)
   end
@@ -92,6 +95,14 @@ class Site < ActiveRecord::Base
     else
       0
     end
+  end
+
+  def average_score(stock)
+    res = 0
+    stock_reports_per_day.values.each do |hash|
+      res += hash[stock]
+    end
+    res / stock_reports_per_day.values.size
   end
 
 

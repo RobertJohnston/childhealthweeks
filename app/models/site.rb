@@ -2,7 +2,7 @@ class Site < ActiveRecord::Base
   # Here dates of child health week are hard coded.
   # These need to be entered into the database.
   START_DATE = "2015-06-01".to_date
-  END_DATE = "2015-06-06".to_date
+  END_DATE = "2015-06-05".to_date
 
   belongs_to  :state
   belongs_to  :district
@@ -97,6 +97,7 @@ class Site < ActiveRecord::Base
     end
   end
 
+  # correct name of method
   def average_score(stock)
     res = 0
     stock_reports_per_day.values.each do |hash|
@@ -105,14 +106,11 @@ class Site < ActiveRecord::Base
     res / stock_reports_per_day.values.size
   end
 
+  #  hash  [{"2012-02-15" => 35"}, {"2012-02-22" => 22"}, {"2012-02-28" => 90"}]
+  #  Hash[myhash.map { |k,v| [k, v.map(&:last).inject(:+) / v.size] }]
+  # => {"2011-02-15"=>35, "2011-02-22"=>22, "2011-02-28"=>90}
 
-
-
-#       program_reports.vitamin_a_blue.exists? ? vitamin_a_blue_complete = 100 : vitamin_a_blue_complete = 0
-#       program_reports.deworming.exists? ? deworming_complete = 100 : deworming_complete = 0
-#       program_reports.iron_folate.exists? ? iron_folate_complete = 100 : iron_folate_complete = 0
-
-
+  # Hash[myhash.map{ |date, list| [date, list.sum(&:last)/list.size] }]
 
 
 
@@ -127,20 +125,18 @@ class Site < ActiveRecord::Base
   #   end
   # end
 
+  # TIMELY REPORTING
+  # a report is expected on the day immediately following the activity date.
+  # activities on 5th June should be reported on 6th June.
+  # if created_at (date) < report_date (+1 day) then timely = true
 
+  # STOCK OUTS
+  # if most_recent_stock_report(stock) <= 0 then stock_out = true
 
-# TIMELY REPORTING
-# a report is expected on the day immediately following the activity date.
-# activities on 5th June should be reported on 6th June.
-# if created_at (date) < report_date (+1 day) then timely = true
+  # ADEQUATE STOCK
+  # if target_population(intervention) - program(intervention) < most_recent_stock_report(stock) then stock_adequate = true
 
-# STOCK OUTS
-# if most_recent_stock_report(stock) <= 0 then stock_out = true
-
-# ADEQUATE STOCK
-# if target_population(intervention) - program(intervention) < most_recent_stock_report(stock) then stock_adequate = true
-
-# COVERAGE
-# program(intervention) / target_population(intervention)
+  # COVERAGE
+  # program(intervention) / target_population(intervention)
 
 end

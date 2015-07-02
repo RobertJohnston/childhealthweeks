@@ -1,4 +1,7 @@
 class Site < ActiveRecord::Base
+  START_DATE = "2015-06-01".to_date
+  END_DATE = "2015-06-05".to_date
+
   belongs_to  :state
   belongs_to  :district
   has_many :users
@@ -59,24 +62,31 @@ class Site < ActiveRecord::Base
 #self.program_reports.where(:report_date => start_date..Datetime.now).each do |report|
 # If no report is sent, then there will be no report date.
 
-  # PROGRAM REPORTS
-  def calculate_program_complete
+  # STOCKS REPORTS
 
-    start_date = Date.now
-    end_date = start_date + 6
+  def stock_reports_per_day
+    stock_items_complete = {}
+    stock_reports = stock_reports_between_dates(START_DATE, END_DATE)
+    (START_DATE..END_DATE).each do |date|
+      current_date_stock_report = stock_reports.find{|s| s.created_at.to_date == date }
+      stock_items_complete[date] = {
+       vitamin_a_blue: stock_item_complete(current_date_stock_report, :vitamin_a_blue),
+       vitamin_a_red: stock_item_complete(current_date_stock_report, :vitamin_a_red)
+     }
+    end
+    stock_items_complete
+  end
 
-    vitamin_a_red_complete = 1
+  def stock_reports_between_dates(start_date, end_date)
+    stock_reports.where("created_at >= ? AND created_at <= ?", start_date, end_date)
+  end
 
-    # (start_date..end_date).each do |date|
-    #   # loop 5 times -> 5 reports
-
-    #   if program_reports.report_date == date
-    #     if program_reports.vitamin_a_red.exists?
-    #       vitamin_a_red_complete = 100
-    #     end
-    #   end
-    # end
-    vitamin_a_red_complete
+  def stock_item_complete(stock_report, stock_item)
+    if stock_report.present? && stock_report.read_attribute(stock_item).present?
+      100
+    else
+      0
+    end
   end
 
 
@@ -85,18 +95,9 @@ class Site < ActiveRecord::Base
 #       program_reports.vitamin_a_blue.exists? ? vitamin_a_blue_complete = 100 : vitamin_a_blue_complete = 0
 #       program_reports.deworming.exists? ? deworming_complete = 100 : deworming_complete = 0
 #       program_reports.iron_folate.exists? ? iron_folate_complete = 100 : iron_folate_complete = 0
-#     end
-#   end
 
 
-# (start_date..end_date).each do |date|
-#   puts date.program_reports.vitamin_a_red.exists?
-# end
 
-
-# (Date.new(2012, 01, 01)..Date.new(2012, 01, 30)).each do |date|
-#   puts date
-# end
 
 
   # STOCK REPORTS

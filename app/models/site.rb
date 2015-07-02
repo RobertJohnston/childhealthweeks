@@ -53,20 +53,15 @@ class Site < ActiveRecord::Base
 # COMPLETE REPORTING
 # for this current version of app, we assume that we are on or after 7th June 2015.
 
-
-
 # if created_at(intervention) is between time 1st June and 6th June
-# if created_at(intervention) is time 1st June and date.now
 # then complete = 100
 # date1 = "2012-01-01".to_date
 # @dates = (Date.today..Date.today + 60.days)
-
 
 #self.program_reports.where(:report_date => start_date..Datetime.now).each do |report|
 # If no report is sent, then there will be no report date.
 
   # STOCKS REPORTS
-
   def stock_reports_per_day
     stock_items_complete = {}
     stock_reports = stock_reports_between_dates(START_DATE, END_DATE)
@@ -82,9 +77,6 @@ class Site < ActiveRecord::Base
     stock_items_complete
   end
 
-# District level averages
-# stock_report.inject(0.0) { |sum, :vitamin_a_red | sum + :vitamin_a_red } / stock_report.size
-
   def stock_reports_between_dates(start_date, end_date)
     stock_reports.where("created_at >= ? AND created_at <= ?", start_date, end_date)
   end
@@ -97,8 +89,8 @@ class Site < ActiveRecord::Base
     end
   end
 
-  # correct name of method
-  def average_score(stock)
+  # average on site, district and state
+  def average_complete_reporting(stock)
     res = 0
     stock_reports_per_day.values.each do |hash|
       res += hash[stock]
@@ -106,24 +98,15 @@ class Site < ActiveRecord::Base
     res / stock_reports_per_day.values.size
   end
 
+  # District level averages
+  # stock_report.inject(0.0) { |sum, :vitamin_a_red | sum + :vitamin_a_red } / stock_report.size
+
   #  hash  [{"2012-02-15" => 35"}, {"2012-02-22" => 22"}, {"2012-02-28" => 90"}]
   #  Hash[myhash.map { |k,v| [k, v.map(&:last).inject(:+) / v.size] }]
   # => {"2011-02-15"=>35, "2011-02-22"=>22, "2011-02-28"=>90}
 
   # Hash[myhash.map{ |date, list| [date, list.sum(&:last)/list.size] }]
 
-
-
-  # STOCK REPORTS
-  # def calculate_program_complete
-  #   self.stock_reports.where(:report_date => start_date..Datetime.now).each do |report|
-  #     # loop 5 times -> 5 reports
-  #     report.vitamin_a_red.exists? ? vitamin_a_red_complete = 100 : vitamin_a_red_complete = 0
-  #     report.vitamin_a_blue.exists? ? vitamin_a_blue_complete = 100 : vitamin_a_blue_complete = 0
-  #     report.deworming.exists? ? deworming_complete = 100 : deworming_complete = 0
-  #     report.iron_folate.exists? ? iron_folate_complete = 100 : iron_folate_complete = 0
-  #   end
-  # end
 
   # TIMELY REPORTING
   # a report is expected on the day immediately following the activity date.

@@ -26,8 +26,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'simple_form'
-# Gems for use of HEROKU for deployment
 
+gem 'geocoder'
+gem 'gmaps4rails'
+
+# Gems for use of HEROKU for deployment
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 

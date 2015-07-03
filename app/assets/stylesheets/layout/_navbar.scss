@@ -53,6 +53,13 @@ $navbar-profile-border-width: 2px;
   min-height: 0;
   transition: background 0.2s ease;
 
+  .navbar-box {
+    width: 300px;
+    height: 100px;
+    border: 1px solid blue;
+    box-sizing: border-box;
+}
+
   .navbar-nav > li > a,
   .navbar-nav > .open > a,
   .navbar-nav > li > a:focus,

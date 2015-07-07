@@ -1,4 +1,5 @@
 class Site < ActiveRecord::Base
+
   # Here dates of child health week are hard coded.
   # These need to be entered into the database.
   START_DATE = "2015-06-01".to_date

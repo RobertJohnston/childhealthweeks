@@ -51,19 +51,26 @@
 
 <!-- gmap4rails map -->
 <div>
-  <div id="map"  style='width: 100%; height: 650px;'></div>
+  <div id="map"  style='width: 100%; height: 850px;'></div>
 </div>
+
+  <script>
+    var mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#1f242f"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"hue":"#ff9d00"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#fef8ef"}]},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#c9d142"},{"lightness":"0"},{"visibility":"on"},{"weight":"1"},{"gamma":"1.98"}]},{"featureType":"road","elementType":"geometry","stylers":[{"weight":"1.00"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#d7b19c"},{"weight":"1"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"weight":"4.03"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"},{"color":"#ffed00"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"transit.line","elementType":"geometry.fill","stylers":[{"color":"#cbcbcb"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#0b727f"}]}];
+  </script>
+
+  <!-- add mapStyle to map -->
 
   <script type="text/javascript">
     $(document).on('ready', function() {
       handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      handler.buildMap({
+        provider: {},
+        internal: {id: 'map'}}, function(){
         markers = handler.addMarkers(<%=raw @gps_hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
       });
     })
   </script>
-
 
 

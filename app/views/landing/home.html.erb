@@ -64,7 +64,8 @@
     $(document).on('ready', function() {
       handler = Gmaps.build('Google');
       handler.buildMap({
-        provider: {},
+        provider: {mapTypeId: google.maps.MapTypeId.ROADMAP,
+          styles: mapStyle},
         internal: {id: 'map'}}, function(){
         markers = handler.addMarkers(<%=raw @gps_hash.to_json %>);
         handler.bounds.extendWith(markers);

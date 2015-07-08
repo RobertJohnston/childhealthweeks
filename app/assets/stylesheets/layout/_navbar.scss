@@ -57,14 +57,19 @@ $navbar-profile-border-width: 2px;
     width: 500px;
     border: 1px solid blue;
     box-sizing: border-box;
-}
+  }
   h1 {
-    width: 500px;
-    margin-top: 11px;
-    margin-left: 15px;
+    width: 475px;
+    margin-top: 6px;
+    margin-bottom: 6px;
     color: white;
-}
-
+  }
+  @media screen and (max-width: 568px) {
+    h1 {
+      font-size: 28px;
+      margin-top: 10px;
+    }
+  }
   .navbar-nav > li > a,
   .navbar-nav > .open > a,
   .navbar-nav > li > a:focus,

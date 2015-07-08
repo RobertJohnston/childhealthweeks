@@ -26,3 +26,11 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+   <div class="hidden-xs col-sm-4 home-details">
+      <p>Child Health Weeks are an important health-promoting strategy to deliver a package free to all eligible children and their mothers.</p><br>
+      <p>Reaching even the most under-served areas and targeting every child in a community, Child Health Days deliver cost-effective healthcare. </p><br>
+      <p>As a ‘one stop shop’, children receive vitamin A supplements to boost immunity and prevent blindness; de-worming tablets to treat parasitic infections and the iron-deficiency anemia they can cause.
+      </p><br>
+    </div>

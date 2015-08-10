@@ -40,6 +40,16 @@ th, td {
   text-align:left;
 }
 
+.report-buttons {
+    margin-top: 30px;
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+// attempted to put report buttons inline
+// .report-buttons ul{margin:0;padding:0}
+// .report-buttons ul li{list-style-type:none;display:inline;padding:0}
+
 // where is this styling being used?
 // #table {
 //     border: 2px dashed #444;

@@ -15,7 +15,7 @@
           <a class="navbar-brand" href="/">
             <%= image_tag "CPH.png", id:'logo' %>
           </a>
-          <div id = "navbar-box">
+          <div id = "navbar-box" >
             <h1>Child Health Weeks</h1>
           </div>
       </div>
@@ -32,8 +32,8 @@
           <li>
              <button>
                 <a class="btn btn-primary" href="/" >Home</a>
-                <%= link_to "Management Dashboard", "/sites/796" %>
-                <%# http://localhost:3000/sites/796 %>
+                <a class="btn btn-primary" href="/states" >Reports</a>
+                <a class="btn btn-primary" href="/sites/796" >Management Dashboard</a>
               </button>
           </li>
           <li>
@@ -52,9 +52,9 @@
   $(document).ready(function(){
     $('#stock-activate').click(function(){
       console.log('Fuck')
+      // Nice addition from Tomas //
       $('#stock-report-table').hide();
     })
-
 
   });
 

@@ -125,7 +125,27 @@
     </div>
     <br>
 
-    <h4>Coverage</h4>
+    <h4>Estimated Coverage</h4>
+    <div id="population-report-table">
+      <table class="report-table">
+        <col span="1" class="wide">
+        <tr>
+          <th>Site</th>
+          <th>Vitamin A Red (Coverage)</th>
+          <th>Vitamin A Blue (Coverage)</th>
+          <th>Deworming (Coverage) </th>
+          <th>Iron Folate (Coverage) </th>
+        </tr>
+
+        <tr>
+          <th><%= @site.site_name %></th>
+          <td><%= @total_program_report_vit_red %></td>
+          <td><%= @total_program_report_vit_blue %></td>
+          <td><%= @total_program_report_deworm %></td>
+          <td><%= @total_program_report_iron %></td>
+        </tr>
+      </table>
+    </div>
 
     <br>
 

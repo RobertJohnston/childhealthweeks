@@ -48,11 +48,12 @@
 
 <!-- gmap4rails map -->
 <div>
-  <div id="map"  style='width: 100%; height: 850px;'></div>
+  <div id="map" style='width: 100%; height: 850px;'></div>
 </div>
 
   <script>
-    var mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#1f242f"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"hue":"#ff9d00"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#fef8ef"}]},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#c9d142"},{"lightness":"0"},{"visibility":"on"},{"weight":"1"},{"gamma":"1.98"}]},{"featureType":"road","elementType":"geometry","stylers":[{"weight":"1.00"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#d7b19c"},{"weight":"1"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"weight":"4.03"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"},{"color":"#ffed00"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"transit.line","elementType":"geometry.fill","stylers":[{"color":"#cbcbcb"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#0b727f"}]}];
+  // Snazzymaps //
+    var mapStyle = [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}];
   </script>
 
   <!-- add mapStyle to map -->

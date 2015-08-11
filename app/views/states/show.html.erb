@@ -23,7 +23,7 @@
 
     <div id="stock-report-table">
       <table class="report-table">
-      <h3> State Stock Report </h3>
+      <h3>Stocks</h3>
       <col span="1" class="wide">
         <tr>
           <th>District</th>
@@ -44,18 +44,17 @@
         <% end %>
         <tr>
           <th>District Total </th>
-          <td><%= @state.stock_reports_total(:vitamin_a_red) %></td>
-          <td><%= @state.stock_reports_total(:vitamin_a_blue) %></td>
-          <td><%= @state.stock_reports_total(:deworming) %></td>
-          <td><%= @state.stock_reports_total(:iron_folate) %></td>
+            <td><%= @state.stock_reports_total(:vitamin_a_red) %></td>
+            <td><%= @state.stock_reports_total(:vitamin_a_blue) %></td>
+            <td><%= @state.stock_reports_total(:deworming) %></td>
+            <td><%= @state.stock_reports_total(:iron_folate) %></td>
         </tr>
       </table>
-
     </div>
 
-    <div class="table">
-      <table id='program-report-table'>
-      <h3> State Program Report </h3>
+    <div id="program-report-table">
+      <table class="report-table">
+      <h3> Program </h3>
       <col span="1" class="wide">
         <tr>
           <th>District</th>
@@ -75,19 +74,19 @@
         <% end %>
         <tr>
           <th>District Total </th>
-          <th><%= @state.program_reports_total(:vitamin_a_red) %></th>
-          <th><%= @state.program_reports_total(:vitamin_a_blue) %></th>
-          <th><%= @state.program_reports_total(:deworming) %></th>
-          <th><%= @state.program_reports_total(:iron_folate) %></th>
+            <td><%= @state.program_reports_total(:vitamin_a_red) %></td>
+            <td><%= @state.program_reports_total(:vitamin_a_blue) %></td>
+            <td><%= @state.program_reports_total(:deworming) %></td>
+            <td><%= @state.program_reports_total(:iron_folate) %></td>
         </tr>
       </table>
 
       <br>
     </div>
 
-    <div class="table">
-      <table id='population-report-table'>
-      <h3> State Population Report </h3>
+    <div id="population-report-table">
+      <table class="report-table">
+      <h3> Population </h3>
       <col span="1" class="wide">
         <tr>
           <th>District</th>
@@ -105,9 +104,9 @@
         <% end %>
         <tr>
           <th>District Total </th>
-          <th><%= @state.population_reports_total(:child_population) %></td>
-          <th><%= @state.population_reports_total(:woman_population) %></td>
-          <th><%= @state.population_reports_total(:total_population) %></td>
+            <td><%= @state.population_reports_total(:child_population) %></td>
+            <td><%= @state.population_reports_total(:woman_population) %></td>
+            <td><%= @state.population_reports_total(:total_population) %></td>
         </tr>
       </table>
     </div>

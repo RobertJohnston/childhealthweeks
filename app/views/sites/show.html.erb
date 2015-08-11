@@ -9,15 +9,15 @@
     <div id='stock-report-table'>
       <table class='report-table'>
       <col span="1" class="wide">
-        <thead>
+
          <tr>
             <th>Date</th>
-            <th>Vitamin A Red (Units)</th>
-            <th>Vitamin A Blue (Units)</th>
-            <th>Deworming (Units) </th>
-            <th>Iron Folate (Units) </th>
+            <th>Vitamin A Red</th>
+            <th>Vitamin A Blue</th>
+            <th>Deworming </th>
+            <th>Iron Folate </th>
           </tr>
-        </thead>
+
         <tbody>
           <% @stock_reports_per_day.each do |date, stock_report| %>
             <tr>
@@ -48,10 +48,10 @@
         <col span="1" class="wide">
         <tr>
           <th>Site</th>
-          <th>Vitamin A Red</th>
-          <th>Vitamin A Blue</th>
-          <th>Deworming </th>
-          <th>Iron Folate </th>
+          <th>Vitamin A Red (Units)</th>
+          <th>Vitamin A Blue (Units)</th>
+          <th>Deworming (Units) </th>
+          <th>Iron Folate (Units) </th>
         </tr>
 
         <tr>
@@ -70,7 +70,6 @@
     <div id='program-report-table'>
       <table class='report-table'>
         <col span="1" class="wide">
-        <thead>
          <tr>
             <th>Date</th>
             <th>Vitamin A Red (Delivered)</th>
@@ -78,25 +77,24 @@
             <th>Deworming (Delivered)</th>
             <th>Iron Folate (Delivered)</th>
           </tr>
-        </thead>
         <tbody>
-          <% @stock_reports_per_day.each do |date, stock_report| %>
+          <% @program_reports_per_day.each do |date, program_report| %>
             <tr>
               <th><%= date.strftime("%d/%m/%Y") %></th>
-              <td><%= stock_report[:vitamin_a_red ] %> % </td>
-              <td><%= stock_report[:vitamin_a_blue] %> % </td>
-              <td><%= stock_report[:deworming] %> % </td>
-              <td><%= stock_report[:iron_folate] %> % </td>
+              <td><%= program_report[:vitamin_a_red ] %> % </td>
+              <td><%= program_report[:vitamin_a_blue] %> % </td>
+              <td><%= program_report[:deworming] %> % </td>
+              <td><%= program_report[:iron_folate] %> % </td>
             </tr>
           <% end %>
         </tbody>
         <tfoot>
             <tr>
               <th> Site Overall </th>
-              <td> <%= @stock_comp_rep_vit_red %> %</td>
-              <td> <%= @stock_comp_rep_vit_blue %> %</td>
-              <td> <%= @stock_comp_rep_deworm %> %</td>
-              <td> <%= @stock_comp_rep_iron %> %</td>
+              <td> <%= @program_comp_rep_vit_red %> %</td>
+              <td> <%= @program_comp_rep_vit_blue %> %</td>
+              <td> <%= @program_comp_rep_deworm %> %</td>
+              <td> <%= @program_comp_rep_iron %> %</td>
             </tr>
         </tfoot>
       </table>
@@ -104,8 +102,32 @@
     <br>
 
     <h4>Program Delivery</h4>
+    <div id="program-report-table">
+      <table class="report-table">
+        <col span="1" class="wide">
+        <tr>
+          <th>Site</th>
+          <th>Vitamin A Red (Delivered)</th>
+          <th>Vitamin A Blue (Delivered)</th>
+          <th>Deworming (Delivered) </th>
+          <th>Iron Folate (Delivered) </th>
+        </tr>
+
+        <tr>
+          <th><%= @site.site_name %></th>
+          <td><%= @total_program_report_vit_red %></td>
+          <td><%= @total_program_report_vit_blue %></td>
+          <td><%= @total_program_report_deworm %></td>
+          <td><%= @total_program_report_iron %></td>
+        </tr>
+
+      </table>
+    </div>
+    <br>
 
     <h4>Coverage</h4>
+
+    <br>
 
     <h4>Site Information</h4>
 

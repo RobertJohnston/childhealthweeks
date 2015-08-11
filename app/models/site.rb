@@ -18,7 +18,7 @@ class Site < ActiveRecord::Base
     stock_reports.order(:created_at).last
   end
 
-  def program_reports_total(program)
+  def total_program_report(program)
     program_reports.sum(program)
   end
 
@@ -135,6 +135,13 @@ class Site < ActiveRecord::Base
     end
     res / program_reports_per_day.values.size
   end
+
+  # Program data - cumulative number of units delivered by date
+  def total_program_report(program)
+    program_reports.sum(program)
+  end
+
+
 
   # District level averages
   # stock_report.inject(0.0) { |sum, :vitamin_a_red | sum + :vitamin_a_red } / stock_report.size

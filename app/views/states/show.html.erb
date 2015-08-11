@@ -2,20 +2,37 @@
 
 <div class="container push_page_below_header">
   <div class="row">
-    <h1><%= @state.state_name %> State Report</h1>
+
+    <div id="report-buttons">
+    <!-- should make in partial to add to index and show pages -->
+      <ul class="navbar-buttons list-inline" style="margin-top: 10px" >
+        <li>
+           <button id='stock-activate' class="btn btn-info">Stocks</button>
+        </li>
+        <li>
+          <button id='program-activate' class="btn btn-info">Program</button>
+        </li>
+        <li>
+          <button id='pop-activate' class="btn btn-info">Population</button>
+        </li>
+      </ul>
+    </div>
+
+    <h1><%= @state.state_name %> Province Report</h1>
 
 
-    <div class="table">
-      <table id='stock-report-table'>
+    <div id="stock-report-table">
+      <table class="report-table">
       <h3> State Stock Report </h3>
       <col span="1" class="wide">
         <tr>
           <th>District</th>
-          <th>Vitamin A Red</th>
-          <th>Vitamin A Blue</th>
-          <th>Deworming</th>
-          <th>Iron Folate</th>
+          <th>Vitamin A Red (Units)</th>
+          <th>Vitamin A Blue (Units)</th>
+          <th>Deworming (Units)</th>
+          <th>Iron Folate (Units)</th>
         </tr>
+
         <% @state.districts.each do |district| %>
         <tr>
           <th><%= link_to district.district_name, [@state, district] %> </th>
@@ -27,10 +44,10 @@
         <% end %>
         <tr>
           <th>District Total </th>
-          <th><%= @state.stock_reports_total(:vitamin_a_red) %></th>
-          <th><%= @state.stock_reports_total(:vitamin_a_blue) %></th>
-          <th><%= @state.stock_reports_total(:deworming) %></th>
-          <th><%= @state.stock_reports_total(:iron_folate) %></th>
+          <td><%= @state.stock_reports_total(:vitamin_a_red) %></td>
+          <td><%= @state.stock_reports_total(:vitamin_a_blue) %></td>
+          <td><%= @state.stock_reports_total(:deworming) %></td>
+          <td><%= @state.stock_reports_total(:iron_folate) %></td>
         </tr>
       </table>
 
@@ -42,10 +59,10 @@
       <col span="1" class="wide">
         <tr>
           <th>District</th>
-          <th>Vitamin A Red</th>
-          <th>Vitamin A Blue</th>
-          <th>Deworming</th>
-          <th>Iron Folate</th>
+          <th>Vitamin A Red (Delivered)</th>
+          <th>Vitamin A Blue (Delivered)</th>
+          <th>Deworming (Delivered)</th>
+          <th>Iron Folate (Delivered)</th>
         </tr>
         <% @state.districts.each do |district| %>
         <tr>
@@ -74,9 +91,9 @@
       <col span="1" class="wide">
         <tr>
           <th>District</th>
-          <th>Child Population</th>
-          <th>Woman Population</th>
-          <th>Total Population</th>
+          <th>Children (0-59 months)</th>
+          <th>Women (15-49 years)</th>
+          <th>Total population</th>
         </tr>
         <% @state.districts.each do |district| %>
         <tr>
@@ -97,26 +114,26 @@
   </div>
 </div>
 
-// <script>
+ <script>
 
-//   $(document).ready(function(){
-//     $('#stock-activate').click(function(){
-//       $('#stock-report-table').show();
-//       $('#program-report-table').hide();
-//       $('#population-report-table').hide();
-//     });
+   $(document).ready(function(){
+     $('#stock-activate').click(function(){
+       $('#stock-report-table').show();
+       $('#program-report-table').hide();
+       $('#population-report-table').hide();
+     });
 
-//     $('#program-activate').click(function(){
-//       $('#stock-report-table').hide();
-//       $('#program-report-table').show();
-//       $('#population-report-table').hide();
-//     });
+     $('#program-activate').click(function(){
+       $('#stock-report-table').hide();
+       $('#program-report-table').show();
+       $('#population-report-table').hide();
+     });
 
-//     $('#pop-activate').click(function(){
-//       $('#stock-report-table').hide();
-//       $('#program-report-table').hide();
-//       $('#population-report-table').show();
-//     });
-//   });
+     $('#pop-activate').click(function(){
+       $('#stock-report-table').hide();
+       $('#program-report-table').hide();
+       $('#population-report-table').show();
+     });
+   });
 
-// </script>
+ </script>

@@ -2,11 +2,12 @@
 <!-- SHOWS ALL STATES OF COUNTRY -->
 <div class="container push_page_below_header">
   <div class="row">
+
     <div id="report-buttons">
-  <!-- should make in partial to add to index and show pages -->
+    <!-- should make in partial to add to index and show pages -->
       <ul class="navbar-buttons list-inline" style="margin-top: 10px" >
         <li>
-           <button id='stock-activate' class="btn btn-info">Stock</button>
+           <button id='stock-activate' class="btn btn-info">Stocks</button>
         </li>
         <li>
           <button id='program-activate' class="btn btn-info">Program</button>
@@ -25,12 +26,13 @@
         <col span="1" class="wide">
 
         <tr>
-          <th>State</th>
-          <th>Vitamin A Red</th>
-          <th>Vitamin A Blue</th>
-          <th>Deworming</th>
-          <th>Iron Folate</th>
+          <th>Province</th>
+          <th>Vitamin A Red (Units)</th>
+          <th>Vitamin A Blue (Units)</th>
+          <th>Deworming (Units)</th>
+          <th>Iron Folate (Units)</th>
         </tr>
+
         <% @states.each do |state| %>
         <tr>
           <th><%= link_to state.state_name, [state]  %> </th>
@@ -58,11 +60,11 @@
         <h3> Program </h3>
         <col span="1" class="wide">
         <tr>
-          <th>State Program</th>
-          <th>Vitamin A Red</th>
-          <th>Vitamin A Blue</th>
-          <th>Deworming</th>
-          <th>Iron Folate</th>
+          <th>Province</th>
+          <th>Vitamin A Red (Delivered)</th>
+          <th>Vitamin A Blue (Delivered)</th>
+          <th>Deworming (Delivered)</th>
+          <th>Iron Folate (Delivered)</th>
         </tr>
         <% @states.each do |state| %>
         <tr>
@@ -89,9 +91,9 @@
         <h3> Population </h3>
         <col span="1" class="wide">
         <tr>
-          <th>State</th>
-          <th>Children</th>
-          <th>Women</th>
+          <th>Province</th>
+          <th>Children (0-59 months)</th>
+          <th>Women (15-49 years)</th>
           <th>Total population</th>
         </tr>
         <% @states.each do |state| %>
@@ -114,29 +116,30 @@
   </div>
 </div>
 
-// <script>
+<!-- should make in partial to add to index and show pages -->
+ <script>
 
-//   $(document).ready(function(){
-//     $('#stock-activate').click(function(){
-//       $('#stock-report-table').show();
-//       $('#program-report-table').hide();
-//       $('.population-report-table').hide();
-//     });
+   $(document).ready(function(){
+     $('#stock-activate').click(function(){
+       $('#stock-report-table').show();
+       $('#program-report-table').hide();
+       $('.population-report-table').hide();
+     });
 
-//     $('#program-activate').click(function(){
-//       $('#stock-report-table').hide();
-//       $('#program-report-table').show();
-//       $('.population-report-table').hide();
-//     });
+     $('#program-activate').click(function(){
+       $('#stock-report-table').hide();
+       $('#program-report-table').show();
+       $('.population-report-table').hide();
+     });
 
-//     $('#pop-activate').click(function(){
-//       $('#stock-report-table').hide();
-//       $('#program-report-table').hide();
-//       $('.population-report-table').show();
-//     });
-//   });
+     $('#pop-activate').click(function(){
+       $('#stock-report-table').hide();
+       $('#program-report-table').hide();
+       $('.population-report-table').show();
+     });
+   });
 
-// </script>
+ </script>
 
 <!-- Create responsive tables by wrapping any .table in .table-responsive to make them scroll horizontally on small devices (under 768px). When viewing on anything larger than 768px wide, you will not see any difference in these tables.
  -->

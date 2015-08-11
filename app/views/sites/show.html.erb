@@ -3,9 +3,9 @@
 <div class="container push_page_below_header">
   <div class="row">
 
-    <h1> Site: <%= @site.site_name %></h1>
+    <h2> Site: <%= @site.site_name %></h2>
 
-    <h3>Complete Stock Reporting</h3>
+    <h4>Complete Stock Reporting</h4>
 
     <div id='stock-report-table'>
       <table class='report-table'>
@@ -47,22 +47,21 @@
     <p><%#= site.most_recent_stock_report.iron_folate %></p>
 
 
+    <h4>Stocks Update</h4>
+    <h4>Complete Program Reporting</h4>
+    <h4>Program Delivery</h4>
 
-    <h3>Stocks Update</h3>
+    <h4>Coverage</h4>
 
-    <h3>Coverage</h3>
+    <h4>Site Information</h4>
 
-
-    <h3>Details</h3>
-
-    <p> State ID: <%= @site.state_id %></p>
-    <p> District ID: <%= @site.district_id %></p>
+    <p> State ID:         <%= @site.state_id %></p>
+    <p> District ID:      <%= @site.district_id %></p>
     <p> National SNIS ID: <%= @site.national_site_id %></p>
-    <p> latitude: <%= @site.latitude %></p>
-    <p> longitude: <%= @site.longitude %></p>
+    <p> latitude:         <%= @site.latitude %></p>
+    <p> longitude:        <%= @site.longitude %></p>
 
     <br>
-    <p> create access to population, program and stock data </p>
 
   </div>
 </div>

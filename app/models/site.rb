@@ -60,7 +60,7 @@ class Site < ActiveRecord::Base
 # @dates = (Date.today..Date.today + 60.days)
 
 #self.program_reports.where(:report_date => start_date..Datetime.now).each do |report|
-# If no report is sent, then there will be no report date.
+# Code above will not work. If no report is sent, then there will be no report date.
 
   # STOCKS REPORTS
   def stock_reports_per_day
@@ -91,12 +91,49 @@ class Site < ActiveRecord::Base
   end
 
   # average on site, district and state
-  def average_complete_reporting(stock)
+  def stock_average_complete_reporting(stock)
     res = 0
     stock_reports_per_day.values.each do |hash|
       res += hash[stock]
     end
     res / stock_reports_per_day.values.size
+  end
+
+    # PROGRAM REPORTS
+  def program_reports_per_day
+    program_items_complete = {}
+    program_reports = program_reports_between_dates(START_DATE, END_DATE)
+    (START_DATE..END_DATE).each do |date|
+      current_date_program_report = program_reports.find{|s| s.created_at.to_date == date }
+      program_items_complete[date] = {
+       vitamin_a_blue: program_item_complete(current_date_program_report, :vitamin_a_blue),
+       vitamin_a_red: program_item_complete(current_date_program_report, :vitamin_a_red),
+       deworming: program_item_complete(current_date_program_report, :deworming),
+       iron_folate: program_item_complete(current_date_program_report, :iron_folate_red),
+     }
+    end
+    program_items_complete
+  end
+
+  def program_reports_between_dates(start_date, end_date)
+    program_reports.where("created_at >= ? AND created_at <= ?", start_date, end_date)
+  end
+
+  def program_item_complete(program_report, program_item)
+    if program_report.present? && program_report.read_attribute(program_item).present?
+      100
+    else
+      0
+    end
+  end
+
+  # average on site, district and state
+  def program_average_complete_reporting(program)
+    res = 0
+    program_reports_per_day.values.each do |hash|
+      res += hash[program]
+    end
+    res / program_reports_per_day.values.size
   end
 
   # District level averages

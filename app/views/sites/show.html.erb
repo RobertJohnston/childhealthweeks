@@ -6,16 +6,16 @@
     <h2> Site: <%= @site.site_name %></h2>
 
     <h4>Complete Stock Reporting</h4>
-
     <div id='stock-report-table'>
       <table class='report-table'>
+      <col span="1" class="wide">
         <thead>
          <tr>
             <th>Date</th>
-            <td>Vitamin A Red </td>
-            <td>Vitamin A Blue </td>
-            <td>Deworming </td>
-            <td>Iron Folate </td>
+            <th>Vitamin A Red (Units)</th>
+            <th>Vitamin A Blue (Units)</th>
+            <th>Deworming (Units) </th>
+            <th>Iron Folate (Units) </th>
           </tr>
         </thead>
         <tbody>
@@ -32,23 +32,77 @@
         <tfoot>
             <tr>
               <th> Site Overall </th>
-              <td> <%= @vit_red %> %</td>
-              <td> <%= @vit_blue %> %</td>
-              <td> <%= @deworm %> %</td>
-              <td> <%= @iron %> %</td>
+              <td> <%= @stock_comp_rep_vit_red %> %</td>
+              <td> <%= @stock_comp_rep_vit_blue %> %</td>
+              <td> <%= @stock_comp_rep_deworm %> %</td>
+              <td> <%= @stock_comp_rep_iron %> %</td>
             </tr>
         </tfoot>
       </table>
     </div>
+    <br>
 
+    <div id="stock-report-table">
+      <table class="report-table">
+      <h4>Stocks Update</h4>
+        <col span="1" class="wide">
+        <tr>
+          <th>Site</th>
+          <th>Vitamin A Red</th>
+          <th>Vitamin A Blue</th>
+          <th>Deworming </th>
+          <th>Iron Folate </th>
+        </tr>
 
-    <p><%#= site.most_recent_stock_report.vitamin_a_blue %></p>
-    <p><%#= site.most_recent_stock_report.deworming %></p>
-    <p><%#= site.most_recent_stock_report.iron_folate %></p>
+        <tr>
+          <th><%= @site.site_name %></th>
+          <td><%= @site.most_recent_stock_report.vitamin_a_red %></td>
+          <td><%= @site.most_recent_stock_report.vitamin_a_blue %></td>
+          <td><%= @site.most_recent_stock_report.deworming %></td>
+          <td><%= @site.most_recent_stock_report.iron_folate %></td>
+        </tr>
 
+      </table>
+    </div>
+    <br>
 
-    <h4>Stocks Update</h4>
     <h4>Complete Program Reporting</h4>
+    <div id='program-report-table'>
+      <table class='report-table'>
+        <col span="1" class="wide">
+        <thead>
+         <tr>
+            <th>Date</th>
+            <th>Vitamin A Red (Delivered)</th>
+            <th>Vitamin A Blue (Delivered)</th>
+            <th>Deworming (Delivered)</th>
+            <th>Iron Folate (Delivered)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @stock_reports_per_day.each do |date, stock_report| %>
+            <tr>
+              <th><%= date.strftime("%d/%m/%Y") %></th>
+              <td><%= stock_report[:vitamin_a_red ] %> % </td>
+              <td><%= stock_report[:vitamin_a_blue] %> % </td>
+              <td><%= stock_report[:deworming] %> % </td>
+              <td><%= stock_report[:iron_folate] %> % </td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tfoot>
+            <tr>
+              <th> Site Overall </th>
+              <td> <%= @stock_comp_rep_vit_red %> %</td>
+              <td> <%= @stock_comp_rep_vit_blue %> %</td>
+              <td> <%= @stock_comp_rep_deworm %> %</td>
+              <td> <%= @stock_comp_rep_iron %> %</td>
+            </tr>
+        </tfoot>
+      </table>
+    </div>
+    <br>
+
     <h4>Program Delivery</h4>
 
     <h4>Coverage</h4>
@@ -62,6 +116,10 @@
     <p> longitude:        <%= @site.longitude %></p>
 
     <br>
+
+    <p><%#= site.most_recent_stock_report.vitamin_a_blue %></p>
+    <p><%#= site.most_recent_stock_report.deworming %></p>
+    <p><%#= site.most_recent_stock_report.iron_folate %></p>
 
   </div>
 </div>

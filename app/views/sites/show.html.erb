@@ -9,16 +9,16 @@
       <col span="1" class="wide">
          <tr>
             <th>Date</th>
-            <th>Vitamin A Red</th>
-            <th>Vitamin A Blue</th>
-            <th>Deworming </th>
-            <th>Iron Folate </th>
+            <th>Vitamin A Red (Reports)</th>
+            <th>Vitamin A Blue (Reports)</th>
+            <th>Deworming (Reports) </th>
+            <th>Iron Folate (Reports) </th>
           </tr>
         <tbody>
           <% @stock_reports_per_day.each do |date, stock_report| %>
             <tr>
               <th><%= date.strftime("%d/%m/%Y") %></th>
-              <td><%= stock_report[:vitamin_a_red ] %> % </td>
+              <td><%= stock_report[:vitamin_a_red] %> % </td>
               <td><%= stock_report[:vitamin_a_blue] %> % </td>
               <td><%= stock_report[:deworming] %> % </td>
               <td><%= stock_report[:iron_folate] %> % </td>
@@ -74,16 +74,17 @@
     </div>
     <br>
 
-    <h4>Complete Program Reporting</h4>
+
     <div id='program-report-table'>
       <table class='report-table'>
+        <h4>Complete Program Reporting</h4>
         <col span="1" class="wide">
          <tr>
             <th>Date</th>
-            <th>Vitamin A Red (Delivered)</th>
-            <th>Vitamin A Blue (Delivered)</th>
-            <th>Deworming (Delivered)</th>
-            <th>Iron Folate (Delivered)</th>
+            <th>Vitamin A Red (Reports)</th>
+            <th>Vitamin A Blue (Reports)</th>
+            <th>Deworming (Reports)</th>
+            <th>Iron Folate (Reports)</th>
           </tr>
         <tbody>
           <% @program_reports_per_day.each do |date, program_report| %>
@@ -109,16 +110,16 @@
     </div>
     <br>
 
-    <h4>Program Delivery</h4>
     <div id="program-report-table">
       <table class="report-table">
+        <h4>Program Delivery</h4>
         <col span="1" class="wide">
         <tr>
           <th>Site</th>
-          <th>Vitamin A Red (Delivered)</th>
-          <th>Vitamin A Blue (Delivered)</th>
-          <th>Deworming (Delivered) </th>
-          <th>Iron Folate (Delivered) </th>
+          <th>Vitamin A Red (Reports)</th>
+          <th>Vitamin A Blue (Reports)</th>
+          <th>Deworming (Reports) </th>
+          <th>Iron Folate (Reports) </th>
         </tr>
 
         <tbody>
@@ -145,9 +146,10 @@
     </div>
     <br>
 
-    <h4>Estimated Coverage GRAPH </h4>
+
     <div id="population-report-table">
       <table class="report-table">
+        <h4>Estimated Coverage GRAPH </h4>
         <col span="1" class="wide">
         <tr>
           <th>Site</th>
@@ -186,12 +188,14 @@
     <p>   Functioning Public Latrine/Toilet at Site </p>
     <p>   Handwashing Station at Site </p>
 
+    <br>
+
     <h4>Site Information</h4>
     <p>   State ID:         <%= @site.state_id %></p>
     <p>   District ID:      <%= @site.district_id %></p>
-    <p>   National SNIS ID: <%= @site.national_site_id %></p>
-    <p>   latitude:         <%= @site.latitude %></p>
-    <p>   longitude:        <%= @site.longitude %></p>
+    <p>   National SNIS (Système National d'Information Sanitaire) ID: <%= @site.national_site_id %></p>
+    <p>   Latitude:         <%= @site.latitude %></p>
+    <p>   Longitude:        <%= @site.longitude %></p>
 
     <br>
 

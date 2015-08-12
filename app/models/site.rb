@@ -66,12 +66,12 @@ class Site < ActiveRecord::Base
     stock_items_complete = {}
     stock_reports = stock_reports_between_dates(START_DATE, END_DATE)
     (START_DATE..END_DATE).each do |date|
-      current_date_stock_report = stock_reports.find{|s| s.created_at.to_date == date }
+      date_stock_report = stock_reports.find{|s| s.created_at.to_date == date }
       stock_items_complete[date] = {
-       vitamin_a_blue: stock_item_complete(current_date_stock_report, :vitamin_a_blue),
-       vitamin_a_red: stock_item_complete(current_date_stock_report, :vitamin_a_red),
-       deworming: stock_item_complete(current_date_stock_report, :deworming),
-       iron_folate: stock_item_complete(current_date_stock_report, :iron_folate),
+       vitamin_a_blue: stock_item_complete(date_stock_report, :vitamin_a_blue),
+       vitamin_a_red: stock_item_complete(date_stock_report, :vitamin_a_red),
+       deworming: stock_item_complete(date_stock_report, :deworming),
+       iron_folate: stock_item_complete(date_stock_report, :iron_folate),
      }
     end
     stock_items_complete

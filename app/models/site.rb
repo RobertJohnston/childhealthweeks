@@ -137,7 +137,7 @@ class Site < ActiveRecord::Base
 
 
   # Program data - cumulative number of units delivered by date
-  # I THINK THIS IS UNNECCESARY
+  # UNNECCESARY?
   def total_program_report(program)
     program_reports.sum(program)
   end

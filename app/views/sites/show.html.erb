@@ -18,7 +18,13 @@
           <% @stock_reports_per_day.each do |date, stock_report| %>
             <tr>
               <th><%= date.strftime("%d/%m/%Y") %></th>
-              <td><%= stock_report[:vitamin_a_red] %> % </td>
+              <td>
+                <% if stock_report[:vitamin_a_red] == 100 then %>
+                <%="yes"%>
+                <% else %>
+                <%="no"%>
+                <% end %>
+              </td>
               <td><%= stock_report[:vitamin_a_blue] %> % </td>
               <td><%= stock_report[:deworming] %> % </td>
               <td><%= stock_report[:iron_folate] %> % </td>
@@ -187,7 +193,6 @@
     <p>   Potable Water at Site </p>
     <p>   Functioning Public Latrine/Toilet at Site </p>
     <p>   Handwashing Station at Site </p>
-
     <br>
 
     <h4>Site Information</h4>
@@ -196,7 +201,6 @@
     <p>   National SNIS (Système National d'Information Sanitaire) ID: <%= @site.national_site_id %></p>
     <p>   Latitude:         <%= @site.latitude %></p>
     <p>   Longitude:        <%= @site.longitude %></p>
-
     <br>
 
     <p><%#= site.most_recent_stock_report.vitamin_a_blue %></p>

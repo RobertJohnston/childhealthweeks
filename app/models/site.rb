@@ -63,68 +63,50 @@ class Site < ActiveRecord::Base
 
   # STOCKS REPORTS
   def stock_reports_per_day
+    # Make hash with date, vitAred, vitAblue, deworm, iron
     stock_items_complete = {}
-    stock_reports = stock_reports_between_dates(START_DATE, END_DATE)
+    stock_reports = reports_between_dates(START_DATE, END_DATE)
     (START_DATE..END_DATE).each do |date|
       date_stock_report = stock_reports.find{|s| s.created_at.to_date == date }
       stock_items_complete[date] = {
-       vitamin_a_blue: stock_item_complete(date_stock_report, :vitamin_a_blue),
-       vitamin_a_red: stock_item_complete(date_stock_report, :vitamin_a_red),
-       deworming: stock_item_complete(date_stock_report, :deworming),
-       iron_folate: stock_item_complete(date_stock_report, :iron_folate),
+       vitamin_a_blue: item_complete(date_stock_report, :vitamin_a_blue),
+       vitamin_a_red: item_complete(date_stock_report, :vitamin_a_red),
+       deworming: item_complete(date_stock_report, :deworming),
+       iron_folate: item_complete(date_stock_report, :iron_folate),
      }
     end
     stock_items_complete
   end
 
-  def stock_reports_between_dates(start_date, end_date)
-    stock_reports.where("created_at >= ? AND created_at <= ?", start_date, end_date)
-  end
-
-  def stock_item_complete(stock_report, stock_item)
-    if stock_report.present? && stock_report.read_attribute(stock_item).present?
-      100
-    else
-      0
-    end
-  end
-
-  #Calculate average on site, district and state
-  def stock_average_complete_reporting(stock)
-    complete_reporting_total = 0
-    stock_reports_per_day.values.each do |date_report|
-      complete_reporting_total += date_report[stock]
-    end
-    complete_reporting_total / stock_reports_per_day.values.size
-  end
 
     # PROGRAM REPORTS
   def program_reports_per_day
     program_items_complete = {}
-    program_reports = program_reports_between_dates(START_DATE, END_DATE)
+    program_reports = reports_between_dates(START_DATE, END_DATE)
     (START_DATE..END_DATE).each do |date|
       current_date_program_report = program_reports.find{|s| s.created_at.to_date == date }
       program_items_complete[date] = {
-       vitamin_a_blue: program_item_complete(current_date_program_report, :vitamin_a_blue),
-       vitamin_a_red: program_item_complete(current_date_program_report, :vitamin_a_red),
-       deworming: program_item_complete(current_date_program_report, :deworming),
-       iron_folate: program_item_complete(current_date_program_report, :iron_folate_red),
+       vitamin_a_blue: item_complete(current_date_program_report, :vitamin_a_blue),
+       vitamin_a_red: item_complete(current_date_program_report, :vitamin_a_red),
+       deworming: item_complete(current_date_program_report, :deworming),
+       iron_folate: item_complete(current_date_program_report, :iron_folate_red),
      }
     end
     program_items_complete
   end
 
-  def program_reports_between_dates(start_date, end_date)
-    program_reports.where("created_at >= ? AND created_at <= ?", start_date, end_date)
+  def reports_between_dates(start_date, end_date)
+    stock_reports.where("created_at >= ? AND created_at <= ?", start_date, end_date)
   end
 
-  def program_item_complete(program_report, program_item)
-    if program_report.present? && program_report.read_attribute(program_item).present?
+  def item_complete(report_date, stock_item)
+    if report_date.present? && report_date.read_attribute(stock_item).present?
       100
     else
       0
     end
   end
+
 
   # average on site, district and state
   def program_average_complete_reporting(program)
@@ -136,12 +118,17 @@ class Site < ActiveRecord::Base
   end
 
 
-  # Program data - cumulative number of units delivered by date
-  # UNNECCESARY?
-  def total_program_report(program)
-    program_reports.sum(program)
+  #Calculate average on site, district and state
+  def stock_average_complete_reporting(stock)
+    complete_reporting_total = 0
+    stock_reports_per_day.values.each do |date_report|
+      complete_reporting_total += date_report[stock]
+    end
+    complete_reporting_total / stock_reports_per_day.values.size
   end
 
+  # Program data - cumulative number of units delivered by date
+  # To calculate coverage - compare total program  activities delivered / target population.
 
 
   # District level averages

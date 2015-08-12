@@ -15,19 +15,21 @@
             <th>Iron Folate (Reports) </th>
           </tr>
         <tbody>
-          <% @stock_reports_per_day.each do |date, stock_report| %>
+          <% @stock_reports_per_day.each do |date, complete| %>
             <tr>
               <th><%= date.strftime("%d/%m/%Y") %></th>
               <td>
-                <% if stock_report[:vitamin_a_red] == 100 then %>
+                <!-- This should be refactored into model -->
+                <% if complete[:vitamin_a_red] == 100 then %>
                 <%="yes"%>
                 <% else %>
                 <%="no"%>
                 <% end %>
               </td>
-              <td><%= stock_report[:vitamin_a_blue] %> % </td>
-              <td><%= stock_report[:deworming] %> % </td>
-              <td><%= stock_report[:iron_folate] %> % </td>
+
+              <td><%= complete[:vitamin_a_blue] %> % </td>
+              <td><%= complete[:deworming] %> % </td>
+              <td><%= complete[:iron_folate] %> % </td>
             </tr>
           <% end %>
         </tbody>
@@ -59,7 +61,7 @@
         <tbody>
           <% @stock_reports.each do |date, stock_report| %>
             <tr>
-              <th> date  </th>
+              <th> date </th>
               <td> n/a  </td>
               <td> n/a  </td>
               <td> n/a  </td>

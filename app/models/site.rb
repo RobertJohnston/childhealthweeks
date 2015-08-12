@@ -18,7 +18,7 @@ class Site < ActiveRecord::Base
     stock_reports.order(:created_at).last
   end
 
-  def total_program_report(program)
+  def program_reports_total(program)
     program_reports.sum(program)
   end
 
@@ -136,7 +136,9 @@ class Site < ActiveRecord::Base
     res / program_reports_per_day.values.size
   end
 
+
   # Program data - cumulative number of units delivered by date
+  # I THINK THIS IS UNNECCESARY
   def total_program_report(program)
     program_reports.sum(program)
   end

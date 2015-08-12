@@ -5,13 +5,12 @@ class Site < ActiveRecord::Base
   START_DATE = "2015-06-01".to_date
   END_DATE = "2015-06-05".to_date
 
-  belongs_to  :state
-  belongs_to  :district
+  belongs_to :state
+  belongs_to :district
   has_many :users
   has_many :population_reports
   has_many :stock_reports
   has_many :program_reports
-
 
   # select data from most recent stock report
   def most_recent_stock_report
@@ -72,7 +71,7 @@ class Site < ActiveRecord::Base
        vitamin_a_blue: stock_item_complete(current_date_stock_report, :vitamin_a_blue),
        vitamin_a_red: stock_item_complete(current_date_stock_report, :vitamin_a_red),
        deworming: stock_item_complete(current_date_stock_report, :deworming),
-       iron_folate: stock_item_complete(current_date_stock_report, :iron_folate_red),
+       iron_folate: stock_item_complete(current_date_stock_report, :iron_folate),
      }
     end
     stock_items_complete
@@ -90,13 +89,13 @@ class Site < ActiveRecord::Base
     end
   end
 
-  # average on site, district and state
+  #Calculate average on site, district and state
   def stock_average_complete_reporting(stock)
-    res = 0
-    stock_reports_per_day.values.each do |hash|
-      res += hash[stock]
+    complete_reporting_total = 0
+    stock_reports_per_day.values.each do |date_report|
+      complete_reporting_total += date_report[stock]
     end
-    res / stock_reports_per_day.values.size
+    complete_reporting_total / stock_reports_per_day.values.size
   end
 
     # PROGRAM REPORTS

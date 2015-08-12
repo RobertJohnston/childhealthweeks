@@ -2,14 +2,11 @@
 
 <div class="container push_page_below_header">
   <div class="row">
-
     <h2> Site: <%= @site.site_name %></h2>
-
     <h4>Complete Stock Reporting</h4>
     <div id='stock-report-table'>
       <table class='report-table'>
       <col span="1" class="wide">
-
          <tr>
             <th>Date</th>
             <th>Vitamin A Red</th>
@@ -17,7 +14,6 @@
             <th>Deworming </th>
             <th>Iron Folate </th>
           </tr>
-
         <tbody>
           <% @stock_reports_per_day.each do |date, stock_report| %>
             <tr>
@@ -53,6 +49,18 @@
           <th>Deworming (Units) </th>
           <th>Iron Folate (Units) </th>
         </tr>
+
+        <tbody>
+          <% @stock_reports.each do |date, stock_report| %>
+            <tr>
+              <th> date  </th>
+              <td> n/a  </td>
+              <td> n/a  </td>
+              <td> n/a  </td>
+              <td> n/a  </td>
+            </tr>
+          <% end %>
+        </tbody>
 
         <tr>
           <th><%= @site.site_name %></th>
@@ -113,6 +121,18 @@
           <th>Iron Folate (Delivered) </th>
         </tr>
 
+        <tbody>
+          <% @program_reports.each do |date, program_report| %>
+            <tr>
+              <th> date  </th>
+              <td> n/a  </td>
+              <td> n/a  </td>
+              <td> n/a  </td>
+              <td> n/a  </td>
+            </tr>
+          <% end %>
+        </tbody>
+
         <tr>
           <th><%= @site.site_name %></th>
           <td><%= @total_program_report_vit_red %></td>
@@ -125,7 +145,7 @@
     </div>
     <br>
 
-    <h4>Estimated Coverage</h4>
+    <h4>Estimated Coverage GRAPH </h4>
     <div id="population-report-table">
       <table class="report-table">
         <col span="1" class="wide">
@@ -136,6 +156,19 @@
           <th>Deworming (Coverage) </th>
           <th>Iron Folate (Coverage) </th>
         </tr>
+
+        <tbody>
+          <% @program_reports.each do |date, program_report| %>
+            <tr>
+              <th> date  </th>
+              <td> n/a  </td>
+              <td> n/a  </td>
+              <td> n/a  </td>
+              <td> n/a  </td>
+            </tr>
+          <% end %>
+        </tbody>
+
         <tr>
           <th><%= @site.site_name %></th>
           <td><%= @total_program_report_vit_red %></td>
@@ -145,16 +178,20 @@
         </tr>
       </table>
     </div>
-
     <br>
 
-    <h4>Site Information</h4>
+    <h4>Minimum WASH Package </h4>
+    <p>   Water Source at Site </p>
+    <p>   Potable Water at Site </p>
+    <p>   Functioning Public Latrine/Toilet at Site </p>
+    <p>   Handwashing Station at Site </p>
 
-    <p> State ID:         <%= @site.state_id %></p>
-    <p> District ID:      <%= @site.district_id %></p>
-    <p> National SNIS ID: <%= @site.national_site_id %></p>
-    <p> latitude:         <%= @site.latitude %></p>
-    <p> longitude:        <%= @site.longitude %></p>
+    <h4>Site Information</h4>
+    <p>   State ID:         <%= @site.state_id %></p>
+    <p>   District ID:      <%= @site.district_id %></p>
+    <p>   National SNIS ID: <%= @site.national_site_id %></p>
+    <p>   latitude:         <%= @site.latitude %></p>
+    <p>   longitude:        <%= @site.longitude %></p>
 
     <br>
 

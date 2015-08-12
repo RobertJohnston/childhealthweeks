@@ -7,6 +7,9 @@ class SitesController < ApplicationController
   def show
     @site = Site.find(params[:id])
 
+    @stock_reports = @site.stock_reports
+    @program_reports = @site.program_reports
+
     @stock_reports_per_day = @site.stock_reports_per_day
     @stock_comp_rep_vit_red = @site.stock_average_complete_reporting(:vitamin_a_red)
     @stock_comp_rep_vit_blue = @site.stock_average_complete_reporting(:vitamin_a_blue)
@@ -24,5 +27,4 @@ class SitesController < ApplicationController
     @total_program_report_rep_deworm = @site.total_program_report(:deworming)
     @total_program_report_rep_iron = @site.total_program_report(:iron_folate)
   end
-
 end

@@ -1,6 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
 
 require 'date'
 
@@ -84,15 +83,11 @@ list_districts.each do |state_id, district_id, district_name|
     District.create(state_id: state_id, id: district_id, district_name: district_name)
   end
 
-
-
-# # used Burundi unformatted data, added quotes and commas into db through libre office.
-
+# Used Burundi unformatted data, added quotes and commas into db through libre office.
 # all names and numbers beginning with leading zeros must be entered as strings.
-
 # all varnames below have to be in lower case, or they are interpreted by ruby to be classes.
+# state   district "code_fosa" , "SiteName"  , "type_fosa" , "type"  , Latitude  , Longitude , altitude
 
-# state   district    "code_fosa" , "SiteName"  , "type_fosa" , "type"  , Latitude  , Longitude , altitude
 list_sites = [
   [1  ,101  , "010101"  , "CDS BUANZA I"  , "cds" , "SST" , -3.08393800 , 29.39568600 , 1100.00],
   [1  ,101  , "010101"  , "HOPITAL BUBANZA" , "hop" ,"", -3.08416900 , 29.39564300 , 1100.00],
@@ -144,7 +139,7 @@ list_sites = [
   [2 , 201  , "020103"  , "CDS ALIBU" , "cds" ,"", -3.33705000 , 29.35435700 , 800.00],
   [2 , 201  , "020104"  , "CESABU"  , "cds" ,"", -3.33682900 , 29.35107400 , 799.00],
   [2 , 201  , "020106"  , "CDS LIFE CLINIC CIBITOKE"  , "cds" ,"", -3.34143100 , 29.37409400 , 838.00],
-  [2 , 201  , "020107"  , "CDS LUMI?RE" , "cds" ,"", -3.34056800 , 29.38073100 , 830.00],
+  [2 , 201  , "020107"  , "CDS LUMIERE" , "cds" ,"", -3.34056800 , 29.38073100 , 830.00],
   [2 , 201  , "020110"  , "CDSMIRANGOI" , "cds" ,"", -3.34261500 , 29.39096900 , 851.00],
   [2 , 201  , "020111"  , "CDS HUMURA"  , "cds" ,"", -3.34391000 , 29.38902000 , 849.00],
   [2 , 201  , "020112"  , "CDS UMUCO" , "cds" ,"", -3.35110700 , 29.38801700 , 858.00],
@@ -170,7 +165,7 @@ list_sites = [
   [2 , 201  , "020133"  , "CDS AMANI" , "cds" ,"", -3.33414000 , 29.37409300 , 814.00],
   [2 , 201  , "020134"  , "CDS KWIZERA" , "cds" ,"", -3.37212600 , 29.40040100 , 946.00],
   [2 , 201  , "020135"  , "CDS AMAHORO" , "cds" ,"", -3.32696000 , 29.37679800 , 817.00],
-  [2 , 201  , "020136"  , "CDS LA CHARIT?"  , "cds" ,"", -3.33242100 , 29.37194500 , 814.00],
+  [2 , 201  , "020136"  , "CDS LA CHARITE"  , "cds" ,"", -3.33242100 , 29.37194500 , 814.00],
   [2 , 201  , "020137"  , "CDS NTASEKA" , "cds" ,"", -3.34430800 , 29.38273300 , 840.00],
   [2 , 201  , "020138"  , "CDS IZERE" , "cds" ,"", -3.31814700 , 29.38831500 , 830.00],
   [2 , 201  , "020139"  , "CDS BUKIRIRO"  , "cds" ,"", -3.34231500 , 29.38188400 , 832.00],
@@ -255,7 +250,7 @@ list_sites = [
   [3 , 302  , "030201"  , "CDS RWIBAGA" , "cds" , "STA" , -3.47127000 , 29.53920100 , 2287.00],
   [3 , 302  , "030202"  , "CDS IJENDA"  , "cds" ,"", -3.48063300 , 29.56779400 , 2185.00],
   [3 , 302  , "030202"  , "HOP IJENDA"  , "hop" ,"", -3.48040900 , 29.56755700 , 2185.00],
-  [3 , 302  , "030202"  , "MATERNITE HOP IJENDA"  , "maternit?" ,"", -3.48163500 , 29.56799500 , 2181.00],
+  [3 , 302  , "030202"  , "MATERNITE HOP IJENDA"  , "maternite" ,"", -3.48163500 , 29.56799500 , 2181.00],
   [3 , 302  , "030203"  , "CDS MATARA"  , "cds" , "STA" , -3.48177600 , 29.47971700 , 1878.00],
   [3 , 302  , "030204"  , "CDS MAYUYU"  , "cds" , "STA" , -3.57705700 , 29.50890600 , 2397.00],
   [3 , 302  , "030205"  , "CDS NYABIBONDO"  , "cds" ,"", -3.44305000 , 29.48491700 , 1966.00],
@@ -717,7 +712,7 @@ list_sites = [
   [11  , 1101  , "110104"  , "CDS SWABRINA"  , "cds" ,"", -4.13996400 , 29.80442700 , 1438.00],
   [11  , 1101  , "110105"  , "CDS MURENGE" , "cds" , "STA" , -4.08443500 , 29.79483700 , 1545.00],
   [11  , 1101  , "110106"  , "CDS CANDA" , "cds" , "STA" , -4.20038800 , 29.85146700 , 1406.00],
-  [11  , 1101  , "110107"  , "CDS MISAS?"  , "cds" ,"", -4.09019200 , 29.87193800 , 1507.00],
+  [11  , 1101  , "110107"  , "CDS MISASE"  , "cds" ,"", -4.09019200 , 29.87193800 , 1507.00],
   [11  , 1101  , "110108"  , "CDS NYANGE"  , "cds" ,"", -4.14652100 , 29.87342900 , 1704.00],
   [11  , 1101  , "110110"  , "CDS KAYOGORO"  , "cds" , "STA" , -4.12121000 , 29.94227200 , 1426.00],
   [11  , 1101  , "110111"  , "CDS TURISANZE" , "cds" ,"", -4.11840000 , 29.95014100 , 1402.00],
@@ -876,7 +871,7 @@ list_sites = [
   [14  , 1402  , "140211"  , "CDS BUZIRACANDA" , "cds" ,"", -3.38833300 , 29.73352200 , 1916.00],
   [14  , 1402  , "140212"  , "CDS NYABISAKA" , "cds" ,"", -3.33081400 , 29.82522200 , 1622.00],
   [14  , 1402  , "140213"  , "CDS GITARA"  , "cds" ,"", -3.55662200 , 29.63633300 , 2217.00],
-  [15  , 1501  , "150101"  , "H?PITAL NGOZI" , "hop" ,"", -2.90779600 , 29.82226400 , 1848.00],
+  [15  , 1501  , "150101"  , "HOPITAL NGOZI" , "hop" ,"", -2.90779600 , 29.82226400 , 1848.00],
   [15  , 1501  , "150102"  , "HOP MIVO"  , "hop" ,"", -2.94842800 , 29.79121200 , 1675.00],
   [15  , 1501  , "150115"  , "CDS MUBUGA"  , "cds" , "STA" , -2.95244500 , 29.86709200 , 1591.00],
   [15  , 1501  , "150116"  , "CDS MUGOMERA"  , "cds" ,"", -2.98070400 , 29.89907200 , 1573.00],
@@ -1031,7 +1026,7 @@ def number1to100
 end
 
 def number1to100orNil
-  number = rand(1..120)-20
+  number = rand(1..130)-30
   # if number < 1 then number = nil
   number < 1  ? number = "" : number = number
 end
@@ -1039,9 +1034,9 @@ end
 # Create Population data for all valid site IDs.
 Site.all.each do |site|
   p site.site_name
-  child_population = 2100 + (number1to100 * 3)
-  woman_population = 2500 + (number1to100 * 3)
-  total_population = 11000 + (number1to100 * 3)
+  child_population = 2100 + (number1to100 * 4)
+  woman_population = 2500 + (number1to100 * 4)
+  total_population = 11000 + (number1to100 * 4)
   user_id = number1to100
 
   PopulationReport.create!(site: site,
@@ -1074,6 +1069,7 @@ Site.all.each do |site|
     deworming = number1to100orNil
     iron_folate = number1to100orNil
 
+    # The ! in the create command will throw an error if there is a problem in the creation of data.
     ProgramReport.create!(user_id: user_id,
                           site: site,
                           report_date: Date.new(2015,06,random_day),

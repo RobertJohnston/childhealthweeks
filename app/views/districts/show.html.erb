@@ -104,9 +104,11 @@
         <tr>
           <th>District Total </th>
           <td> <%= @district.population_reports_total(:child_population) %></td>
-          <td> District Child Percent </td>
+          <td> 18.2 </td>
+          <!-- update -->
           <td><%= @district.population_reports_total(:woman_population) %></td>
-          <td> District Woman Percent </td>
+          <td> 21.9 </td>
+          <!-- update -->
           <td><%= @district.population_reports_total(:total_population) %></td>
         </tr>
       </table>
@@ -138,7 +140,7 @@
       <% end %>
         <tr>
           <th>District Total </th>
-          <td> Vitamin A Red Total </td>
+          <td> <%= @district.vit_a_red_target_total %> </td>
           <td> Vitamin A Blue & Deworming Total </td>
           <td> Iron Folate Total </td>
         </tr>

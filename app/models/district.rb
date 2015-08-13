@@ -27,6 +27,12 @@ class District < ActiveRecord::Base
     total
   end
 
-
+  def vit_a_red_target_total
+    total = 0
+    sites.each do |site|
+      total += site.six_to_11_target_pop.to_f
+    end
+    total
+  end
 
 end

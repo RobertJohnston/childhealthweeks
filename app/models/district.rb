@@ -32,7 +32,24 @@ class District < ActiveRecord::Base
     sites.each do |site|
       total += site.six_to_11_target_pop.to_f
     end
-    total
+    sprintf('%.0f', total)
+  end
+
+  def vit_a_blue_target_total
+    # This is same target population for vitamin A blue and deworming
+    total = 0
+    sites.each do |site|
+      total += site.twelve_to_59_target_pop.to_f
+    end
+    sprintf('%.0f', total)
+  end
+
+  def iron_folate_target_total
+    total = 0
+    sites.each do |site|
+      total += site.pregnant_woman_target_pop.to_f
+    end
+    sprintf('%.0f', total)
   end
 
 end

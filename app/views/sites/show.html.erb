@@ -52,8 +52,8 @@
         <col span="1" class="wide">
         <tr>
           <th>Site</th>
-          <th>Vitamin A Red (Units)</th>
-          <th>Vitamin A Blue (Units)</th>
+          <th>Vitamin A Red (Stock out report)</th>
+          <th>Vitamin A RED (Units)</th>
           <th>Deworming (Units) </th>
           <th>Iron Folate (Units) </th>
         </tr>
@@ -72,10 +72,34 @@
 
         <tr>
           <th><%= @site.site_name %></th>
-          <td><%= @site.most_recent_stock_report.vitamin_a_red %></td>
-          <td><%= @site.most_recent_stock_report.vitamin_a_blue %></td>
-          <td><%= @site.most_recent_stock_report.deworming %></td>
-          <td><%= @site.most_recent_stock_report.iron_folate %></td>
+          <td>
+            <% unless [nil, 0].include?(@site.most_recent_stock_report.vitamin_a_red) %>
+            <%=@site.most_recent_stock_report.vitamin_a_red %>
+            <% else %>
+            <%="STOCK OUT"%>
+            <% end %>
+          </td>
+          <td>
+            <% unless [nil, 0].include?(@site.most_recent_stock_report.vitamin_a_blue) %>
+            <%=@site.most_recent_stock_report.vitamin_a_blue %>
+            <% else %>
+            <%="STOCK OUT"%>
+            <% end %>
+          </td>
+          <td>
+            <% unless [nil, 0].include?(@site.most_recent_stock_report.deworming) %>
+            <%=@site.most_recent_stock_report.deworming %>
+            <% else %>
+            <%="STOCK OUT"%>
+            <% end %>
+          </td>
+          <td>
+            <% unless [nil, 0].include?(@site.most_recent_stock_report.iron_folate) %>
+            <%=@site.most_recent_stock_report.iron_folate%>
+            <% else %>
+            <%="STOCK OUT"%>
+            <% end %>
+          </td>
         </tr>
 
       </table>

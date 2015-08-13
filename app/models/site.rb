@@ -106,7 +106,7 @@ class Site < ActiveRecord::Base
        vitamin_a_blue: item_complete(current_date_program_report, :vitamin_a_blue),
        vitamin_a_red: item_complete(current_date_program_report, :vitamin_a_red),
        deworming: item_complete(current_date_program_report, :deworming),
-       iron_folate: item_complete(current_date_program_report, :iron_folate_red),
+       iron_folate: item_complete(current_date_program_report, :iron_folate),
      }
     end
     program_items_complete

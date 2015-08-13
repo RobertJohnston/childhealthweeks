@@ -21,9 +21,9 @@
               <td>
                 <!-- If users prefer this presentation, this should be refactored into model -->
                 <% if complete[:vitamin_a_red] == 100 then %>
-                <%="yes"%>
+                <%="Yes"%>
                 <% else %>
-                <%="no"%>
+                <%="No"%>
                 <% end %>
               </td>
 
@@ -215,10 +215,35 @@
     <br>
 
     <h4>Minimum WASH Package </h4>
-    <p>   Water Source at Site </p>
-    <p>   Potable Water at Site </p>
-    <p>   Functioning Public Latrine/Toilet at Site </p>
-    <p>   Handwashing Station at Site </p>
+    <p>   Water Source at Site:
+      <% if rand(1..2) == 1 then %>
+      <%= "Yes" %>
+      <% else %>
+      <%= "No" %>
+      <% end %>
+    </p>
+
+    <p>   Potable Water at Site:
+      <% if rand(1..2) == 1 then %>
+      <%= "Yes" %>
+      <% else %>
+      <%= "No" %>
+      <% end %>
+    </p>
+    <p>   Functioning Public Latrine/Toilet at Site:
+      <% if rand(1..2) == 1 then %>
+      <%= "Yes" %>
+      <% else %>
+      <%= "No" %>
+      <% end %>
+    </p>
+    <p>   Handwashing Station at Site:
+      <% if rand(1..2) == 1 then %>
+      <%= "Yes" %>
+      <% else %>
+      <%= "No" %>
+      <% end %>
+    </p>
     <br>
 
     <h4>Site Information</h4>

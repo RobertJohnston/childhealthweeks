@@ -24,5 +24,7 @@ class SitesController < ApplicationController
     @program_comp_rep_deworm = @site.program_average_complete_reporting(:deworming)
     @program_comp_rep_iron = @site.program_average_complete_reporting(:iron_folate)
 
+    yes_no = yes_no
+
   end
 end

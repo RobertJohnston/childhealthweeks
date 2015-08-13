@@ -18,6 +18,10 @@ class Site < ActiveRecord::Base
     stock_reports.order(:created_at).last
   end
 
+  def yes_no
+    rand(1..2) ==1  ? "Yes" : "No"
+  end
+
   def program_reports_total(program)
     program_reports.sum(program)
   end
@@ -95,7 +99,6 @@ class Site < ActiveRecord::Base
     stock_items_complete
   end
 
-
     # PROGRAM REPORTS
   def program_reports_per_day
     program_items_complete = {}
@@ -134,7 +137,6 @@ class Site < ActiveRecord::Base
     res / program_reports_per_day.values.size
   end
 
-
   #Calculate average on site, district and state
   def stock_average_complete_reporting(stock)
     complete_reporting_total = 0
@@ -143,6 +145,8 @@ class Site < ActiveRecord::Base
     end
     complete_reporting_total / stock_reports_per_day.values.size
   end
+
+
 
   # Program data - cumulative number of units delivered by date
   # To calculate coverage - compare total program  activities delivered / target population.

@@ -19,7 +19,7 @@
             <tr>
               <th><%= date.strftime("%d/%m/%Y") %></th>
               <td>
-                <!-- This should be refactored into model -->
+                <!-- If users prefer this presentation, this should be refactored into model -->
                 <% if complete[:vitamin_a_red] == 100 then %>
                 <%="yes"%>
                 <% else %>
@@ -95,13 +95,13 @@
             <th>Iron Folate (Reports)</th>
           </tr>
         <tbody>
-          <% @program_reports_per_day.each do |date, program_report| %>
+          <% @program_reports_per_day.each do |date, prog_rep| %>
             <tr>
               <th><%= date.strftime("%d/%m/%Y") %></th>
-              <td><%= program_report[:vitamin_a_red ] %> % </td>
-              <td><%= program_report[:vitamin_a_blue] %> % </td>
-              <td><%= program_report[:deworming] %> % </td>
-              <td><%= program_report[:iron_folate] %> % </td>
+              <td><%= prog_rep[:vitamin_a_red ] %> % </td>
+              <td><%= prog_rep[:vitamin_a_blue] %> % </td>
+              <td><%= prog_rep[:deworming] %> % </td>
+              <td><%= prog_rep[:iron_folate] %> % </td>
             </tr>
           <% end %>
         </tbody>
@@ -131,7 +131,7 @@
         </tr>
 
         <tbody>
-          <% @program_reports.each do |date, program_report| %>
+          <% @program_reports.each do |date, prog_rep| %>
             <tr>
               <th> date  </th>
               <td> n/a  </td>
@@ -144,10 +144,10 @@
 
         <tr>
           <th><%= @site.site_name %></th>
-          <td><%= @total_program_report_vit_red %></td>
-          <td><%= @total_program_report_vit_blue %></td>
-          <td><%= @total_program_report_deworm %></td>
-          <td><%= @total_program_report_iron %></td>
+          <td><%= @site.program_reports_total(:vitamin_a_red) %> </td>
+          <td><%= @site.program_reports_total(:vitamin_a_blue) %> </td>
+          <td><%= @site.program_reports_total(:deworming) %> </td>
+          <td><%= @site.program_reports_total(:iron_folate) %> </td>
         </tr>
 
       </table>
@@ -181,10 +181,10 @@
 
         <tr>
           <th><%= @site.site_name %></th>
-          <td><%= @total_program_report_vit_red %></td>
-          <td><%= @total_program_report_vit_blue %></td>
-          <td><%= @total_program_report_deworm %></td>
-          <td><%= @total_program_report_iron %></td>
+          <td><%= @site.vit_a_red_coverage %></td>
+          <td><%= @site.vit_a_blue_coverage %></td>
+          <td><%= @site.deworm_coverage %></td>
+          <td><%= @site.iron_folate_coverage %></td>
         </tr>
       </table>
     </div>

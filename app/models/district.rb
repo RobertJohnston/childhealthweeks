@@ -9,6 +9,7 @@ class District < ActiveRecord::Base
     total = 0
     sites.each do |site|
       total += site.most_recent_stock_report.read_attribute(stock) || 0
+      # most_recent_stock_report is in site.rb
     end
     total
   end

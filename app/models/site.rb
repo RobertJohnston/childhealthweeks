@@ -13,6 +13,7 @@ class Site < ActiveRecord::Base
   has_many :program_reports
 
   # select data from most recent stock report
+  # from all stock reports over child health week
   def most_recent_stock_report
     stock_reports.order(:created_at).last
   end
@@ -46,8 +47,24 @@ class Site < ActiveRecord::Base
     sprintf('%.0f', target_pop)
   end
 
-  def child_coverage(program)
-    child_percent_coverage = program_reports_total(program) / most_recent_population_report(:child_population)
+  def vit_a_red_coverage
+    coverage = (program_reports_total(:vitamin_a_red) / six_to_11_target_pop.to_f) *100
+    sprintf('%.1f', coverage)
+  end
+
+  def vit_a_blue_coverage
+    coverage = (program_reports_total(:vitamin_a_blue) / twelve_to_59_target_pop.to_f) *100
+    sprintf('%.1f', coverage)
+  end
+
+  def deworm_coverage
+    coverage = (program_reports_total(:deworming) / twelve_to_59_target_pop.to_f) *100
+    sprintf('%.1f', coverage)
+  end
+
+  def iron_folate_coverage
+    coverage = (program_reports_total(:iron_folate) / pregnant_woman_target_pop.to_f) *100
+    sprintf('%.1f', coverage)
   end
 
 # COMPLETE REPORTING

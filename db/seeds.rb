@@ -1025,6 +1025,10 @@ def number1to100
   number = rand(1..100)
 end
 
+def number1to1000
+  number = rand(1..1000)
+end
+
 def number1to100orNil
   number = rand(1..130)-30
   # if number < 1 then number = nil
@@ -1034,9 +1038,9 @@ end
 # Create Population data for all valid site IDs.
 Site.all.each do |site|
   p site.site_name
-  child_population = 2100 + (number1to100 * 4)
-  woman_population = 2500 + (number1to100 * 4)
-  total_population = 11000 + (number1to100 * 4)
+  child_population = 1100 + (number1to1000)
+  woman_population = 1500 + (number1to1000)
+  total_population = 9100 + (number1to1000)
   user_id = number1to100
 
   PopulationReport.create!(site: site,

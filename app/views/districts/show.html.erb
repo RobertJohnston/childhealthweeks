@@ -104,11 +104,9 @@
         <tr>
           <th>District Total </th>
           <td> <%= @district.population_reports_total(:child_population) %></td>
-          <td> 18.2 </td>
-          <!-- update -->
-          <td><%= @district.population_reports_total(:woman_population) %></td>
-          <td> 21.9 </td>
-          <!-- update -->
+          <td> <%= @district.percent_child_pop %> </td>
+          <td> <%= @district.population_reports_total(:woman_population) %></td>
+          <td> <%= @district.percent_woman_pop %> </td>
           <td><%= @district.population_reports_total(:total_population) %></td>
         </tr>
       </table>

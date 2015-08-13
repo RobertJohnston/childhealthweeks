@@ -52,4 +52,14 @@ class District < ActiveRecord::Base
     sprintf('%.0f', total)
   end
 
+  def percent_child_pop
+    percent = population_reports_total(:child_population).to_f / population_reports_total(:total_population).to_f * 100
+    sprintf('%.1f', percent)
+  end
+
+  def percent_woman_pop
+    percent = population_reports_total(:woman_population).to_f / population_reports_total(:total_population).to_f * 100
+    sprintf('%.1f', percent)
+  end
+
 end

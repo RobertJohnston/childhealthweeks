@@ -26,10 +26,26 @@
                 <%="No"%>
                 <% end %>
               </td>
-
-              <td><%= complete[:vitamin_a_blue] %> % </td>
-              <td><%= complete[:deworming] %> % </td>
-              <td><%= complete[:iron_folate] %> % </td>
+              <td>
+                <% if complete[:vitamin_a_blue] == 100 then %>
+                <%="Yes"%>
+                <% else %>
+                <%="No"%>
+                <% end %>
+              </td>
+              <td>
+                <% if complete[:deworming] == 100 then %>
+                <%="Yes"%>
+                <% else %>
+                <%="No"%>
+                <% end %>
+              <td>
+                <% if complete[:iron_folate] == 100 then %>
+                <%="Yes"%>
+                <% else %>
+                <%="No"%>
+                <% end %>
+             </td>
             </tr>
           <% end %>
         </tbody>
@@ -52,23 +68,11 @@
         <col span="1" class="wide">
         <tr>
           <th>Site</th>
-          <th>Vitamin A Red (Stock out report)</th>
-          <th>Vitamin A RED (Units)</th>
+          <th>Vitamin A Red (Units)</th>
+          <th>Vitamin A Blue (Units)</th>
           <th>Deworming (Units) </th>
           <th>Iron Folate (Units) </th>
         </tr>
-
-        <tbody>
-          <% @stock_reports.each do |date, stock_report| %>
-            <tr>
-              <th> date </th>
-              <td> n/a  </td>
-              <td> n/a  </td>
-              <td> n/a  </td>
-              <td> n/a  </td>
-            </tr>
-          <% end %>
-        </tbody>
 
         <tr>
           <th><%= @site.site_name %></th>
@@ -154,18 +158,6 @@
           <th>Iron Folate (Reports) </th>
         </tr>
 
-        <tbody>
-          <% @program_reports.each do |date, prog_rep| %>
-            <tr>
-              <th> date  </th>
-              <td> n/a  </td>
-              <td> n/a  </td>
-              <td> n/a  </td>
-              <td> n/a  </td>
-            </tr>
-          <% end %>
-        </tbody>
-
         <tr>
           <th><%= @site.site_name %></th>
           <td><%= @site.program_reports_total(:vitamin_a_red) %> </td>
@@ -190,18 +182,6 @@
           <th>Deworming (Coverage) </th>
           <th>Iron Folate (Coverage) </th>
         </tr>
-
-        <tbody>
-          <% @program_reports.each do |date, program_report| %>
-            <tr>
-              <th> date  </th>
-              <td> n/a  </td>
-              <td> n/a  </td>
-              <td> n/a  </td>
-              <td> n/a  </td>
-            </tr>
-          <% end %>
-        </tbody>
 
         <tr>
           <th><%= @site.site_name %></th>
